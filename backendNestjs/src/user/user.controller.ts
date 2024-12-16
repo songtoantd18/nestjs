@@ -9,6 +9,7 @@ export class UserController {
   // Lấy danh sách tất cả users
   @Get()
   async getAll() {
+    console.log('Step 1: Nhận request tại Controller - /users');
     return this.userService.getAllUsers();
   }
 

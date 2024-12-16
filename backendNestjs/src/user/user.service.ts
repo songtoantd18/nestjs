@@ -9,6 +9,7 @@ export class UserService {
 
   // Lấy danh sách tất cả user
   async getAllUsers(): Promise<User[]> {
+    console.log('Step 2: Truy vấn dữ liệu từ MongoDB');
     return this.userModel.find().exec();
   }
 

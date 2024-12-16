@@ -1,11 +1,14 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { UserModule } from './user/user.module';  // Import module User (nếu có)
 
 @Module({
-  imports: [UsersModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    // Kết nối MongoDB sử dụng chuỗi kết nối bạn cung cấp
+    MongooseModule.forRoot('mongodb+srv://songtoantd18crud:123@cluster0.d0ltp.mongodb.net/loginToken?retryWrites=true&w=majority'),
+    UserModule,  // Module quản lý tài nguyên User (nếu có)
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

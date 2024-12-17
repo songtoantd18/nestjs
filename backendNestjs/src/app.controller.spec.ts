@@ -6,6 +6,8 @@ describe('AppController', () => {
   let appController: AppController;
 
   beforeEach(async () => {
+    console.log('------------hellowwrod')
+
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
       providers: [AppService],

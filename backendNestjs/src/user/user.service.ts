@@ -1,25 +1,33 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User } from './schemas/user.schema';  // Đảm bảo import đúng
+import { User } from './schemas/user.schema';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel('User') private readonly userModel: Model<User>) {}
+  constructor(@InjectModel(User.name) private readonly userModel: Model<User>) {}
 
-  // Lấy danh sách tất cả user
+  // Lấy tất cả người dùng
   async getAllUsers(): Promise<User[]> {
-    console.log('Step 2: Truy vấn dữ liệu từ MongoDB');
     return this.userModel.find().exec();
   }
+// Phương thức cập nhật user
+async updateUser(id: string, user: User) {
+  return await this.userModel.findByIdAndUpdate(id, user, { new: true });
+}
 
-  // Tạo mới user
+  // Tạo người dùng mới
   async createUser(user: User): Promise<User> {
     const newUser = new this.userModel(user);
     return newUser.save();
   }
 
-  // Xóa user theo ID
+  // Lấy người dùng theo ID
+  async getUserById(id: string): Promise<User> {
+    return this.userModel.findById(id).exec();
+  }
+
+  // Xóa người dùng theo ID
   async deleteUser(id: string): Promise<any> {
     return this.userModel.findByIdAndDelete(id).exec();
   }

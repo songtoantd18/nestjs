@@ -13,8 +13,11 @@ export class UserController {
   @UseGuards(AuthGuard)
   async getAll() {
     console.log('Step 1: Nhận request tại Controller - /users');
-    return this.userService.getAllUsers();
+     var dataValue = await this.userService.getAllUsers();
+     console.log("🚀 ~ UserController ~ getAll ~ dataValue:----------", dataValue)
+    return dataValue
   }
+
 
   // Tạo mới user
   @Post()
@@ -49,3 +52,4 @@ async update(@Param('id') id: string, @Body() user: User) {
     return this.userService.deleteUser(body.id);
   }
 }
+

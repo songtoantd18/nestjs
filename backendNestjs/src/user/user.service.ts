@@ -5,16 +5,18 @@ import { User } from './schemas/user.schema';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User.name) private readonly userModel: Model<User>) {}
+  constructor(@InjectModel(User.name) private readonly userModel: Model<User>) { }
 
   // Lấy tất cả người dùng
   async getAllUsers(): Promise<User[]> {
     return this.userModel.find().exec();
   }
-// Phương thức cập nhật user
-async updateUser(id: string, user: User) {
-  return await this.userModel.findByIdAndUpdate(id, user, { new: true });
-}
+ 
+  // Phương thức cập nhật user
+  async updateUser(id: string, user: User) {
+    return await this.userModel.findByIdAndUpdate(id, user, { new: true });
+  }
+
 
   // Tạo người dùng mới
   async createUser(user: User): Promise<User> {

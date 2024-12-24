@@ -5,11 +5,10 @@ import { SchemaFactory } from '@nestjs/mongoose';  // Thêm dòng này
 // Đảm bảo bạn sử dụng đúng class để khai báo schema
 @NestJS_Schema()
 export class User extends Document {
-  @Prop()
+  @Prop({ required: true, unique: true }) // Đảm bảo username là unique
   username: string;
 
-  @Prop()
-  email: string;
+
 
   @Prop()
   password: string;

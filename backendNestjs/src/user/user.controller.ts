@@ -3,6 +3,8 @@ import { UserService } from './user.service';
 import { User } from './schemas/user.schema';
 import { isValidObjectId } from 'mongoose';
 import { AuthGuard } from 'src/guards/auth.guard';
+import { ValidationPipe,UsePipes } from '@nestjs/common';
+import {CreateUserDto} from '../user/dto/create-user.dto'
 
 @Controller('users')
 export class UserController {
@@ -21,10 +23,12 @@ export class UserController {
 
   // Tạo mới user
   @Post()
-  async create(@Body() user: User) {
-    console.log("🚀 ~ UserController ~ create ~ user: đây là tạo create new user", user)
-    return this.userService.createUser(user);
+  @UsePipes(new ValidationPipe({ transform: true }))  // Pipe sẽ được sử dụng tại đây
+  async create(@Body() createUserDto: CreateUserDto) {
+    console.log("🚀 ~ UserController ~ create ~ createUserDto:", createUserDto);
+    return this.userService.createUser(createUserDto);  // Gửi dữ liệu vào service
   }
+  
 
   // Lấy user theo ID
   @Get(':id')

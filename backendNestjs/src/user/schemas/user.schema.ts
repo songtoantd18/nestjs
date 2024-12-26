@@ -1,17 +1,17 @@
-// user.schema.ts
 import { Schema, Document } from 'mongoose';
 import { Prop, Schema as NestJS_Schema } from '@nestjs/mongoose';
-import { SchemaFactory } from '@nestjs/mongoose';  // Thêm dòng này
-// Đảm bảo bạn sử dụng đúng class để khai báo schema
+import { SchemaFactory } from '@nestjs/mongoose';
+
 @NestJS_Schema()
 export class User extends Document {
-  @Prop({ required: true, unique: true }) // Đảm bảo username là unique
+  @Prop({ required: true, unique: true })
   username: string;
-
-
 
   @Prop()
   password: string;
+
+  @Prop()
+  role: string;  // Thêm trường role
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

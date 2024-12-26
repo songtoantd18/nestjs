@@ -5,6 +5,7 @@ import { isValidObjectId } from 'mongoose';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { ValidationPipe,UsePipes } from '@nestjs/common';
 import {CreateUserDto} from '../user/dto/create-user.dto'
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('users')
 export class UserController {
@@ -37,8 +38,10 @@ export class UserController {
     return this.userService.getUserById(id);
   }
 // Cập nhật thông tin user theo ID
-  @Put(':id')
-async update(@Param('id') id: string, @Body() user: User) {
+@Put(':id')
+@UseGuards(AuthGuard)
+@UsePipes(new ValidationPipe({ transform: true }))
+async update(@Param('id') id: string, @Body() user: UpdateUserDto) {
   console.log("🚀 ~ UserController ~ update ~ user: change data", user)
   console.log("🚀 ~ UserController ~ update ~ id:", id)
   if (!isValidObjectId(id)) {

@@ -9,14 +9,15 @@ import { LoggingInterceptor } from 'src/interceptors/logging.interceptors';
 
 @Controller('users')
 @UseInterceptors(LoggingInterceptor)
+@UseGuards(AuthGuard)
+
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   // Get all users
   @Get()
-  @UseGuards(AuthGuard)
   async getAll() {
-    console.log('second')
+    console.log('method getAll() in user.controller.ts');
     const dataValue = await this.userService.getAllUsers();
     return dataValue;
   }
@@ -36,7 +37,6 @@ export class UserController {
 
   // Update user by ID
   @Put(':id')
-  @UseGuards(AuthGuard)
   @UsePipes(new ValidationPipe({ transform: true }))
   async update(@Param('id') id: string, @Body() user: UpdateUserDto) {
     if (!isValidObjectId(id)) {

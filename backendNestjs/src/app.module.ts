@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { UserModule } from './user/user.module';  
+// import { UserModule } from './user/user.module';  
+import { UserModule } from './user/user.module';  // Module quản lý tài nguyên User (nếu có)
 
 @Module({
   imports: [

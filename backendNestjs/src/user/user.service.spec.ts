@@ -5,7 +5,6 @@ describe('UserService', () => {
   let service: UserService;
 
   beforeEach(async () => {
-    console.log('------------hellowwrod')
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [UserService],

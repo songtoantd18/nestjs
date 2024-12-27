@@ -6,7 +6,6 @@ export class TestController {
   constructor(private testServices :TestServices){}
   @Get()
   render() {
-    console.log('heloooo12312312321');
     return this.testServices.calc()
   }
 }

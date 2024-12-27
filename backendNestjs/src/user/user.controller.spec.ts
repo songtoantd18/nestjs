@@ -5,7 +5,6 @@ describe('UserController', () => {
   let controller: UserController;
 
   beforeEach(async () => {
-    console.log('------------hellowwrod')
     const module: TestingModule = await Test.createTestingModule({
       controllers: [UserController],
     }).compile();
@@ -14,7 +13,6 @@ describe('UserController', () => {
   });
 
   it('should be defined', () => {
-    console.log('------------hellowwrod')
 
     expect(controller).toBeDefined();
   });

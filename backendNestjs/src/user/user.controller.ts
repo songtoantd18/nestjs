@@ -1,62 +1,56 @@
-import { Controller, Get, Post,Put, Body, Delete, Param, BadRequestException, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Put, Body, Delete, Param, BadRequestException, UseGuards, UsePipes, ValidationPipe, UseInterceptors } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './schemas/user.schema';
 import { isValidObjectId } from 'mongoose';
 import { AuthGuard } from 'src/guards/auth.guard';
-import { ValidationPipe,UsePipes } from '@nestjs/common';
-import {CreateUserDto} from '../user/dto/create-user.dto'
+import { CreateUserDto } from '../user/dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { LoggingInterceptor } from 'src/interceptors/logging.interceptors';
 
 @Controller('users')
+@UseInterceptors(LoggingInterceptor)
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  // Lấy danh sách tất cả users
+  // Get all users
   @Get()
   @UseGuards(AuthGuard)
   async getAll() {
-    console.log('Step 1: Nhận request tại Controller - /users');
-     var dataValue = await this.userService.getAllUsers();
-     console.log("🚀 ~ UserController ~ getAll ~ dataValue:----------", dataValue)
-    return dataValue
+    console.log('second')
+    const dataValue = await this.userService.getAllUsers();
+    return dataValue;
   }
 
-
-  // Tạo mới user
+  // Create a new user
   @Post()
-  @UsePipes(new ValidationPipe({ transform: true }))  // Pipe sẽ được sử dụng tại đây
+  @UsePipes(new ValidationPipe({ transform: true }))
   async create(@Body() createUserDto: CreateUserDto) {
-    console.log("🚀 ~ UserController ~ create ~ createUserDto:", createUserDto);
-    return this.userService.createUser(createUserDto);  // Gửi dữ liệu vào service
+    return this.userService.createUser(createUserDto);
   }
-  
 
-  // Lấy user theo ID
+  // Get user by ID
   @Get(':id')
   async getById(@Param('id') id: string) {
-    console.log("🚀 ~ UserController ~ getById ~ id: get user by id", id)
     return this.userService.getUserById(id);
   }
-// Cập nhật thông tin user theo ID
-@Put(':id')
-@UseGuards(AuthGuard)
-@UsePipes(new ValidationPipe({ transform: true }))
-async update(@Param('id') id: string, @Body() user: UpdateUserDto) {
-  console.log("🚀 ~ UserController ~ update ~ user: change data", user)
-  console.log("🚀 ~ UserController ~ update ~ id:", id)
-  if (!isValidObjectId(id)) {
-    throw new BadRequestException('ID không hợp lệ');
+
+  // Update user by ID
+  @Put(':id')
+  @UseGuards(AuthGuard)
+  @UsePipes(new ValidationPipe({ transform: true }))
+  async update(@Param('id') id: string, @Body() user: UpdateUserDto) {
+    if (!isValidObjectId(id)) {
+      throw new BadRequestException('Invalid ID');
+    }
+    return this.userService.updateUser(id, user);
   }
-  return this.userService.updateUser(id, user);
-}
-  // Xóa user theo ID
+
+  // Delete user by ID
   @Delete('delete')
   async delete(@Body() body: { id: string }) {
-    console.log("🚀 ~ UserController ~ delete ~ id: delete dữ liệu", body.id)
     if (!isValidObjectId(body.id)) {
-      throw new BadRequestException('ID không hợp lệ');
+      throw new BadRequestException('Invalid ID');
     }
     return this.userService.deleteUser(body.id);
   }
 }
-

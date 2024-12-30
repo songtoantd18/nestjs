@@ -1,4 +1,4 @@
-import { ConflictException, Injectable, InternalServerErrorException } from '@nestjs/common';
+import { ConflictException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserEntity } from './entities/user.entity';
@@ -17,6 +17,7 @@ export class UserService {
     try {
       return await this.userRepository.find();
     } catch (error) {
+      console.log("🚀 ~ UserService ~ getAllUsers ~ error:", error)
       throw new InternalServerErrorException('Đã xảy ra lỗi khi lấy danh sách người dùng.');
     }
   }
@@ -26,6 +27,7 @@ export class UserService {
     try {
       return await this.userRepository.findOne({ where: { id } });
     } catch (error) {
+      console.log("🚀 ~ UserService ~ getUserById ~ error:", error)
       throw new InternalServerErrorException('Đã xảy ra lỗi.');
     }
   }
@@ -34,6 +36,7 @@ export class UserService {
   async createUser(createUserDto: CreateUserDto): Promise<UserEntity> {
     try {
       const newUser = this.userRepository.create(createUserDto);
+      console.log("🚀 ~ UserService ~ createUser ~ newUser:", newUser)
       return await this.userRepository.save(newUser);
     } catch (error) {
       console.error('Error creating user:', error); // Log chi tiết lỗi
@@ -53,6 +56,7 @@ export class UserService {
       await this.userRepository.update(id, updateUserDto);
       return await this.userRepository.findOne({ where: { id } });
     } catch (error) {
+      console.log("🚀 ~ UserService ~ updateUser ~ error:", error)
       throw new InternalServerErrorException('Đã xảy ra lỗi khi cập nhật người dùng.');
     }
   }
@@ -60,8 +64,12 @@ export class UserService {
   // Xóa người dùng theo ID
   async deleteUser(id: string): Promise<void> {
     try {
-      await this.userRepository.delete(id);
+      const result = await this.userRepository.delete(id);
+      if (result.affected === 0) {
+        throw new NotFoundException('Người dùng với ID này không tồn tại.');
+      }
     } catch (error) {
+      console.log("🚀 ~ UserService ~ deleteUser ~ error:", error)
       throw new InternalServerErrorException('Đã xảy ra lỗi.');
     }
   }

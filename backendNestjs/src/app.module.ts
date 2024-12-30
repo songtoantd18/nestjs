@@ -1,23 +1,35 @@
 import { Module } from '@nestjs/common';
-import { UserModule } from './user/user.module';  // Module quản lý tài nguyên User (nếu có)
+import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserEntity } from './user/entities/user.entity';
+
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '123123',
-      database: 'datauser',
-      entities: [UserEntity],
-      synchronize: true,
-      
+    ConfigModule.forRoot({
+      isGlobal: true, // Make the ConfigModule available globally
+      envFilePath: '.env', // Specify the path to your .env file
     }),
-    UserModule,  // Module quản lý tài nguyên User (nếu có)
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => {
+        console.log("🚀 ~ configService:", configService);
+        return {
+          type: 'mysql',
+          host: configService.get('DB_HOST'),
+          port: +configService.get('DB_PORT'),
+          username: configService.get('DB_USERNAME'),
+          password: configService.get('DB_PASSWORD'),
+          database: configService.get('DB_DATABASE'),
+          entities: [UserEntity],
+          synchronize: true,
+        };
+      },
+      inject: [ConfigService],
+    }),
+    UserModule,
   ],
-  controllers: [], 
+  controllers: [],
   providers: [],
 })
 export class AppModule {}

@@ -1,44 +1,68 @@
 import { ConflictException, Injectable, InternalServerErrorException } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { User } from './schemas/user.schema';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { UserEntity } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User.name) private readonly userModel: Model<User>) { }
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly userRepository: Repository<UserEntity>,
+  ) {}
 
   // Lấy tất cả người dùng
-  async getAllUsers(): Promise<User[]> {
-    return this.userModel.find().exec();
-  }
- 
-  // Phương thức cập nhật user
-  async updateUser(id: string, user: UpdateUserDto): Promise<User> {
-    return await this.userModel.findByIdAndUpdate(id, user, { new: true });
-  }
-
-
-  // Tạo người dùng mới
-  async createUser(createUserDto: CreateUserDto): Promise<User> {
+  async getAllUsers(): Promise<UserEntity[]> {
     try {
-      const newUser = new this.userModel({ ...createUserDto });
-      return await newUser.save();
+      return await this.userRepository.find();
     } catch (error) {
-      if (error.code === 11000) {
-        // Lỗi duplicate key
-        throw new ConflictException('Username đã tồn tại.');
-      }
+      throw new InternalServerErrorException('Đã xảy ra lỗi khi lấy danh sách người dùng.');
+    }
+  }
+
+  // Lấy người dùng theo ID
+  async getUserById(id: string): Promise<UserEntity> {
+    try {
+      return await this.userRepository.findOne({ where: { id } });
+    } catch (error) {
       throw new InternalServerErrorException('Đã xảy ra lỗi.');
     }
   }
-  // Lấy người dùng theo ID
-  async getUserById(id: string): Promise<User> {
-    return this.userModel.findById(id).exec();
+
+  // Tạo người dùng mới
+  async createUser(createUserDto: CreateUserDto): Promise<UserEntity> {
+    try {
+      const newUser = this.userRepository.create(createUserDto);
+      return await this.userRepository.save(newUser);
+    } catch (error) {
+      console.error('Error creating user:', error); // Log chi tiết lỗi
+
+      // Kiểm tra mã lỗi cho các cơ sở dữ liệu khác nhau
+      if (error.code === '11000' || error.code === 'ER_DUP_ENTRY' || error.code === 11000) {
+        throw new ConflictException('Username đã tồn tại.');
+      }
+
+      throw new InternalServerErrorException('Đã xảy ra lỗi khi tạo người dùng.');
+    }
+  }
+
+  // Cập nhật người dùng
+  async updateUser(id: string, updateUserDto: UpdateUserDto): Promise<UserEntity> {
+    try {
+      await this.userRepository.update(id, updateUserDto);
+      return await this.userRepository.findOne({ where: { id } });
+    } catch (error) {
+      throw new InternalServerErrorException('Đã xảy ra lỗi khi cập nhật người dùng.');
+    }
   }
 
   // Xóa người dùng theo ID
-  async deleteUser(id: string): Promise<any> {
-    return this.userModel.findByIdAndDelete(id).exec();
+  async deleteUser(id: string): Promise<void> {
+    try {
+      await this.userRepository.delete(id);
+    } catch (error) {
+      throw new InternalServerErrorException('Đã xảy ra lỗi.');
+    }
   }
 }

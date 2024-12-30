@@ -1,17 +1,16 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
-import { MongooseModule } from '@nestjs/mongoose';
-import { User, UserSchema } from './schemas/user.schema';
 import { LoggerMiddleware } from 'src/middleware/logger.middleware';
 import { AnotherMiddleware } from 'src/middleware/another.middleware';
-
+import { UserEntity } from './entities/user.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),  // Đảm bảo đăng ký schema với module
+    TypeOrmModule.forFeature([UserEntity]),
   ],
   controllers: [UserController],  // Đảm bảo controller được đăng ký
   providers: [UserService],

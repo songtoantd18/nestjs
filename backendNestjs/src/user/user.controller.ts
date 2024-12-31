@@ -1,9 +1,12 @@
-import { Controller,Get, Post, Put, Delete, Body, Param, UsePipes, ValidationPipe, BadRequestException, NotFoundException, ConflictException } from '@nestjs/common';
+import { Controller,Get, Post, Put, Delete, Body, Param, UsePipes, ValidationPipe, BadRequestException, NotFoundException, ConflictException, UseGuards, UseInterceptors } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-
+import { AuthGuard } from 'src/guards/auth.guard';
+import { LoggingInterceptor } from 'src/interceptors/logging.interceptors';
 @Controller('users')
+@UseInterceptors(LoggingInterceptor)
+@UseGuards(AuthGuard)
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
@@ -14,9 +17,7 @@ export class UserController {
   }
   @Get()
   async getAll() {
-    console.log('method getAll() in user.controller.ts');
     const dataValue = await this.userService.getAllUsers();
-    console.log("🚀 ~ UserController ~ getAll ~ dataValue:", dataValue)
     return dataValue;
   }
     // Get user by ID

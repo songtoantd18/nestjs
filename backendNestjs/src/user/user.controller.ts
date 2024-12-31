@@ -1,4 +1,4 @@
-import { Controller, Post, Put, Delete, Body, Param, UsePipes, ValidationPipe, BadRequestException, NotFoundException, ConflictException } from '@nestjs/common';
+import { Controller,Get, Post, Put, Delete, Body, Param, UsePipes, ValidationPipe, BadRequestException, NotFoundException, ConflictException } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -12,7 +12,19 @@ export class UserController {
   async create(@Body() createUserDto: CreateUserDto) {
     return this.userService.createUser(createUserDto);
   }
-
+  @Get()
+  async getAll() {
+    console.log('method getAll() in user.controller.ts');
+    const dataValue = await this.userService.getAllUsers();
+    console.log("🚀 ~ UserController ~ getAll ~ dataValue:", dataValue)
+    return dataValue;
+  }
+    // Get user by ID
+    @Get(':id')
+    async getById(@Param('id') id: string) {
+      console.log("🚀 ~ UserController ~ getById ~ id:", id)
+      return this.userService.getUserById(id);
+    }
   @Put(':id')
   @UsePipes(new ValidationPipe({ transform: true }))
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {

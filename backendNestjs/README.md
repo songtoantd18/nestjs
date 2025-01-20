@@ -45,6 +45,7 @@ nếu bạn muốn sử dụng typeorm cho folder user, bạn tạo user.entity.
 imports: [TypeOrmModule.forFeature([User])],
 user.service.ts cần tiêm 1 repository (user enity) vào để dùng ( có phải service là nơi xử lý các logic đúng không, bây giờ lưu ở đâu, lưu ở mysql mà mysql thì chính là user.entity.ts đó nên tiêm cái User entity đó vào là ok )
 https://docs.nestjs.com/techniques/database và đây đọc chỗ users.service.ts để hiểu cách tiêm injected user entity vào dùng
+logic như thế này khi người ta vào create thì controller sẽ nhận và sẽ nhận được 1 function createUser và thầy rằng userservice đã được injected vào và trong userservice thì có creaetuser() và có injected là của bên databse nên được return this.usersRepository.save(requestBody); là thao tác với databse đó
 kiểm tra lại các file import module chưa vì nếu khoongg sẽ bị lỗi thiếu
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';

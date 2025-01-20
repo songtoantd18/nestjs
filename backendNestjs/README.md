@@ -18,3 +18,9 @@ tạo file test.service.ts
 tạo file test.controller.ts
 sau đó import vào trong app.module.ts
 https://www.youtube.com/watch?v=xsFwnkXi5Sk&list=PLVgsp50vDuy04BuF6jU5FcXZt2mUoMVoK&index=4
+bài 5 : cách tạo module trong nestjs
+sử dụng lệnh sau
+npx nest g controller user (nếu muốn tạo 1 controller của user)
+npx nest g service user (nếu muốn tạo 1 service của user)
+
+nó sẽ tự động connect lại và thêm injectedtable vào với file app.module.ts và tự động thêm vào controller,provider, service ... chúng ta chỉ cần vào đó và chỉnh code logic theo nhu cầu thôi

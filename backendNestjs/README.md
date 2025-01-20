@@ -1,3 +1,5 @@
+cái này được tạo ra để note lại những thứ cần thiết cho bài học và quan trọng nhất là hiểu được vấn đề cốt lõi của Nestjs và không sử dụng chatgpt
+
 bài 2 : Nestjs
 Nguyên tắc solid
 
@@ -38,3 +40,66 @@ entities: [User],
 synchronize: true,
 }),
 chú ý cái này cái database pots là có thể chuyển đổi được còn lại dữ nguyên
+bài 7 : tạo 1 cái crud để có thể thao tác với typeorm làm việc với database
+nếu bạn muốn sử dụng typeorm cho folder user, bạn tạo user.entity.ts sau đó import vào trong user.module.ts
+imports: [TypeOrmModule.forFeature([User])],
+user.service.ts cần tiêm 1 repository (user enity) vào để dùng ( có phải service là nơi xử lý các logic đúng không, bây giờ lưu ở đâu, lưu ở mysql mà mysql thì chính là user.entity.ts đó nên tiêm cái User entity đó vào là ok )
+https://docs.nestjs.com/techniques/database và đây đọc chỗ users.service.ts để hiểu cách tiêm injected user entity vào dùng
+kiểm tra lại các file import module chưa vì nếu khoongg sẽ bị lỗi thiếu
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user/user.entity';
+import { UserModule } from './user/user.module';
+//add comment in the line above
+@Module({
+imports: [
+TypeOrmModule.forRoot({
+type: 'mysql',
+host: 'localhost',
+port: 3306,
+username: 'root',
+password: '123123',
+database: 'posts',
+entities: [User],
+synchronize: true,
+}),
+UserModule,
+],
+controllers: [AppController],
+providers: [AppService],
+})
+export class AppModule {}
+chỗ này chú ý nhé vì nếu k import đúng thì sẽ sai nếu ví dụ sau này chúng ta làm việc với 1 module demo databse demo thì ta thêm vào nhưu thế này
+@Module({
+imports: [
+TypeOrmModule.forRoot({
+name: 'postsConnection', // Tên kết nối cho database 'posts'
+type: 'mysql',
+host: 'localhost',
+port: 3306,
+username: 'root',
+password: '123123',
+database: 'posts', // Cơ sở dữ liệu 'posts'
+entities: [User],
+synchronize: true,
+}),
+TypeOrmModule.forRoot({
+name: 'demoDatabaseConnection', // Tên kết nối cho database 'demoDatabase'
+type: 'mysql',
+host: 'localhost',
+port: 3306,
+username: 'root',
+password: '123123',
+database: 'demoDatabase', // Cơ sở dữ liệu 'demoDatabase'
+entities: [Demo],
+synchronize: true,
+}),
+UserModule,
+DemoModule,
+],
+controllers: [AppController],
+providers: [AppService],
+})
+export class AppModule {}

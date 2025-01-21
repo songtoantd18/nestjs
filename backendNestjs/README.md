@@ -104,3 +104,21 @@ controllers: [AppController],
 providers: [AppService],
 })
 export class AppModule {}
+bài 8 : thêm 1 số chức năng như show detail, show all, delete, update, create của crud
+findAll là show all
+findOne là show detail nếu có thì showdetail nếu không có thì thông báo throw new NotFoundException('Not Found')
+update : nếu có thì update luôn nếu không có thì thông báo throw new NotFoundException('User does not exist')
+chú ý chỗ update trong database mysql có 2 cách
+1./ nếu sử dụng return this.usersRepository.update(id, requestBody); thí nó sẽ update trong database không có sai gì hết nhưng nó sẽ trả về {
+"generatedMaps": [],
+"raw": [],
+"affected": 1
+} vậy muốn nó trả về dữ liệu mới thì dùng cách sau
+2./ updateById(id,requestBody) trước như bình thường nhưng sau đó return thì phải có return this.usersRepository.findOneBy({ id }); nó mới show ra trong postman
+{
+"id": 1,
+"email": "st1111@gmail.com",
+"password": "12222222222"
+} như vậy mới đúng
+delete là delete
+tùy vào mỗi chức năng có thể có tham số thêm như id, hay sao tùy vào cách mình cài đặt cái này thì có thể tìm hiểu theo tùy vào

@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { Not, Repository } from 'typeorm';
+import { CreateUserDto } from './dtos/createUser.dto';
 @Injectable()
 export class UserService {
   constructor(
@@ -12,7 +13,7 @@ export class UserService {
     console.log('đây là userservice2');
     return 'đây là userservice3';
   }
-  createUser(requestBody: any) {
+  createUser(requestBody: CreateUserDto) {
     console.log('đây là userservice2221');
     return this.usersRepository.save(requestBody);
   }
@@ -29,7 +30,7 @@ export class UserService {
     return user;
   }
 
-  async updateById(id: number, requestBody: any) {
+  async updateById(id: number, requestBody: CreateUserDto) {
     let user = await this.usersRepository.findOneBy({ id });
     console.log('🚀 ~ UserService ~ updateById ~ user:', user);
     if (!user) {

@@ -4,18 +4,23 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
   Query,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { UserService } from './user.service';
+import { CreateUserDto } from './dtos/createUser.dto';
 
 @Controller('user')
+@UsePipes(new ValidationPipe())
 export class UserController {
   constructor(private readonly UserService: UserService) {}
 
   @Post('')
-  createUser(@Body() requestBody: any) {
+  createUser(@Body() requestBody: CreateUserDto) {
     console.log('🚀 ~ UserController ~ createUser ~ requestBody:', requestBody);
     console.log('đây là usercontroller2');
     return this.UserService.createUser(requestBody);
@@ -25,17 +30,18 @@ export class UserController {
     return this.UserService.findAll();
   }
   @Get('/:id')
-  getUserById(@Param('id') id: number) {
+  getUserById(@Param('id', ParseIntPipe) id: number) {
+    console.log(typeof id);
     console.log('🚀 ~ UserController ~ getUserById ~ id:', id);
     return this.UserService.findById(id);
   }
   @Put('/:id')
-  updateUserById(@Param('id') id: number, @Body() requestBody: any) {
-    console.log('🚀 ~ UserController ~ updateUserById ~ id:', id);
-    console.log(
-      '🚀 ~ UserController ~ updateUserById ~ requestBody:',
-      requestBody,
-    );
+  updateUserById(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() requestBody: CreateUserDto,
+  ) {
+    console.log(typeof id);
+    console.log(typeof requestBody);
     return this.UserService.updateById(id, requestBody);
   }
   @Delete('/:id')

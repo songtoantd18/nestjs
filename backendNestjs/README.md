@@ -125,3 +125,26 @@ chú ý chỗ update trong database mysql có 2 cách
 } như vậy mới đúng
 delete là delete
 tùy vào mỗi chức năng có thể có tham số thêm như id, hay sao tùy vào cách mình cài đặt cái này thì có thể tìm hiểu theo tùy vào
+bài 9 : tìm hiểu về pipe:
+có 2 chức năng chính là
+1./transform : chuyển đồi kiểu dữ liệu, ví dụ từ 5 là string sang 5 là number tùy thuộc vào yêu cầu
+2./ validation : kiểm tra ví dụ trường đó là email thì phải chứa @,ví dụ số điện thoại,password thì phải có từ ký tự và số có ít nhất 8 ký tự và số có ít nhất 1 số và chỉ có chữ thường ,đại loại là vậy
+nếu muốn biết hãy thử chỗ
+@Get('/:id')
+getUserById(@Param('id', ParseIntPipe) id: number) và dùng postman để kiểm tra http://localhost:3000/user/2xxxxxxxxxxxxx nếu có ParseIntPipe thì sẽ trả về
+{
+"message": "Validation failed (numeric string is expected)",
+"error": "Bad Request",
+"statusCode": 400
+}
+nếu không có ParseIntPipe thì sẽ trả về
+{
+"id": 2,
+"email": "s22321312t123n@gmai.com",
+"password": "1222222"
+} như vậy nó đâu có đúng
+cái parseintpipe chỉ kiểm soát đưcọ đầu vào chỗ id thôi
+bây giờ chúng ta đang muốn kiểm soát chỗ put chỉnh sửa update lại data thì truyền vào requestbody:any mà trong đó thì làm sao kiểm soát thì tạo file dto createuser.dto.ts đặt điều kiện muốn dạng gì có required không. trong typescript thì nên t ránh kiểu dữ liệu là any
+sử dụng validationpipe để có thể áp dụng ở toàn bộ code bằng cách app.useGlobalPipes(....) ví dụ hiện tại bạn đang làm việc với module user thì bạn để global ok nhưng sau này có nhiều module ví dụ animal thì bạn phải để yêu cầu validation ở chỗ user controller chứ không được ở để ở tổng
+@Controller('userdemo')
+@UsePipes(new ValidationPipe()) // Áp dụng ValidationPipe cho toàn bộ controller

@@ -107,6 +107,9 @@ export class AppModule {}
 bài 8 : thêm 1 số chức năng như show detail, show all, delete, update, create của crud
 findAll là show all
 findOne là show detail nếu có thì showdetail nếu không có thì thông báo throw new NotFoundException('Not Found')
+cần chú ý phân biệt 2 khái niệm là param và query
+param là được truyền vào url như https://library.com/book/bookname thường la sau 1 dấu /
+query là được truyền vào url như https://library.com/book?author=surbhi&category=action query thường là sau 1 dấu ? có thêm 1 cặp key value trong 1 url có thể có nhiều query như ở trên chúng kết nối với nhau bằng dấu & ở trên ta có thể thấy 2 cặp key value là authod=surbhi & category=action
 update : nếu có thì update luôn nếu không có thì thông báo throw new NotFoundException('User does not exist')
 chú ý chỗ update trong database mysql có 2 cách
 1./ nếu sử dụng return this.usersRepository.update(id, requestBody); thí nó sẽ update trong database không có sai gì hết nhưng nó sẽ trả về {

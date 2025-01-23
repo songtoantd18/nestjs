@@ -208,12 +208,28 @@ bài 11 : tìm hiểu về interceptors
 chức năng nó giống như 1 middleware nhưng xử lý trước và sau middleware theo thứ tự.Trong bài này chỉ tạo và log nó ra thôi chứ chưa thấy gì mới nhé :
 tạo 1 file tên logging.interceptor.ts copy trong docs ra sau đó thêm console.log vào để có thể biết được thứ tự là chúng ta sẽ hiểu
 cái đoạn @UseInterceptors(ClassSerializerInterceptor) cái ClassSerializerInterceptor cũng là 1 interceptor đó nhưng là của hệ thống định nghĩa mình chỉ lấy ra để dùng mà thôi bây giờ mình đang tạo ra tên là LoggingInterceptor nên sử dụng trong controller như bth
-sử dụng get với http://localhost:3000/user sẽ log ra kết quả 
+sử dụng get với http://localhost:3000/user sẽ log ra kết quả
 Before...
 đây là getAllUser
 đây là find all tất cả value
 After... 5ms
 
-qui trình chạy ban đầu sẽ vào loggin interceptor sau đó log before trước sau đó vào function getAlluser trong controller và sau đó vào service lấy find all cuối cùng là vào after cái đây nó vừa mở và cũng đóng 
+qui trình chạy ban đầu sẽ vào loggin interceptor sau đó log before trước sau đó vào function getAlluser trong controller và sau đó vào service lấy find all cuối cùng là vào after cái đây nó vừa mở và cũng đóng
 
 https://docs.nestjs.com/interceptors
+bài 12 : tìm hiểu về middleware
+tương tự vào https://docs.nestjs.com/middleware tìm hiểu
+qui trình là client side ->middleware-> router handler -> controller handler
+lưu ý là phải có hàm next() để có thể chuyển qua hàm tiếp theo nếu không sẽ treo máy
+tạo file logger.middleware.ts trong folder middleware sau đó improt vào app.module.ts
+export class UserModule implements NestModule {
+configure(consumer: MiddlewareConsumer) {
+consumer.apply(LoggerMiddleware).forRoutes(UserController);
+}
+} chỗ này forrouter bạn muốn áp dụng middleware cho cái nào thì bỏ controller của cái đó vào vì có nhiều module muốn áp dụng moduel controller cái nào thì bỏ vào muốn toàn bộ thì '\*' là ok
+đây là middleware
+Before...
+đây là getAllUser
+đây là find all tất cả value
+After... 5ms
+theo thứ tự là middleware->interceptors -> controller -> interceptors

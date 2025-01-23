@@ -1,5 +1,6 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
@@ -8,11 +9,13 @@ import {
   Post,
   Put,
   Query,
+  UseInterceptors,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dtos/createUser.dto';
+import { UpdateUserDto } from './dtos/updateUser.dto';
 
 @Controller('user')
 @UsePipes(new ValidationPipe())
@@ -36,9 +39,10 @@ export class UserController {
     return this.UserService.findById(id);
   }
   @Put('/:id')
+  @UseInterceptors(ClassSerializerInterceptor)
   updateUserById(
     @Param('id', ParseIntPipe) id: number,
-    @Body() requestBody: CreateUserDto,
+    @Body() requestBody: UpdateUserDto,
   ) {
     console.log(typeof id);
     console.log(typeof requestBody);

@@ -144,7 +144,63 @@ nếu không có ParseIntPipe thì sẽ trả về
 "password": "1222222"
 } như vậy nó đâu có đúng
 cái parseintpipe chỉ kiểm soát đưcọ đầu vào chỗ id thôi
-bây giờ chúng ta đang muốn kiểm soát chỗ put chỉnh sửa update lại data thì truyền vào requestbody:any mà trong đó thì làm sao kiểm soát thì tạo file dto createuser.dto.ts đặt điều kiện muốn dạng gì có required không. trong typescript thì nên t ránh kiểu dữ liệu là any
+bây giờ chúng ta đang muốn kiểm soát chỗ put chỉnh sửa update lại data thì truyền vào requestbody:any mà trong đó thì làm sao kiểm soát thì tạo file dto createuser.dto.ts đặt điều kiện muốn dạng gì có required không. trong typescript thì nên tránh kiểu dữ liệu là any
 sử dụng validationpipe để có thể áp dụng ở toàn bộ code bằng cách app.useGlobalPipes(....) ví dụ hiện tại bạn đang làm việc với module user thì bạn để global ok nhưng sau này có nhiều module ví dụ animal thì bạn phải để yêu cầu validation ở chỗ user controller chứ không được ở để ở tổng
 @Controller('userdemo')
 @UsePipes(new ValidationPipe()) // Áp dụng ValidationPipe cho toàn bộ controller
+bài 10: tìm hiểu về serialize :
+chức năng ví dụ bạn có 5 trường id , username,role,email,password bạn không muốn khi sử dụng get request nó show cái password , bạn muốn ẩn thì sử dụng cái serialize này ẩn trường muốn ẩn
+tạo file updateUsser.dto.ts có chức năng lọc điều kiện của update, tại sao lại có thêm file updateUsser.dto.ts trong khi lại giống createuser.dto.ts vì hiện tại là giống nhau nhưng sau này code mở rộng ra thì có thể chỉnh sửa cho dễ create thì cho function create còn update thì cho function update
+vào trong https://docs.nestjs.com/techniques/serialization thêm @Exclude() vào cái biến nào mà bạn muốn ẩn, sau đó thêm @UseInterceptors(ClassSerializerInterceptor) vào chỗ controller nếu trong controller có nhiều function thì trong đó nếu bạn muốn ẩn trường đó trong cái nào thì thêm @UseInterceptors(ClassSerializerInterceptor) vào chỗ function đó
+
+đây là kết quả update
+{
+"id": 2,
+"email": "s22321312t123n@gmai.com"
+}
+bạn có thể thấy là k thấy password đâu
+
+@Controller('user')
+@UseInterceptors(ClassSerializerInterceptor)
+@UsePipes(new ValidationPipe()) nếu bạn để ở vị trí cao hơn(global) thì sẽ ap dụng cho toàn bộ
+[
+{
+"id": 2,
+"email": "s22321312t123n@gmai.com"
+},
+{
+"id": 3,
+"email": "st122222cccc2222222211"
+},
+{
+"id": 4,
+"email": "s2232131zzzzzzzzzz2t123n@gmai.com"
+},
+{
+"id": 5,
+"email": "s2232131zzzzzzzzzz2t123ngmai.com"
+}
+]
+[
+{
+"id": 2,
+"email": "s22321312t123n@gmai.com",
+"password": "12222222222"
+},
+{
+"id": 3,
+"email": "st122222cccc2222222211",
+"password": "12222222222"
+},
+{
+"id": 4,
+"email": "s2232131zzzzzzzzzz2t123n@gmai.com",
+"password": "1222222"
+},
+{
+"id": 5,
+"email": "s2232131zzzzzzzzzz2t123ngmai.com",
+"password": "1222222"
+}
+]
+khác nhau hoàn toàn

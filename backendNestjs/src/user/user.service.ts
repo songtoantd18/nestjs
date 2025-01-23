@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { Not, Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/createUser.dto';
+import { UpdateUserDto } from './dtos/updateUser.dto';
 @Injectable()
 export class UserService {
   constructor(
@@ -30,7 +31,7 @@ export class UserService {
     return user;
   }
 
-  async updateById(id: number, requestBody: CreateUserDto) {
+  async updateById(id: number, requestBody: UpdateUserDto) {
     let user = await this.usersRepository.findOneBy({ id });
     console.log('🚀 ~ UserService ~ updateById ~ user:', user);
     if (!user) {

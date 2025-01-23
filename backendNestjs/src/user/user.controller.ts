@@ -16,7 +16,10 @@ import {
 import { UserService } from './user.service';
 import { CreateUserDto } from './dtos/createUser.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
+import { LoggingInterceptor } from './interceptors/logging.interceptor';
 
+@UseInterceptors(ClassSerializerInterceptor)
+@UseInterceptors(LoggingInterceptor)
 @Controller('user')
 @UsePipes(new ValidationPipe())
 export class UserController {
@@ -30,6 +33,7 @@ export class UserController {
   }
   @Get('')
   getAllUser() {
+    console.log('đây là getAllUser');
     return this.UserService.findAll();
   }
   @Get('/:id')
@@ -39,7 +43,6 @@ export class UserController {
     return this.UserService.findById(id);
   }
   @Put('/:id')
-  @UseInterceptors(ClassSerializerInterceptor)
   updateUserById(
     @Param('id', ParseIntPipe) id: number,
     @Body() requestBody: UpdateUserDto,

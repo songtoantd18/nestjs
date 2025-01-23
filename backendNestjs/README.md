@@ -204,3 +204,16 @@ bạn có thể thấy là k thấy password đâu
 }
 ]
 khác nhau hoàn toàn
+bài 11 : tìm hiểu về interceptors
+chức năng nó giống như 1 middleware nhưng xử lý trước và sau middleware theo thứ tự.Trong bài này chỉ tạo và log nó ra thôi chứ chưa thấy gì mới nhé :
+tạo 1 file tên logging.interceptor.ts copy trong docs ra sau đó thêm console.log vào để có thể biết được thứ tự là chúng ta sẽ hiểu
+cái đoạn @UseInterceptors(ClassSerializerInterceptor) cái ClassSerializerInterceptor cũng là 1 interceptor đó nhưng là của hệ thống định nghĩa mình chỉ lấy ra để dùng mà thôi bây giờ mình đang tạo ra tên là LoggingInterceptor nên sử dụng trong controller như bth
+sử dụng get với http://localhost:3000/user sẽ log ra kết quả 
+Before...
+đây là getAllUser
+đây là find all tất cả value
+After... 5ms
+
+qui trình chạy ban đầu sẽ vào loggin interceptor sau đó log before trước sau đó vào function getAlluser trong controller và sau đó vào service lấy find all cuối cùng là vào after cái đây nó vừa mở và cũng đóng 
+
+https://docs.nestjs.com/interceptors

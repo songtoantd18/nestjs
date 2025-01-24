@@ -148,6 +148,7 @@ bây giờ chúng ta đang muốn kiểm soát chỗ put chỉnh sửa update l�
 sử dụng validationpipe để có thể áp dụng ở toàn bộ code bằng cách app.useGlobalPipes(....) ví dụ hiện tại bạn đang làm việc với module user thì bạn để global ok nhưng sau này có nhiều module ví dụ animal thì bạn phải để yêu cầu validation ở chỗ user controller chứ không được ở để ở tổng
 @Controller('userdemo')
 @UsePipes(new ValidationPipe()) // Áp dụng ValidationPipe cho toàn bộ controller
+Bản chất của Pipe trong NestJS là một cơ chế để xử lý và biến đổi dữ liệu trước khi nó được sử dụng trong các route handler hoặc sau khi nó được trả về từ route handler.
 bài 10: tìm hiểu về serialize :
 chức năng ví dụ bạn có 5 trường id , username,role,email,password bạn không muốn khi sử dụng get request nó show cái password , bạn muốn ẩn thì sử dụng cái serialize này ẩn trường muốn ẩn
 tạo file updateUsser.dto.ts có chức năng lọc điều kiện của update, tại sao lại có thêm file updateUsser.dto.ts trong khi lại giống createuser.dto.ts vì hiện tại là giống nhau nhưng sau này code mở rộng ra thì có thể chỉnh sửa cho dễ create thì cho function create còn update thì cho function update
@@ -213,6 +214,7 @@ Before...
 đây là getAllUser
 đây là find all tất cả value
 After... 5ms
+bản chất thật sự của interceptors :can thiệp vào luồng xử lý request/response, cho phép bạn thêm logic tùy chỉnh TRƯỚC hoặc SAU khi một request được xử lý bởi route handler
 
 qui trình chạy ban đầu sẽ vào loggin interceptor sau đó log before trước sau đó vào function getAlluser trong controller và sau đó vào service lấy find all cuối cùng là vào after cái đây nó vừa mở và cũng đóng
 
@@ -233,3 +235,15 @@ Before...
 đây là find all tất cả value
 After... 5ms
 theo thứ tự là middleware->interceptors -> controller -> interceptors
+bài 13 : tìm hiểu về guard
+bản chất : Guard trong NestJS là một cơ chế để bảo vệ các route (đường dẫn) bằng cách kiểm tra các điều kiện cụ thể trước khi cho phép request tiếp tục được xử lý bởi route handler. Guard thường được sử dụng để xác thực (authentication) và phân quyền (authorization), đảm bảo rằng chỉ những request hợp lệ và được phép mới có thể truy cập vào tài nguyên.Hiểu đơn giản là bạn chưa đăng nhập thì không vào được (xác thực) bạn không có quyền với role yếu hơn thì không được truy cập vào( phân quyền)
+truy cập vào https://docs.nestjs.com/guards để tìm hiểu về guard
+tạo 1 folder guard sau đó taijo auth.guard.ts, sau đó sử dụng trong controller tương tự như pipe vậy ấy , muốn dùng cái nào thì để đó muốn dùng hết thì để global search trong docs binding guard
+kết quả
+đây là middleware
+đây là authguard
+Before interceptors...
+đây là getAllUser
+đây là find all tất cả value
+After.. interceptor. 6ms
+middleware -> guard-> interceptors -> controller -> interceptors

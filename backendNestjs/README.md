@@ -247,3 +247,11 @@ Before interceptors...
 đây là find all tất cả value
 After.. interceptor. 6ms
 middleware -> guard-> interceptors -> controller -> interceptors
+bài 14: vào dự án chính của nestjs
+role : admin,user,moderator
+authentication : json web token (tìm hiểu về cấu trúc jwt)
+post : thêm sửa xóa ở đây
+comment : đi theo bài post
+hastag: của bài post
+1 user tạo nhiều bài post, mỗi bài post thì có nhiều comment , mối quan hệ ở đây user và post là one to many,post và commnent là one to many
+hastag và post là many to many : 1 cái hatag có nhioeeuf bài post , 1 bài post có nhiều cái hatag

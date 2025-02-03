@@ -255,3 +255,9 @@ comment : đi theo bài post
 hastag: của bài post
 1 user tạo nhiều bài post, mỗi bài post thì có nhiều comment , mối quan hệ ở đây user và post là one to many,post và commnent là one to many
 hastag và post là many to many : 1 cái hatag có nhioeeuf bài post , 1 bài post có nhiều cái hatag
+bài 15 : tạo 1 file env rồi sau đó import nó vào , vì env liên quan đến database cần bảo mật nên k thể up lên github https://docs.nestjs.com/techniques/database truy cập đọc docs để tìm hiểu về cách tạo env
+chú ý cần có ConfigModule.forRoot({
+isGlobal: true,
+}), để có thể đẩy env lên global mới dùng được
+ConfigModule là gì?
+ConfigModule là một module trong NestJS giúp quản lý cấu hình ứng dụng, thường được sử dụng để load các biến môi trường từ file .env và truy xuất chúng thông qua ConfigService.

@@ -19,13 +19,19 @@ import { CreateUserDto } from './dtos/createUser.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { AuthGuard } from './guards/auth.guard';
-
+import { RegisterUserDto } from './dtos/registerUser.dto';
+import { AuthService } from './auth.service';
+import { LoginUserDto } from './dtos/LoginUser.dto';
 @UseInterceptors(ClassSerializerInterceptor)
 @UseInterceptors(LoggingInterceptor)
 @Controller('user')
 @UsePipes(new ValidationPipe())
 export class UserController {
-  constructor(private readonly UserService: UserService) {}
+  constructor(
+    private readonly UserService: UserService,
+
+    private readonly AuthService: AuthService,
+  ) {}
 
   @Post('')
   createUser(@Body() requestBody: CreateUserDto) {
@@ -58,5 +64,15 @@ export class UserController {
   deleteUserById(@Param('id') id: number) {
     console.log('🚀 ~ UserController ~ deleteUserById ~ id:', id);
     return this.UserService.deleteById(id);
+  }
+  @Post('/register')
+  registerUser(@Body() requestBody: RegisterUserDto) {
+    console.log('đây là usercontroller2221');
+    return this.AuthService.register(requestBody);
+  }
+  @Post('/login')
+  loginUser(@Body() requestBody: LoginUserDto) {
+    console.log('đây là usercontroller2221');
+    return this.AuthService.login(requestBody);
   }
 }

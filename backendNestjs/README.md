@@ -261,3 +261,24 @@ isGlobal: true,
 }), để có thể đẩy env lên global mới dùng được
 ConfigModule là gì?
 ConfigModule là một module trong NestJS giúp quản lý cấu hình ứng dụng, thường được sử dụng để load các biến môi trường từ file .env và truy xuất chúng thông qua ConfigService.
+bài 16 : authenication với jwt, khi bạn đăng ký 1 tài khoản thì bạn sẽ nhận được 1 token, sau đó khi nào đăng nhập thì bạn sẽ đính kèm token đó với header, còn username và password sẽ được gửi ở body,
+https://docs.nestjs.com/security/authentication
+
+-tạo auth.service.ts sau đó import vào user.module.ts chỗ provider
+-search nestjs jwt cài package cài npm install --save @nestjs/jwt coi hướng dẫn sử dụng
+-vào file env tạo 1 jwt_secret=demo1
+-vào docs đọc chỗ jwt có liên quan đến jwt rồi copy đó vào auth/auth.service.ts
+-hiện tại bên entity chỉ có 3 trường là email password và id bây giờ sẽ thêm firstName lastName role, sử dụng enum để tạo role với admin ,user,moderator để mặc định nếu người dùng không điền role thì mặc định là user
+-copy cái createuser.dto.ts vào cái registeruser.dto.ts thêm firstName lastName
+-ở trong user.service thêm 1 hàm findbyemail sử dụng findoneby({email}) rồi sau đó trong auth.service ịnjected user.service vào thì có thể sử dụng được hết functio ntrong đó
+-xử lý các logic trong auth.service.ts kiểm tra email đã được có chưa trogn database bằng các dùng hàm findbyemail nếu chưa thì tiếp tục nếu có rồi thì throw BadGatewayException('Email already exists')
+nếu chưa có thì chúng ta sẽ hashpassword và save to db
+-search hashpassword nestjs để coi hdsd
+-sau đó lưu bằng cách dùng hàm createUserJwt
+-sau đó generate jwt token có nghĩa là mã hóa cái combo cần gởi đi và được gửi đến client gồm id firstname lastname role sau đó
+-bây giờ làm thêm chức năng login nữa , tạo 1 loginuser.dto.ts chỉ có 2 trường là email password sau đó xử lý code logic nếu login thành công thì return accessToken
+kết quả :
+{
+    "msg": "User has been login successfully",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsImZpcnN0TmFtZSI6ImZpcnN0TmFtZXd3dyBzYXZlMTExMjIyMjIiLCJsYXN0TmFtZSI6Imxhc3ROYW1lIGV3cWV3cWVzYXZlMTExMzMzMzMzIiwicm9sZSI6InVzZXIiLCJwYXNzd29yZCI6IiQyYiQxMCQ4a2tHeTZMUmUxVTFHamViS29KRzllSTAzRlNtMkh1ZTdiSVpqMGs0U01hZ2lVVWw5czRkaSIsImlhdCI6MTczODkxNDA2M30.737Gp6jx3TvPpYPN6SeAU6D9eNj4DQNiVoLS6CdFwO8"
+}

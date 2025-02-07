@@ -4,6 +4,7 @@ import { User } from './user.entity';
 import { Not, Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/createUser.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
+import { RegisterUserDto } from './dtos/registerUser.dto';
 @Injectable()
 export class UserService {
   constructor(
@@ -15,6 +16,10 @@ export class UserService {
     return 'đây là userservice3';
   }
   createUser(requestBody: CreateUserDto) {
+    console.log('đây là userservice2221');
+    return this.usersRepository.save(requestBody);
+  }
+  createUserJwt(requestBody: RegisterUserDto) {
     console.log('đây là userservice2221');
     return this.usersRepository.save(requestBody);
   }
@@ -52,5 +57,9 @@ export class UserService {
     }
 
     return this.usersRepository.remove(user);
+  }
+  async findByEmail(email: string) {
+    console.log('🚀 ~ UserService ~ findOneByEmail ~ email:', email);
+    return this.usersRepository.findOneBy({ email });
   }
 }

@@ -64,20 +64,18 @@ export class AuthService {
     }
     const payload = {
       id: user.id,
+      email: user.email,
       firstName: user.firstName,
       lastName: user.lastName,
       role: user.role,
-      password: user.password,
     };
+    console.log('🚀 ~ AuthService ~ login ~ payload:', payload);
     // generate token
     const accessToken = this.jwtService.sign(payload, {
       secret: process.env.JWT_SECRET,
+      expiresIn: '2d',
     });
-    console.log(
-      '🚀 ~ AuthService ~ login ~ process.env.JWT_SECRET:',
-      process.env.JWT_SECRET,
-    );
-    console.log('🚀 ~ AuthService ~ login ~ accessToken:', accessToken);
+
     return {
       msg: 'User has been login successfully',
       accessToken,

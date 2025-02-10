@@ -279,6 +279,13 @@ nếu chưa có thì chúng ta sẽ hashpassword và save to db
 -bây giờ làm thêm chức năng login nữa , tạo 1 loginuser.dto.ts chỉ có 2 trường là email password sau đó xử lý code logic nếu login thành công thì return accessToken
 kết quả :
 {
-    "msg": "User has been login successfully",
-    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsImZpcnN0TmFtZSI6ImZpcnN0TmFtZXd3dyBzYXZlMTExMjIyMjIiLCJsYXN0TmFtZSI6Imxhc3ROYW1lIGV3cWV3cWVzYXZlMTExMzMzMzMzIiwicm9sZSI6InVzZXIiLCJwYXNzd29yZCI6IiQyYiQxMCQ4a2tHeTZMUmUxVTFHamViS29KRzllSTAzRlNtMkh1ZTdiSVpqMGs0U01hZ2lVVWw5czRkaSIsImlhdCI6MTczODkxNDA2M30.737Gp6jx3TvPpYPN6SeAU6D9eNj4DQNiVoLS6CdFwO8"
+"msg": "User has been login successfully",
+"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsImZpcnN0TmFtZSI6ImZpcnN0TmFtZXd3dyBzYXZlMTExMjIyMjIiLCJsYXN0TmFtZSI6Imxhc3ROYW1lIGV3cWV3cWVzYXZlMTExMzMzMzMzIiwicm9sZSI6InVzZXIiLCJwYXNzd29yZCI6IiQyYiQxMCQ4a2tHeTZMUmUxVTFHamViS29KRzllSTAzRlNtMkh1ZTdiSVpqMGs0U01hZ2lVVWw5czRkaSIsImlhdCI6MTczODkxNDA2M30.737Gp6jx3TvPpYPN6SeAU6D9eNj4DQNiVoLS6CdFwO8"
 }
+tìm hiểu về jwt gồm 3 phần header.payload.signature
+bài 17 : xác thực jwt token (phần 2 )
+vấn đề : ví dụ đăng nhập vào 1 trang web thì bạn là user thì khi vào trrang khác /profile , thì nó sẽ k biết bạn đã đăng nhập chưa , nên cần duy trì đăng nhập bằng cách lấy jwt token ở trên header về giải ra và kiểm tra xem có đúng không kiểm tra email có không mới cho truy cập được
+//1 lấy token từ header ( TÌM HIỂU VỀ CÁC LOẠI CỦA AUTHENICATION)
+//2 jwtverify validate toke
+//3 tìm user trong database dựa vào jwtverify
+//4 lấy user gắn vào request

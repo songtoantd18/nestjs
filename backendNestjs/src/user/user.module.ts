@@ -15,8 +15,6 @@ import { JwtModule } from '@nestjs/jwt';
     TypeOrmModule.forFeature([User]),
     JwtModule.register({
       global: true,
-
-      signOptions: { expiresIn: '1d' },
     }),
   ],
   providers: [UserService, AuthService, JwtService],

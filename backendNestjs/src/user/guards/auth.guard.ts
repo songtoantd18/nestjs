@@ -43,7 +43,7 @@ export class AuthGuard implements CanActivate {
         throw new BadGatewayException('Email does not exist');
       }
       //4 assign user to request object
-      request.user = user;
+      request.currentUser = user;
       return true;
     } catch (error) {
       console.log('🚀 ~ AuthGuard ~ canActivate ~ error:', error);

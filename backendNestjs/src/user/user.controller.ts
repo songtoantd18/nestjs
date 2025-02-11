@@ -13,6 +13,7 @@ import {
   UsePipes,
   ValidationPipe,
   UseGuards,
+  Request,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dtos/createUser.dto';
@@ -22,6 +23,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { RegisterUserDto } from './dtos/registerUser.dto';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from './dtos/LoginUser.dto';
+import { request } from 'http';
+import { CurrentUser } from './decorate/user.decorator';
 @UseInterceptors(ClassSerializerInterceptor)
 @UseInterceptors(LoggingInterceptor)
 @Controller('user')
@@ -39,6 +42,13 @@ export class UserController {
     console.log('đây là usercontroller2');
     return this.UserService.createUser(requestBody);
   }
+  @Get('/curent-user')
+  @UseGuards(AuthGuard)
+  getCurrentUser(@CurrentUser() currentUser) {
+  
+    return currentUser;
+  }
+
   @Get('')
   @UseGuards(AuthGuard)
   getAllUser() {

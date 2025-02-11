@@ -1,4 +1,4 @@
-import { BadGatewayException, Injectable } from '@nestjs/common';
+import { BadGatewayException, Injectable, Request } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from './user.service';
 import { RegisterUserDto } from './dtos/registerUser.dto';
@@ -80,5 +80,9 @@ export class AuthService {
       msg: 'User has been login successfully',
       accessToken,
     };
+  }
+  getCurrentUser(@Request() req) {
+    console.log('đây là getCurrentUser', req.currentUser);
+    return req.currentUser;
   }
 }

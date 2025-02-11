@@ -289,3 +289,11 @@ vấn đề : ví dụ đăng nhập vào 1 trang web thì bạn là user thì k
 //2 jwtverify validate toke
 //3 tìm user trong database dựa vào jwtverify
 //4 lấy user gắn vào request
+bài 18: viết decorator lấy thông tin user
+ban đầu login rồi lấy được cái token , sau đó vào get trong current-user lúc đó sẽ chạy qua use guard và gắn currentuser vào trong request và sử dụng được ở trong hàm getCurrentUser và sử dụng được req.currentuser đó là cách 1
+cách 2 : search nestjs decorated tạo folder decorate sau đó tạo file user.decorator.ts sau đó import vào user.controller.ts  @Get('/curent-user')
+  @UseGuards(AuthGuard)
+  getCurrentUser(@CurrentUser() currentUser) {
+  
+    return currentUser;
+  } cách này sử dụng thư viện nestjs

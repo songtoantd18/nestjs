@@ -25,6 +25,8 @@ import { AuthService } from './auth.service';
 import { LoginUserDto } from './dtos/LoginUser.dto';
 import { request } from 'http';
 import { CurrentUser } from './decorate/user.decorator';
+import { RoleGuard } from './guards/role.auth';
+import { User } from './user.entity';
 @UseInterceptors(ClassSerializerInterceptor)
 @UseInterceptors(LoggingInterceptor)
 @Controller('user')
@@ -45,11 +47,11 @@ export class UserController {
   @Get('/curent-user')
   @UseGuards(AuthGuard)
   getCurrentUser(@CurrentUser() currentUser) {
-  
     return currentUser;
   }
 
   @Get('')
+  @UseGuards(new RoleGuard(['admin', 'user']))
   @UseGuards(AuthGuard)
   getAllUser() {
     console.log('đây là getAllUser');
@@ -62,13 +64,16 @@ export class UserController {
     return this.UserService.findById(id);
   }
   @Put('/:id')
+  // @UseGuards(new RoleGuard(['admin', 'user']))
+  @UseGuards(AuthGuard)
   updateUserById(
     @Param('id', ParseIntPipe) id: number,
     @Body() requestBody: UpdateUserDto,
+    @CurrentUser() currentUser: User,
   ) {
     console.log(typeof id);
     console.log(typeof requestBody);
-    return this.UserService.updateById(id, requestBody);
+    return this.UserService.updateById(id, requestBody, currentUser);
   }
   @Delete('/:id')
   deleteUserById(@Param('id') id: number) {

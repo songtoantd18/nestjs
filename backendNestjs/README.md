@@ -291,9 +291,18 @@ vấn đề : ví dụ đăng nhập vào 1 trang web thì bạn là user thì k
 //4 lấy user gắn vào request
 bài 18: viết decorator lấy thông tin user
 ban đầu login rồi lấy được cái token , sau đó vào get trong current-user lúc đó sẽ chạy qua use guard và gắn currentuser vào trong request và sử dụng được ở trong hàm getCurrentUser và sử dụng được req.currentuser đó là cách 1
-cách 2 : search nestjs decorated tạo folder decorate sau đó tạo file user.decorator.ts sau đó import vào user.controller.ts  @Get('/curent-user')
-  @UseGuards(AuthGuard)
-  getCurrentUser(@CurrentUser() currentUser) {
-  
+cách 2 : search nestjs decorated tạo folder decorate sau đó tạo file user.decorator.ts sau đó import vào user.controller.ts @Get('/curent-user')
+@UseGuards(AuthGuard)
+getCurrentUser(@CurrentUser() currentUser) {
+
     return currentUser;
-  } cách này sử dụng thư viện nestjs
+
+} cách này sử dụng thư viện nestjs
+bài 19:phân quyền user phần 1 :
+mục tiêu:
+1./chỉ có role admin mới có thể lấy tất cả getAllUser
+2./ bạn đăng nhập tài khoản nào thì chỉ có thể update, hoặc delete tài khoản có id đó thôi và khi update thì chỗ passsword cần phải hash lại những trường cần thay đổi là firstName lastName role password, email thì giữ nguyên
+tạo 1 cái là permission.helper.ts có chức năng check để so sánh với currentUser.id và id có trùng nhau khoogn thì mới có thể edit đưcọ
+tạo roleguard rồi sau đó truyền yêu cầu phân quyền mình đến roleguard(['user', 'admin']) : ở đây là chỉ cho user và admin được vào thôi
+
+tạo permission.helper.ts truyền 2 tham số là id và currentUser để kiểm tra có phải user có thể edit được như vậy hoặc nếu có currentUser.role là admin thì có thể update và delete

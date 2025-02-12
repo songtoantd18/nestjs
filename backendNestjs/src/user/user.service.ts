@@ -5,6 +5,7 @@ import { Not, Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/createUser.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
 import { RegisterUserDto } from './dtos/registerUser.dto';
+import { Permission } from 'src/helper/checkPermission.helper';
 @Injectable()
 export class UserService {
   constructor(
@@ -36,18 +37,28 @@ export class UserService {
     return user;
   }
 
-  async updateById(id: number, requestBody: UpdateUserDto) {
+  async updateById(id: number, requestBody: UpdateUserDto, currentUser: User) {
     let user = await this.usersRepository.findOneBy({ id });
     console.log('🚀 ~ UserService ~ updateById ~ user:', user);
+
     if (!user) {
       throw new NotFoundException('User does not exist');
     }
 
-    // user = { ...user, ...requestBody };
-    // return this.usersRepository.save(user);
-    await this.usersRepository.update(id, requestBody);
-    return this.usersRepository.findOneBy({ id });
+    Permission.checkPermission(id, currentUser);
+
+    // Cập nhật user trong database
+    const dataUpdate = await this.usersRepository.update(id, requestBody);
+    console.log('🚀 ~ UserService ~ updateById ~ dataUpdate:', dataUpdate);
+
+    // Trả về thông tin cần thiết
+    return {
+      firstName: requestBody.firstName,
+      lastName: requestBody.lastName,
+      email: requestBody.email,
+    };
   }
+
   async deleteById(id: number) {
     console.log('đây là delete');
     let user = await this.usersRepository.findOneBy({ id });

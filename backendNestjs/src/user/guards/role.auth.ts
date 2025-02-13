@@ -1,4 +1,9 @@
-import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  ForbiddenException,
+} from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { CurrentUser } from './../decorate/user.decorator';
 import { request } from 'http';
@@ -12,12 +17,17 @@ export class RoleGuard implements CanActivate {
   ): boolean | Promise<boolean> | Observable<boolean> {
     console.log('------22222222222');
     const request = context.switchToHttp().getRequest();
-    console.log('🚀 ~ RoleGuard ~ request--------:', request.currentUser);
-
-    console.log(
-      '🚀 ~ RoleGuard ~ this.roles.includes(request.currentUser.role.toLowerCase()):',
-      this.roles.includes(request.currentUser.role.toLowerCase()),
-    );
-    return this.roles.includes(request.currentUser.role.toLowerCase());
+    const user = request.currentUser;
+    console.log('🚀 ~ RoleGuard ~ user:----------------', user.role);
+    console.log('🚀 ~ RoleGuard ~ this.roles:------------------', this.roles);
+    if (!user) {
+      throw new ForbiddenException(' bạn chưa đăng nhập');
+    }
+    if (!this.roles.includes(user.role.toLowerCase())) {
+      throw new ForbiddenException(
+        'You do not have permission to access this resource',
+      );
+    }
+    return true;
   }
 }

@@ -303,6 +303,10 @@ mục tiêu:
 1./chỉ có role admin mới có thể lấy tất cả getAllUser
 2./ bạn đăng nhập tài khoản nào thì chỉ có thể update, hoặc delete tài khoản có id đó thôi và khi update thì chỗ passsword cần phải hash lại những trường cần thay đổi là firstName lastName role password, email thì giữ nguyên
 tạo 1 cái là permission.helper.ts có chức năng check để so sánh với currentUser.id và id có trùng nhau khoogn thì mới có thể edit đưcọ
-tạo roleguard rồi sau đó truyền yêu cầu phân quyền mình đến roleguard(['user', 'admin']) : ở đây là chỉ cho user và admin được vào thôi
-
+tạo roleguard rồi sau đó truyền yêu cầu phân quyền mình đến @UseGuards(new RoleGuard(['admin','user'])) : ở đây là chỉ cho user và admin được vào để coi DANH SÁCH SHOW ALL thôi
+chỗ @UseGuards(new RoleGuard(['admin','user'])) có 2 ý nghĩa . 1 là kiểm tra cấp quyền cho admin và user có thể xem SHOW ALL DANH SÁCH TRONG DATABASE MODERATOR KHÔNG COI ĐƯỢC
+2./ còn chuyện thực hiện các tác vụ khác ( update và delete) thì chỉ có admin và tài khoản của mình mới có thể thực hiện được ở trong hàm checkPermission.helper.ts
 tạo permission.helper.ts truyền 2 tham số là id và currentUser để kiểm tra có phải user có thể edit được như vậy hoặc nếu có currentUser.role là admin thì có thể update và delete
+bài 20: phân quyền user phần 2 :
+chỗ thay đổi cái role thì trong update.dto.ts thì chúng ta đang định nghĩa là string nhưng trong entity thì nó lại thuộc enum với admin,user,moderator như vậy 2 bên xung đột vì vậy chúng ta cần chuyển string thành enum
+-chú ý cần mã hóa bcrypt.hash để làm hash password mới giải mã được( ví dụ nếu mật khẩu mới là abc nhưng k mã hóa thì nó k giải ra thành ra nó k so sánh mật khẩu login được )

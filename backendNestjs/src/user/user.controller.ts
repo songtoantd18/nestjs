@@ -64,7 +64,7 @@ export class UserController {
     return this.UserService.findById(id);
   }
   @Put('/:id')
-  // @UseGuards(new RoleGuard(['admin', 'user']))
+  @UseGuards(new RoleGuard(['admin', 'user', 'moderator']))
   @UseGuards(AuthGuard)
   updateUserById(
     @Param('id', ParseIntPipe) id: number,
@@ -76,6 +76,8 @@ export class UserController {
     return this.UserService.updateById(id, requestBody, currentUser);
   }
   @Delete('/:id')
+  @UseGuards(new RoleGuard(['admin', 'user', 'moderator']))
+  @UseGuards(AuthGuard)
   deleteUserById(@Param('id') id: number) {
     console.log('🚀 ~ UserController ~ deleteUserById ~ id:', id);
     return this.UserService.deleteById(id);

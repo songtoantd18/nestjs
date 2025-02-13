@@ -5,6 +5,7 @@ import { Not, Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/createUser.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
 import { RegisterUserDto } from './dtos/registerUser.dto';
+import * as bcrypt from 'bcrypt';
 import { Permission } from 'src/helper/checkPermission.helper';
 @Injectable()
 export class UserService {
@@ -46,16 +47,18 @@ export class UserService {
     }
 
     Permission.checkPermission(id, currentUser);
-
+    const hashedPassword = await bcrypt.hash(requestBody.password, 10);
+    requestBody.password = hashedPassword;
     // Cập nhật user trong database
     const dataUpdate = await this.usersRepository.update(id, requestBody);
-    console.log('🚀 ~ UserService ~ updateById ~ dataUpdate:', dataUpdate);
 
     // Trả về thông tin cần thiết
     return {
       firstName: requestBody.firstName,
       lastName: requestBody.lastName,
       email: requestBody.email,
+      role: requestBody.role,
+      password: requestBody.password,
     };
   }
 

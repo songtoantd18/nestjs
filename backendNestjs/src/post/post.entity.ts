@@ -1,4 +1,5 @@
 import { Exclude } from 'class-transformer';
+import { User } from 'src/user/user.entity';
 import {
   Entity,
   Column,
@@ -6,6 +7,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  ManyToOne,
 } from 'typeorm';
 
 @Entity()
@@ -27,4 +29,12 @@ export class Post {
 
   @DeleteDateColumn()
   deleted_at: Date; // Deletion date
+  @ManyToOne(
+    () => User,
+    (user) => {
+      console.log('🚀 ~ Post ~ user:', user);
+      return user.posts;
+    },
+  )
+  user: User;
 }

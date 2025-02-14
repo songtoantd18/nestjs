@@ -310,3 +310,8 @@ tạo permission.helper.ts truyền 2 tham số là id và currentUser để ki�
 bài 20: phân quyền user phần 2 :
 chỗ thay đổi cái role thì trong update.dto.ts thì chúng ta đang định nghĩa là string nhưng trong entity thì nó lại thuộc enum với admin,user,moderator như vậy 2 bên xung đột vì vậy chúng ta cần chuyển string thành enum
 -chú ý cần mã hóa bcrypt.hash để làm hash password mới giải mã được( ví dụ nếu mật khẩu mới là abc nhưng k mã hóa thì nó k giải ra thành ra nó k so sánh mật khẩu login được )
+bài 22: tìm hiểu về tư duy thiết kế database - xây dựng mối quan hệ /restful api với nestjs
+vấn đề : ở đây có 2 module là user và post, thì 1 user có nhiều bài post nên cần 1 cái khóa ngoài.
+mối quan hệ giữa user và post là one to many, user ở đây là one many ở đây là post vì 1 cái user có nhiều bài post
+Một sinh viên có thể đăng ký nhiều khóa học, và một khóa học cũng có thể có nhiều sinh viên tham gia.
+Một nhân viên có thể tham gia nhiều dự án, và một dự án cũng có thể có nhiều nhân viên.vào trang chủ https://typeorm.io/ để coi có 2 mẫu là photo và user cũng tương tự như vậy

@@ -1,5 +1,6 @@
 import { Exclude } from 'class-transformer';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Post } from 'src/post/post.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 export enum roles {
   admin = 'admin',
@@ -30,4 +31,12 @@ export class User {
   @Exclude()
   @Column()
   password: string;
+  @OneToMany(
+    () => Post,
+    (post) => {
+      console.log('🚀 ~ User ~ post:', post);
+      return post.user;
+    },
+  )
+  posts: Post[];
 }

@@ -15,7 +15,6 @@ import { Post } from './post/post.entity';
       isGlobal: true,
     }),
 
-   
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
@@ -32,7 +31,7 @@ import { Post } from './post/post.entity';
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_DATABASE'),
-          entities: [User,Post],
+          entities: [User, Post],
           synchronize: true,
         };
       },
@@ -43,7 +42,7 @@ import { Post } from './post/post.entity';
 
     PostModule,
   ],
-  controllers: [AppController, PostController],
-  providers: [AppService, PostService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

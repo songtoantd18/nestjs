@@ -315,3 +315,44 @@ vấn đề : ở đây có 2 module là user và post, thì 1 user có nhiều 
 mối quan hệ giữa user và post là one to many, user ở đây là one many ở đây là post vì 1 cái user có nhiều bài post
 Một sinh viên có thể đăng ký nhiều khóa học, và một khóa học cũng có thể có nhiều sinh viên tham gia.
 Một nhân viên có thể tham gia nhiều dự án, và một dự án cũng có thể có nhiều nhân viên.vào trang chủ https://typeorm.io/ để coi có 2 mẫu là photo và user cũng tương tự như vậy
+📌 Ghi chú về việc tạo CRUD cho Post và xử lý các logic liên quan
+
+1. Tạo CRUD cho Post
+   Trong post.controller.ts, tạo hàm createPost() để xử lý việc tạo bài viết mới.
+   Trong post.service.ts, viết hàm createPost() để nhận dữ liệu từ DTO, gán currentUser vào bài viết rồi lưu vào database.
+   DTO (Data Transfer Object) dùng để validate dữ liệu đầu vào khi tạo bài viết.
+2. Xác định User tạo bài viết
+   Trong API tạo bài viết (POST /post), cần biết bài viết này thuộc về ai.
+   Sử dụng @CurrentUser() để lấy thông tin User hiện tại từ AuthGuard và truyền vào createPost().
+   Khi lưu vào database, gán user: currentUser cho bài viết.
+3. Cấu trúc app.module.ts và post.module.ts
+   Trong app.module.ts, chỉ cần import PostModule, không cần đăng ký PostController và PostService vì PostModule đã quản lý chúng.
+
+typescript
+Sao chép
+Chỉnh sửa
+imports: [
+UserModule,
+PostModule, // Đã import PostModule nên không cần đăng ký PostController và PostService riêng lẻ
+]
+Trong post.module.ts, cần export PostService nếu module khác cần sử dụng nó.
+
+typescript
+Sao chép
+Chỉnh sửa
+@Module({
+imports: [TypeOrmModule.forFeature([Post, User])],
+providers: [PostService],
+controllers: [PostController],
+exports: [PostService], // Export nếu cần dùng ở module khác
+}) 4. Xử lý dữ liệu trả về bằng @Transform
+Trong post.entity.ts, bài viết có quan hệ ManyToOne với User, nhưng không muốn trả về toàn bộ thông tin User mà chỉ cần id và email.
+
+Dùng @Transform để thay đổi cách dữ liệu được trả về:
+
+typescript
+Sao chép
+Chỉnh sửa
+@ManyToOne(() => User, (user) => user.posts)
+@Transform(({ obj }) => obj.user ? { id: obj.user.id, email: obj.user.email } : null)
+user: User;

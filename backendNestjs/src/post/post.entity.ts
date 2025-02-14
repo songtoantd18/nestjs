@@ -1,4 +1,4 @@
-import { Exclude } from 'class-transformer';
+import { Exclude, Transform } from 'class-transformer';
 import { User } from 'src/user/user.entity';
 import {
   Entity,
@@ -27,14 +27,14 @@ export class Post {
   @UpdateDateColumn()
   updated_at: Date; // Last updated date
 
-  @DeleteDateColumn()
-  deleted_at: Date; // Deletion date
-  @ManyToOne(
-    () => User,
-    (user) => {
-      console.log('🚀 ~ Post ~ user:', user);
-      return user.posts;
-    },
-  )
+  @ManyToOne(() => User, (user) => user.posts)
+  @Transform(({ obj }) => obj.user.email)
   user: User;
+
+  // @ManyToOne(() => User, (user) => user.posts)
+  // @Transform(({ obj }) => ({
+  //   id: obj.user.id,
+  //   email: obj.user.email,
+  // }))
+  // user: { id: number; email: string };
 }

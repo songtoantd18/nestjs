@@ -3,11 +3,12 @@ import { User } from 'src/user/user.entity';
 
 export class Permission {
   static checkPermission(id: number, currentUser: User) {
+  
+    console.log('🚀 ~ Permission ~ checkPermission ~ id:yyyyyyyyyyyyyyyyyyyyyyy', id);
     console.log(
-      '🚀 ~ Permission ~ checkPermission ~ currentUser:',
-      currentUser,
+      '🚀 ~ Permission ~ checkPermission ~ currentUser.id:yyyyyyyyyyyyyyyyyyyyyyyyyy',
+      currentUser.id,
     );
-    console.log('🚀 ~ Permission ~ checkPermission ~ id:', id);
     if (currentUser.id === id) return;
     if (currentUser.role === 'admin') return;
 

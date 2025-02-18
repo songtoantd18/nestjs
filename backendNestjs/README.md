@@ -356,3 +356,49 @@ Chỉnh sửa
 @ManyToOne(() => User, (user) => user.posts)
 @Transform(({ obj }) => obj.user ? { id: obj.user.id, email: obj.user.email } : null)
 user: User;
+bài 24: CRUD Post phần 2 :
+🚀 Xây dựng CRUD cho bài Post - Phần 2
+Trong bài này, chúng ta sẽ tiếp tục hoàn thiện CRUD cho bài Post với các yêu cầu sau:
+
+1️⃣ Create (C) - Tạo bài Post
+Người dùng có thể tạo một bài viết mới.
+Khi tạo bài viết, hệ thống sẽ tự động gán người tạo (user) vào post.
+Chỉ người dùng đã đăng nhập mới có thể tạo bài post.
+2️⃣ Read (R) - Lấy danh sách bài viết
+Xem tất cả bài post:
+
+Bất kỳ ai cũng có thể xem danh sách bài post, không cần đăng nhập.
+Để thực hiện, ta tạo hàm getAllPosts() trong post.service.ts, sử dụng:
+ts
+Sao chép
+Chỉnh sửa
+return this.postRepository.find();
+Sau đó, khai báo phương thức @Get trong post.controller.ts để gọi API.
+Lấy chi tiết một bài post:
+
+Người dùng có thể xem chi tiết một bài viết theo id.
+Khi lấy dữ liệu bài post, cần đính kèm thông tin userId, nhưng không cần trả về toàn bộ thông tin user.
+3️⃣ Update (U) - Cập nhật bài viết
+Chỉ admin hoặc chính chủ bài viết mới có quyền chỉnh sửa.
+Khi cập nhật bài post, hệ thống sẽ kiểm tra quyền hạn của người dùng bằng checkPermission().
+Nếu không có quyền, hệ thống sẽ từ chối cập nhật.
+4️⃣ Delete (D) - Xóa bài viết
+Chỉ admin hoặc chính chủ mới có thể xóa post.
+Khi xóa thành công, API sẽ trả về thông báo:
+json
+Sao chép
+Chỉnh sửa
+{
+    "message": "Xóa bài post thành công",
+    "postId": 42
+}
+Nếu không tìm thấy bài viết, trả về lỗi 404 Not Found.
+🛠 Tóm tắt quy tắc CRUD
+Chức năng	Quyền truy cập
+Tạo bài post	Chỉ người dùng đã đăng nhập
+Xem danh sách bài post	Ai cũng có thể xem (không cần đăng nhập)
+Xem chi tiết bài post	Ai cũng có thể xem
+Cập nhật bài post	Chỉ admin hoặc chủ bài viết
+Xóa bài post	Chỉ admin hoặc chủ bài viết
+✅ Kết luận
+Với các quy tắc trên, hệ thống vừa đảm bảo tính bảo mật, vừa giúp người dùng dễ dàng truy cập thông tin mà không cần đăng nhập. Bây giờ, chúng ta có thể bắt tay vào code để hoàn thiện các chức năng CRUD cho bài Post! 🚀

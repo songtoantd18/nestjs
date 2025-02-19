@@ -23,8 +23,17 @@ export class PostService {
     console.log('đây là get all posts');
     return this.postsRepository.find();
   }
-  getPostById(id: number) {
-    return this.postsRepository.findOneBy({ id });
+  async getPostById(id: number) {
+    console.log(
+      '🚀 ~11111111111111111111111 PostService ~ getPostById ~ id:',
+      id,
+    );
+    let postById = await this.postsRepository.findOneBy({ id });
+    console.log('🚀 ~ PostService ~ getPostById ~ postById:', postById);
+    if (!postById) {
+      throw new NotFoundException(`Post not found with this ${id}`);
+    }
+    return postById;
   }
 
   async updatePost(id: number, requestBody: UpdatePostDto, currentUser: User) {
@@ -41,6 +50,7 @@ export class PostService {
     if (!postById) {
       throw new NotFoundException(`Post not found with this ${id}`);
     }
+
     postById = { ...postById, ...requestBody };
     Permission.checkPermission(postById.user.id, currentUser);
     // chỉnh ở đây lấy userid so sánh có được phép cấp quyền để edit chứ eneus k có thì ai cũng có thể xóa hay edit thì k được sai logic

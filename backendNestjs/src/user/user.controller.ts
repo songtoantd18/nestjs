@@ -45,14 +45,14 @@ export class UserController {
     return this.UserService.createUser(requestBody);
   }
   @Get('/curent-user')
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   getCurrentUser(@CurrentUser() currentUser) {
     return currentUser;
   }
 
   @Get('')
-  @UseGuards(new RoleGuard(['admin', 'user']))
-  @UseGuards(AuthGuard)
+  // @UseGuards(new RoleGuard(['admin', 'user']))
+  // @UseGuards(AuthGuard)
   getAllUser() {
     console.log('đây là getAllUser');
     return this.UserService.findAll();
@@ -77,7 +77,7 @@ export class UserController {
   }
   @Delete('/:id')
   @UseGuards(new RoleGuard(['admin', 'user', 'moderator']))
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   deleteUserById(@Param('id') id: number) {
     console.log('🚀 ~ UserController ~ deleteUserById ~ id:', id);
     return this.UserService.deleteById(id);

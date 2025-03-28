@@ -7,5 +7,6 @@ export default {
     LOGIN: `${BASE_URL}/user/login`,
     REGISTER: `${BASE_URL}/user/register`,
     CURRENT_USER: `${BASE_URL}/user/curent-user`,
+    SELECT_POST: `${BASE_URL}/post/select`,
   },
 };

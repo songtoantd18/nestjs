@@ -52,7 +52,7 @@
 
 <script>
 import axios from "axios";
-import config from "../config";
+import config from "../ultilies/config";
 
 export default {
   name: "RegisterPage",

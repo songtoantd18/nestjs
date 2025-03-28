@@ -3,14 +3,15 @@ import axios from "axios";
 import LoginPage from "../page/LoginPage.vue";
 import RegisterPage from "../page/RegisterPage.vue";
 import DashboardPage from "../page/dashboardPage.vue";
-import config from "../config";
+import config from "../ultilies/config";
+
 const routes = [
   { path: "/login", component: LoginPage },
   { path: "/register", component: RegisterPage },
   {
     path: "/dashboard",
     component: DashboardPage,
-    meta: { requiresAuth: true }, // route này cần login
+    meta: { requiresAuth: true }, // cần đăng nhập
   },
   { path: "/", redirect: "/login" },
 ];
@@ -20,7 +21,7 @@ const router = createRouter({
   routes,
 });
 
-// ✅ Hàm kiểm tra token có hợp lệ không
+// ✅ Hàm kiểm tra token hợp lệ không
 async function isTokenValid() {
   const token = localStorage.getItem("accessToken");
   if (!token) return false;
@@ -31,27 +32,28 @@ async function isTokenValid() {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("🚀 ~ isTokenValid ~ response:", response);
 
-    // Nếu có user trả về => token hợp lệ
-    return !!response.data;
+    localStorage.setItem("responseData", JSON.stringify(response.data));
+    return true;
   } catch (error) {
-    console.error("Token không hợp lệ hoặc hết hạn:", error.response?.status);
+    console.error("❌ Token không hợp lệ:", error.response?.status);
     return false;
   }
 }
 
-// ✅ Navigation Guard
+// ✅ Navigation Guard hoàn chỉnh
 router.beforeEach(async (to, from, next) => {
-  if (to.meta.requiresAuth) {
-    const valid = await isTokenValid();
+  const token = localStorage.getItem("accessToken");
+  const isLoggedIn = token && (await isTokenValid());
 
-    if (!valid) {
-      next("/login");
-    } else {
-      next();
-    }
+  if (to.meta.requiresAuth && !isLoggedIn) {
+    // Chưa đăng nhập mà vào route yêu cầu auth
+    next("/login");
+  } else if ((to.path === "/login" || to.path === "/register") && isLoggedIn) {
+    // Đã đăng nhập mà vào login/register
+    next("/dashboard");
   } else {
+    // Cho phép đi tiếp
     next();
   }
 });

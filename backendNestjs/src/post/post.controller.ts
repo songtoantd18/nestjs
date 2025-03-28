@@ -8,6 +8,7 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Query,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -17,6 +18,7 @@ import { CurrentUser } from 'src/user/decorate/user.decorator';
 import { AuthGuard } from 'src/user/guards/auth.guard';
 import { User } from 'src/user/user.entity';
 import { UpdatePostDto } from './dto/updatePost.dto';
+import { SelectPostDto } from './dto/select-post.dto';
 
 @Controller('post')
 @UseInterceptors(ClassSerializerInterceptor)
@@ -34,6 +36,13 @@ export class PostController {
   ) {
     return this.postService.createPost(requestBody, currentUser);
   }
+  /////////////////////////////
+  @Get('/select')
+  @UseGuards(AuthGuard)
+  async selectPost(@Query() dto: SelectPostDto) {
+    return this.postService.selectPosts(dto);
+  }
+
   @Get('/all')
   findAllPosts() {
     return this.postService.getAllPosts();
@@ -43,6 +52,13 @@ export class PostController {
     console.log('🚀 ~ PostController ~ findPostById ~ id:', id);
     return this.postService.getPostById(id);
   }
+  @Get('/allposts/:id')
+  findAllPostsById(@Param('id', ParseIntPipe) id: number) {
+    console.log('đây là find all posts byid');
+    return this.postService.getAllPostsByUserId(id);
+  }
+
+  ////////////////////////////////////////
 
   @Put('/:id')
   @UseGuards(AuthGuard)
@@ -63,6 +79,6 @@ export class PostController {
     @Param('id', ParseIntPipe) id: number,
     @CurrentUser() currentUser: User,
   ) {
-    return this.postService.deletePost(id,currentUser);
+    return this.postService.deletePost(id, currentUser);
   }
 }

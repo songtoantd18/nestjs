@@ -52,6 +52,7 @@
 
 <script>
 import axios from "axios";
+import config from "../config";
 
 export default {
   name: "RegisterPage",
@@ -75,7 +76,7 @@ export default {
       };
 
       try {
-        const response = await axios.post("http://localhost:3000/user/register", registerData);
+        const response = await axios.post(config.API.REGISTER, registerData);
         const result = response.data;
 
         if (result.accessToken) {

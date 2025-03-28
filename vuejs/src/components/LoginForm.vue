@@ -40,6 +40,7 @@
 
 <script>
 import axios from "axios";
+import config from "../config";
 export default {
   data() {
     return {
@@ -59,7 +60,7 @@ export default {
       };
 
       try {
-        const response = await axios.post("http://localhost:3000/user/login", loginData);
+        const response = await axios.post(config.API.LOGIN, loginData);
         console.log("🚀 ~ doLogin ~ response:", response);
         const result = response.data;
         console.log("Login successful:", result);

@@ -5,10 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/user.entity';
 import { UserModule } from './user/user.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { PostController } from './post/post.controller';
-import { PostService } from './post/post.service';
 import { PostModule } from './post/post.module';
 import { Post } from './post/post.entity';
+import { CommentModule } from './comment/comment.module';
+import { Comment } from './comment/comment.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -31,7 +31,7 @@ import { Post } from './post/post.entity';
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_DATABASE'),
-          entities: [User, Post],
+          entities: [User, Post, Comment],
           synchronize: true,
         };
       },
@@ -41,6 +41,8 @@ import { Post } from './post/post.entity';
     UserModule,
 
     PostModule,
+
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

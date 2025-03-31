@@ -23,7 +23,6 @@ import { AuthGuard } from './guards/auth.guard';
 import { RegisterUserDto } from './dtos/registerUser.dto';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from './dtos/LoginUser.dto';
-import { request } from 'http';
 import { CurrentUser } from './decorate/user.decorator';
 import { RoleGuard } from './guards/role.auth';
 import { User } from './user.entity';

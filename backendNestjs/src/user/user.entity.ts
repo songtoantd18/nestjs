@@ -1,6 +1,7 @@
 import { Exclude } from 'class-transformer';
 import { Post } from 'src/post/post.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Comment } from '../comment/comment.entity';
 
 export enum roles {
   admin = 'admin',
@@ -39,4 +40,6 @@ export class User {
     },
   )
   posts: Post[];
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments: Comment[];
 }

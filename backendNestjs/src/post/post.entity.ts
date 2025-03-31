@@ -8,7 +8,9 @@ import {
   UpdateDateColumn,
   DeleteDateColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
+import { Comment } from '../comment/comment.entity';
 
 @Entity()
 export class Post {
@@ -30,10 +32,6 @@ export class Post {
   @ManyToOne(() => User, (user) => user.posts, { eager: true })
   user: User;
 
-  // @ManyToOne(() => User, (user) => user.posts)
-  // @Transform(({ obj }) => ({
-  //   id: obj.user.id,
-  //   email: obj.user.email,
-  // }))
-  // user: { id: number; email: string };
+  @OneToMany(() => Comment, (comment) => comment.post)
+  comments: Comment[];
 }

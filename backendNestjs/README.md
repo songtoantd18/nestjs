@@ -389,16 +389,40 @@ json
 Sao chép
 Chỉnh sửa
 {
-    "message": "Xóa bài post thành công",
-    "postId": 42
+"message": "Xóa bài post thành công",
+"postId": 42
 }
 Nếu không tìm thấy bài viết, trả về lỗi 404 Not Found.
 🛠 Tóm tắt quy tắc CRUD
-Chức năng	Quyền truy cập
-Tạo bài post	Chỉ người dùng đã đăng nhập
-Xem danh sách bài post	Ai cũng có thể xem (không cần đăng nhập)
-Xem chi tiết bài post	Ai cũng có thể xem
-Cập nhật bài post	Chỉ admin hoặc chủ bài viết
-Xóa bài post	Chỉ admin hoặc chủ bài viết
+Chức năng Quyền truy cập
+Tạo bài post Chỉ người dùng đã đăng nhập
+Xem danh sách bài post Ai cũng có thể xem (không cần đăng nhập)
+Xem chi tiết bài post Ai cũng có thể xem
+Cập nhật bài post Chỉ admin hoặc chủ bài viết
+Xóa bài post Chỉ admin hoặc chủ bài viết
 ✅ Kết luận
 Với các quy tắc trên, hệ thống vừa đảm bảo tính bảo mật, vừa giúp người dùng dễ dàng truy cập thông tin mà không cần đăng nhập. Bây giờ, chúng ta có thể bắt tay vào code để hoàn thiện các chức năng CRUD cho bài Post! 🚀
+
+tạo module commnet có chức năng như sau , mỗi user có nhiều bài post mỗi bài post có nhiều comment thì mối quan hệ trong entity là one to many
+Đúng rồi! Mối quan hệ trong entity sẽ như sau:
+
+Tóm lại cả hai chiều:
+User - Post:
+
+Một User có nhiều Post (One-to-Many).
+
+Một Post chỉ có một User (Many-to-One).
+
+Post - Comment:
+
+Một Post có nhiều Comment (One-to-Many).
+
+Một Comment chỉ thuộc về một Post (Many-to-One).
+
+User - Comment:
+
+Một User có thể viết nhiều Comment (One-to-Many).
+
+Một Comment chỉ có một User viết (Many-to-One).
+
+Như vậy, mỗi quan hệ One-to-Many luôn có chiều ngược lại là Many-to-One. 🚀

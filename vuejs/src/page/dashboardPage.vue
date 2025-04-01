@@ -13,7 +13,7 @@
             <th>Mô tả</th>
             <th>Ngày tạo</th>
             <th>Ngày cập nhật</th>
-            <th>User ID</th>
+            <th>Comment</th>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +23,9 @@
             <td>{{ post.description }}</td>
             <td>{{ formatDate(post.created_at) }}</td>
             <td>{{ formatDate(post.updated_at) }}</td>
-            <td>{{ post.userId }}</td>
+            <td>
+              <button @click="showComment(post.id)">chi tiết</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -31,7 +33,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import { fetchData } from "../ultilies/apiHelper";
 import config from "../ultilies/config";
 export default {
   data() {
@@ -40,6 +42,10 @@ export default {
     };
   },
   methods: {
+    async showComment(postId) {
+      console.log("🚀 ~ showComment ~ postId:", postId);
+      this.$router.push(`/comment/${postId}`);
+    },
     formatDate(dateString) {
       if (!dateString) return "";
       try {
@@ -58,34 +64,15 @@ export default {
       localStorage.removeItem("responseData");
       this.$router.push("/login");
     },
+
     async LoadData() {
-      try {
-        const responseData = JSON.parse(localStorage.getItem("responseData") || "{}");
-        const token = localStorage.getItem("accessToken");
-        // Define the columns array
-        // const columns = ["id", "title", "description"];
-        const columns = [];
-        // Create conditions object
-        const conditions = { userId: responseData.id || 53 }; // Using 53 as fallback if responseData.id is undefined
+      const responseData = JSON.parse(localStorage.getItem("responseData") || "{}");
 
-        console.log("🚀 ~ LoadData ~ responseData:", responseData);
-
-        // Construct the URL with query parameters
-        const url = `${config.API.SELECT_POST}?columns=${encodeURIComponent(
-          JSON.stringify(columns)
-        )}&conditions=${encodeURIComponent(JSON.stringify(conditions))}`;
-        console.log("🚀 ~ LoadData ~ url:", url);
-
-        const response = await axios.get(url, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        this.dataZ = response.data;
-        console.log("🚀 ~ LoadData ~ this.dataZ:", this.dataZ);
-      } catch (error) {
-        console.error("Error in LoadData:", error);
-      }
+      this.dataZ = await fetchData({
+        apiUrl: config.API.SELECT_POST,
+        columns: [],
+        conditions: { userId: responseData.id },
+      });
     },
   },
   computed: {},

@@ -4,9 +4,12 @@ import LoginPage from "../page/LoginPage.vue";
 import RegisterPage from "../page/RegisterPage.vue";
 import DashboardPage from "../page/dashboardPage.vue";
 import config from "../ultilies/config";
+import CommentPage from "../page/commentPage.vue";
 
 const routes = [
   { path: "/login", component: LoginPage },
+  { path: "/comment/:postId", component: CommentPage },
+
   { path: "/register", component: RegisterPage },
   {
     path: "/dashboard",

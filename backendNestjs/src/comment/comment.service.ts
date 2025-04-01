@@ -41,7 +41,24 @@ export class CommentService {
   async findAllByPost(postId: number): Promise<Comment[]> {
     return this.commentRepository.find({
       where: { post: { id: postId } },
+      select: {
+        id: true,
+        content: true,
+        created_at: true,
+        user: {
+          id: true,
+          email: true,
+          firstName: true,
+          lastName: true,
+        },
+        post: {
+          title: true,
+        },
+      },
       relations: ['user', 'post'],
+      order: {
+        created_at: 'DESC',
+      },
     });
   }
 }

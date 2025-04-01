@@ -23,6 +23,7 @@ export class CommentController {
   }
 
   @Get('post/:postId')
+  @UseGuards(AuthGuard)
   findAllByPost(@Param('postId') postId: number) {
     return this.commentService.findAllByPost(postId);
   }

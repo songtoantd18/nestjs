@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
+import { roles } from './user.entity';
 import { Not, Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/createUser.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
@@ -29,6 +30,16 @@ export class UserService {
     console.log('đây là find all tất cả value');
     return this.usersRepository.find();
   }
+  async findAllByAdmin() {
+    const users = await this.usersRepository.find({
+      where: { role: roles.user },
+    });
+
+    console.log('đây là find all tất cả value', users.length);
+
+    return users;
+  }
+
   async findById(id: number) {
     const user = await this.usersRepository.findOneBy({ id });
     console.log('🚀 ~ UserService ~ findById ~ user:', user);

@@ -4,10 +4,12 @@
       <div class="card-header bg-primary text-white">
         <h2 class="mb-0">Đây là trang bình luận của bài viết</h2>
       </div>
+
       <div class="card-body">
-        <h3 v-if="titleComment.length" class="text-success">
+        <h3 v-if="titleComment && titleComment.title" class="text-success">
           {{ titleComment.title }}
         </h3>
+
         <h3 v-else class="text-warning">Đang tải dữ liệu...</h3>
 
         <!-- Form tạo bình luận -->
@@ -64,10 +66,21 @@ export default {
     async loadTitleComment() {
       console.log("🚀 ~ LoadComment ~ postId:", this.postId);
 
-      this.titleComment = await fetchData({
-        apiUrl: `${config.API.TITLE_COMMENT}/${this.postId}`,
-      });
-      console.log("🚀 ~ loadTitleComment ~ this.titleComment:", this.titleComment);
+      try {
+        const response = await fetchData({
+          apiUrl: `${config.API.TITLE_COMMENT}/${this.postId}`,
+        });
+
+        if (response && response.title) {
+          this.titleComment = response; // Gán dữ liệu trả về vào titleComment
+        } else {
+          this.titleComment = {}; // Nếu không có title, gán là đối tượng rỗng
+        }
+        console.log("🚀 ~ loadTitleComment ~ this.titleComment:", this.titleComment);
+      } catch (error) {
+        console.error("Lỗi khi tải tiêu đề bình luận:", error);
+        this.titleComment = {}; // Xử lý khi có lỗi
+      }
     },
     async LoadComment() {
       console.log("🚀 ~ LoadComment ~ postId:", this.postId);

@@ -8,6 +8,7 @@ export default {
     REGISTER: `${BASE_URL}/user/register`,
     CURRENT_USER: `${BASE_URL}/user/curent-user`,
     SELECT_POST: `${BASE_URL}/post/select`,
+    CREATE_POST: `${BASE_URL}/post`,
     SELECT_COMMENT: `${BASE_URL}/comment/post`,
     CREATE_COMMENT: `${BASE_URL}/comment`,
     TITLE_COMMENT: `${BASE_URL}/post`,

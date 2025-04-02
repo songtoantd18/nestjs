@@ -56,6 +56,13 @@ export class UserController {
     console.log('đây là getAllUser');
     return this.UserService.findAll();
   }
+  @Get('/demo')
+  @UseGuards(new RoleGuard(['admin']))
+  @UseGuards(AuthGuard)
+  getAllUserByRoleAdmin() {
+    console.log('đây là getAllUser');
+    return this.UserService.findAllByAdmin();
+  }
   @Get('/:id')
   @UseGuards(AuthGuard)
   getUserById(@Param('id', ParseIntPipe) id: number) {

@@ -35,10 +35,10 @@
           <input v-model="lastName" type="text" class="form-control" placeholder="Họ" />
         </div>
 
-        <div class="form-group mb-4">
+        <!-- <div class="form-group mb-4">
           <label>Role</label>
           <input v-model="roleUser" type="text" class="form-control" placeholder="user / admin" />
-        </div>
+        </div> -->
 
         <button type="submit" class="btn btn-primary w-100">Đăng ký</button>
 
@@ -62,7 +62,7 @@ export default {
       passwordRegister: "",
       firstName: "",
       lastName: "",
-      roleUser: "",
+      // roleUser: "",
     };
   },
   methods: {
@@ -72,7 +72,7 @@ export default {
         password: this.passwordRegister,
         firstName: this.firstName,
         lastName: this.lastName,
-        role: this.roleUser,
+        // role: this.roleUser,
       };
 
       try {
@@ -82,13 +82,13 @@ export default {
         if (result.accessToken) {
           localStorage.setItem("accessToken", result.accessToken);
           alert(result.msg || "Đăng ký thành công!");
-          this.$router.push("/dashboard");
+          this.$router.push("/login");
         } else {
           alert("Đăng ký không thành công!");
         }
       } catch (error) {
         console.error("Đăng ký thất bại:", error.response?.data || error);
-        alert("Đăng ký thất bại. Vui lòng thử lại!");
+        alert(`Đăng ký thất bại. Vui lòng thử lại! ${error.response.data.message}`);
       }
     },
   },

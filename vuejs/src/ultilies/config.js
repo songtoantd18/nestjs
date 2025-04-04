@@ -1,5 +1,5 @@
 // src/config.js
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://nestjs-x204.onrender.com/";
 
 export default {
   BASE_URL,
@@ -15,6 +15,5 @@ export default {
     SHOW_ALL_USER: `${BASE_URL}/user/select`,
     SHOW_ALL_POST: `${BASE_URL}/post/all`,
     SHOW_ALL_COMMENT: `${BASE_URL}/comment/all`,
-
   },
 };

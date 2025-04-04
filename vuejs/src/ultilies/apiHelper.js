@@ -36,3 +36,28 @@ export async function postData({ apiUrl, data }) {
     return null;
   }
 }
+// src/ultilies/jwtHelper.js
+export function decodeJwt(token) {
+  try {
+    // Kiểm tra token hợp lệ
+    if (!token || typeof token !== "string" || !token.includes(".")) {
+      throw new Error("Token không hợp lệ");
+    }
+
+    // Tách phần payload từ JWT (phần thứ 2)
+    const parts = token.split(".");
+    if (parts.length !== 3) {
+      throw new Error("Token không đúng định dạng JWT");
+    }
+
+    const payloadBase64 = parts[1];
+    const base64 = payloadBase64.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = atob(base64);
+    const decodedPayload = JSON.parse(jsonPayload);
+
+    return decodedPayload;
+  } catch (error) {
+    console.error("Lỗi khi decode JWT:", error.message);
+    return null;
+  }
+}

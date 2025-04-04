@@ -30,17 +30,15 @@ async function isTokenValid() {
   if (!token) return false;
 
   try {
-    const response = await axios.get(config.API.CURRENT_USER, {
+    await axios.get(config.API.CURRENT_USER, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-
-    localStorage.setItem("responseData", JSON.stringify(response.data));
-    return true;
+    return true; // Token hợp lệ nếu request thành công
   } catch (error) {
     console.error("❌ Token không hợp lệ:", error.response?.status);
-    return false;
+    return false; // Token không hợp lệ nếu có lỗi
   }
 }
 

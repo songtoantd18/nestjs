@@ -1,5 +1,5 @@
 // src/config.js
-const BASE_URL = "https://nestjs-x204.onrender.com/";
+const BASE_URL = "https://nestjs-x204.onrender.com";
 
 export default {
   BASE_URL,

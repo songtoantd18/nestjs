@@ -12,6 +12,9 @@ export default {
     SELECT_COMMENT: `${BASE_URL}/comment/post`,
     CREATE_COMMENT: `${BASE_URL}/comment`,
     TITLE_COMMENT: `${BASE_URL}/post`,
+    SHOW_ALL_USER: `${BASE_URL}/user/select`,
+    SHOW_ALL_POST: `${BASE_URL}/post/all`,
+    SHOW_ALL_COMMENT: `${BASE_URL}/comment/all`,
 
   },
 };

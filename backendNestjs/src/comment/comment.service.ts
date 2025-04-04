@@ -6,6 +6,7 @@ import { Post } from '../post/post.entity';
 import { User } from '../user/user.entity';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { CommentResponseDto } from './dto/comment-response.dto';
+import { ShowAllCommentDto } from './dto/showAllComment.dto';
 @Injectable()
 export class CommentService {
   constructor(
@@ -60,5 +61,19 @@ export class CommentService {
         created_at: 'DESC',
       },
     });
+  }
+
+  async findAll(): Promise<ShowAllCommentDto[]> {
+    // Chỉ lấy các trường id, content, postId, userId
+    const comments = await this.commentRepository.find({
+      relations: ['post', 'user'],
+    });
+
+    return comments.map((comment) => ({
+      id: comment.id,
+      content: comment.content,
+      postId: comment.post.id,
+      userId: comment.user.id,
+    }));
   }
 }

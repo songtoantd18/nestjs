@@ -29,7 +29,7 @@ export class Post {
   @UpdateDateColumn()
   updated_at: Date; // Last updated date
 
-  @ManyToOne(() => User, (user) => user.posts, { eager: true })
+  @ManyToOne(() => User, (user) => user.id, { eager: true })
   user: User;
 
   @OneToMany(() => Comment, (comment) => comment.post)

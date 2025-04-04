@@ -45,6 +45,7 @@ export class PostController {
 
   @Get('/all')
   findAllPosts() {
+    console.log('đây là find all posts');
     return this.postService.getAllPosts();
   }
   @Get('/:id')

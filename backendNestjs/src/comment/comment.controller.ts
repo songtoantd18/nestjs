@@ -4,6 +4,7 @@ import { CreateCommentDto } from './dto/create-comment.dto';
 import { CurrentUser } from '../user/decorate/user.decorator';
 import { User } from '../user/user.entity';
 import { AuthGuard } from '../user/guards/auth.guard';
+import { ShowAllCommentDto } from './dto/showAllComment.dto';
 
 @Controller('comment')
 export class CommentController {
@@ -26,5 +27,10 @@ export class CommentController {
   @UseGuards(AuthGuard)
   findAllByPost(@Param('postId') postId: number) {
     return this.commentService.findAllByPost(postId);
+  }
+  @Get('all')
+  @UseGuards(AuthGuard)
+  showAllComment(): Promise<ShowAllCommentDto[]> {
+    return this.commentService.findAll();
   }
 }

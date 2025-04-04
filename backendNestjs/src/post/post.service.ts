@@ -25,9 +25,20 @@ export class PostService {
     post.user = currentUser;
     return this.postsRepository.save(post);
   }
-  getAllPosts() {
+  async getAllPosts() {
     console.log('đây là get all posts');
-    return this.postsRepository.find();
+    const posts = await this.postsRepository.find({
+      relations: ['user'], // Lấy mối quan hệ với bảng User
+    });
+
+    return posts.map((post) => ({
+      id: post.id,
+      title: post.title,
+      description: post.description,
+      created_at: post.created_at,
+      updated_at: post.updated_at,
+      userId: post.user.id, // Thay vì trả về toàn bộ thông tin user, chỉ lấy userId
+    }));
   }
   async getPostById(id: number) {
     console.log(

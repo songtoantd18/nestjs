@@ -35,7 +35,7 @@ export class User {
   @OneToMany(
     () => Post,
     (post) => {
-      console.log('🚀 ~ User ~ post:', post);
+      console.log('🚀 ~ User ~ post:1111111', post.user);
       return post.user;
     },
   )

@@ -1,18 +1,24 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { roles } from './user.entity';
-import { Not, Repository } from 'typeorm';
+import { Not, Repository, DataSource } from 'typeorm';
 import { CreateUserDto } from './dtos/createUser.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
 import { RegisterUserDto } from './dtos/registerUser.dto';
 import * as bcrypt from 'bcrypt';
 import { Permission } from 'src/helper/checkPermission.helper';
+import { SelectUserDto } from './dtos/SelectUser.dto';
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
+    private dataSource: DataSource,
   ) {}
   getUser() {
     console.log('đây là userservice2');
@@ -86,5 +92,35 @@ export class UserService {
   async findByEmail(email: string) {
     console.log('🚀 ~ UserService ~ findOneByEmail ~ email:', email);
     return this.usersRepository.findOneBy({ email });
+  }
+
+  async selectUser(dto: SelectUserDto) {
+    let { conditions, columns } = dto;
+    console.log('🚀 ~ UserService ~ selectUser ~ dto:', dto);
+
+    // Parse columns nếu là string
+    if (typeof columns === 'string') {
+      try {
+        columns = JSON.parse(columns);
+      } catch (e) {
+        throw new BadRequestException('columns phải là một mảng JSON');
+      }
+    }
+
+    // Tương tự với conditions
+    const whereObj = conditions ? JSON.parse(conditions) : {};
+
+    const columnStr = columns && columns.length > 0 ? columns.join(', ') : '*';
+
+    const qb = this.dataSource
+      .createQueryBuilder()
+      .select(columnStr)
+      .from(User, 'user');
+
+    Object.entries(whereObj).forEach(([key, value], index) => {
+      qb.andWhere(`user.${key} = :value${index}`, { [`value${index}`]: value });
+    });
+
+    return qb.getRawMany();
   }
 }

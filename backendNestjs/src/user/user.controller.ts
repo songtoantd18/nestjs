@@ -26,6 +26,7 @@ import { LoginUserDto } from './dtos/LoginUser.dto';
 import { CurrentUser } from './decorate/user.decorator';
 import { RoleGuard } from './guards/role.auth';
 import { User } from './user.entity';
+import { SelectUserDto } from './dtos/SelectUser.dto';
 @UseInterceptors(ClassSerializerInterceptor)
 @UseInterceptors(LoggingInterceptor)
 @Controller('user')
@@ -56,13 +57,14 @@ export class UserController {
     console.log('đây là getAllUser');
     return this.UserService.findAll();
   }
-  @Get('/demo')
+
   @UseGuards(new RoleGuard(['admin']))
+  @Get('/select')
   @UseGuards(AuthGuard)
-  getAllUserByRoleAdmin() {
-    console.log('đây là getAllUser');
-    return this.UserService.findAllByAdmin();
+  async selectPost(@Query() dto: SelectUserDto) {
+    return this.UserService.selectUser(dto);
   }
+
   @Get('/:id')
   @UseGuards(AuthGuard)
   getUserById(@Param('id', ParseIntPipe) id: number) {

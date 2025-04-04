@@ -7,7 +7,8 @@ async function bootstrap() {
 
   // ✅ Bật CORS ở đây
   app.enableCors({
-    origin: 'http://localhost:8080', // Gốc của frontend Vue
+    origin: 'https://managerwork.vercel.app', // Chỉ cho phép origin này
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Các phương thức được phép
     credentials: true, // Cho phép gửi cookie (nếu cần)
   });
 

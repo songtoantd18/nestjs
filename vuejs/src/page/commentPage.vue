@@ -1,49 +1,70 @@
 <template>
   <div class="container mt-4">
     <div class="card">
+      <!-- Header -->
       <div class="card-header bg-primary text-white">
-        <h2 class="mb-0">Đây là trang bình luận của bài viết</h2>
+        <h2 class="mb-0">Bình luận bài viết</h2>
       </div>
 
       <div class="card-body">
-        <h3 v-if="titleComment && titleComment.title" class="text-success">
-          {{ titleComment.title }}
-        </h3>
+        <!-- Post Title -->
+        <div class="mb-4">
+          <h3 v-if="postTitle" class="text-success">
+            {{ postTitle }}
+          </h3>
+          <h3 v-else class="text-warning">Đang tải dữ liệu...</h3>
+        </div>
 
-        <h3 v-else class="text-warning">Đang tải dữ liệu...</h3>
-
-        <!-- Form tạo bình luận -->
-        <form @submit.prevent="createComment">
+        <!-- Comment Form -->
+        <form @submit.prevent="handleSubmitComment" class="mb-4">
           <div class="mb-3">
             <label class="form-label">Viết bình luận</label>
             <textarea
-              v-model="newComment"
+              v-model="commentContent"
               class="form-control"
               rows="3"
               placeholder="Nhập bình luận của bạn..."
+              :disabled="isSubmitting"
             ></textarea>
           </div>
-          <button type="submit" class="btn btn-success">Gửi</button>
+          <button type="submit" class="btn btn-success" :disabled="isSubmitting">
+            {{ isSubmitting ? "Đang gửi..." : "Gửi bình luận" }}
+          </button>
         </form>
 
-        <ul v-if="dataComment.length" class="list-group mt-3">
-          <li
-            v-for="(comment, index) in dataComment.slice().reverse()"
-            :key="comment.id"
-            class="list-group-item"
-          >
-            <div class="d-flex align-items-center">
-              <div class="flex-grow-1">
-                <h5 class="mb-1 text-primary">
-                  #{{ index + 1 }} - {{ comment.user.email }} ---{{ comment.user.lastName }}
-                </h5>
-                <p class="mb-1">{{ comment.content }}</p>
-                <small class="text-muted">Ngày tạo: {{ formatDate(comment.created_at) }}</small>
-              </div>
+        <!-- Comments List -->
+        <div class="comments-section">
+          <h4 class="mb-3">Danh sách bình luận</h4>
+
+          <div v-if="isLoading" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Đang tải...</span>
             </div>
-          </li>
-        </ul>
-        <p v-else class="text-danger mt-3">Không có bình luận nào.</p>
+          </div>
+
+          <ul v-else-if="comments.length" class="list-group">
+            <li
+              v-for="(comment, index) in sortedComments"
+              :key="comment.id"
+              class="list-group-item"
+            >
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1">
+                  <h5 class="mb-1 text-primary">
+                    #{{ comments.length - index }} - {{ comment.user.email }}
+                    <span class="text-muted">({{ comment.user.lastName }})</span>
+                  </h5>
+                  <p class="mb-1">{{ comment.content }}</p>
+                  <small class="text-muted">
+                    {{ formatDate(comment.created_at) }}
+                  </small>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <p v-else class="text-muted">Chưa có bình luận nào. Hãy là người đầu tiên bình luận!</p>
+        </div>
       </div>
     </div>
   </div>
@@ -54,77 +75,103 @@ import { fetchData, postData } from "../ultilies/apiHelper";
 import config from "../ultilies/config";
 
 export default {
+  name: "CommentPage",
+
   data() {
     return {
       postId: "",
-      dataComment: "",
-      newComment: "", // Lưu nội dung comment mới
-      titleComment: "",
+      comments: [],
+      commentContent: "",
+      postTitle: "",
+      isLoading: true,
+      isSubmitting: false,
     };
   },
-  methods: {
-    async loadTitleComment() {
-      console.log("🚀 ~ LoadComment ~ postId:", this.postId);
 
+  computed: {
+    sortedComments() {
+      return [...this.comments].reverse();
+    },
+  },
+
+  methods: {
+    async fetchPostTitle() {
       try {
         const response = await fetchData({
           apiUrl: `${config.API.TITLE_COMMENT}/${this.postId}`,
         });
-
-        if (response && response.title) {
-          this.titleComment = response; // Gán dữ liệu trả về vào titleComment
-        } else {
-          this.titleComment = {}; // Nếu không có title, gán là đối tượng rỗng
-        }
-        console.log("🚀 ~ loadTitleComment ~ this.titleComment:", this.titleComment);
+        this.postTitle = response?.title || "";
       } catch (error) {
-        console.error("Lỗi khi tải tiêu đề bình luận:", error);
-        this.titleComment = {}; // Xử lý khi có lỗi
+        console.error("Lỗi khi tải tiêu đề bài viết:", error);
+        this.postTitle = "";
       }
     },
-    async LoadComment() {
-      console.log("🚀 ~ LoadComment ~ postId:", this.postId);
 
-      this.dataComment = await fetchData({
-        apiUrl: `${config.API.SELECT_COMMENT}/${this.postId}`,
-      });
+    async fetchComments() {
+      this.isLoading = true;
+      try {
+        const response = await fetchData({
+          apiUrl: `${config.API.SELECT_COMMENT}/${this.postId}`,
+        });
+        this.comments = response || [];
+      } catch (error) {
+        console.error("Lỗi khi tải bình luận:", error);
+        this.comments = [];
+      } finally {
+        this.isLoading = false;
+      }
     },
+
     formatDate(dateString) {
-      const date = new Date(dateString);
-      return date.toLocaleString("vi-VN");
+      return new Date(dateString).toLocaleString("vi-VN");
     },
-    async createComment() {
-      if (!this.newComment.trim()) {
-        alert("Bình luận không được để trống!");
+
+    async handleSubmitComment() {
+      if (!this.commentContent.trim()) {
+        alert("Vui lòng nhập nội dung bình luận!");
         return;
       }
 
-      const payload = {
-        content: this.newComment,
-        postId: this.postId,
-      };
-
+      this.isSubmitting = true;
       try {
         const response = await postData({
           apiUrl: config.API.CREATE_COMMENT,
-          data: payload,
+          data: {
+            content: this.commentContent,
+            postId: this.postId,
+          },
         });
-        console.log("🚀 ~ createComment ~ response:", response);
 
         if (response) {
-          this.newComment = ""; // Xóa nội dung trong ô input
-          this.LoadComment(); // Cập nhật lại danh sách bình luận
+          this.commentContent = "";
+          await this.fetchComments();
         }
       } catch (error) {
         console.error("Lỗi khi gửi bình luận:", error);
         alert("Đã xảy ra lỗi khi gửi bình luận!");
+      } finally {
+        this.isSubmitting = false;
       }
     },
   },
-  mounted() {
+
+  async mounted() {
     this.postId = this.$route.params.postId;
-    this.LoadComment();
-    this.loadTitleComment();
+    await Promise.all([this.fetchPostTitle(), this.fetchComments()]);
   },
 };
 </script>
+
+<style scoped>
+.comments-section {
+  margin-top: 2rem;
+}
+
+.list-group-item {
+  transition: background-color 0.2s;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+</style>

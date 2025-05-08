@@ -1,10 +1,14 @@
 function App() {
-  const hobbies = ["eating", "sleeping", "coding"];
-  const index = hobbies.findIndex((item) => {
-    console.log("🚀 ~ hobbies.findIndex ~ item:", item);
-    return item === "sleeping";
-  });
-  console.log("🚀 ~ index ~ index:", index);
+  function transformToObjects(numberArray) {
+    let newValue = numberArray.map((item) => {
+      return { val: item };
+    });
+
+    console.log(newValue);
+    return newValue;
+  }
+  const array = [1, 2, 3];
+  transformToObjects(array);
 
   return <div className="App">xin chào</div>;
 }

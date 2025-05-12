@@ -162,3 +162,80 @@ Viết code ngắn gọn, rõ ràng hơn.
 Dữ liệu Cú pháp Kết quả
 Array [...arr1, ...arr2] Mảng mới, không lồng nhau
 Object {...obj1, ...obj2} Object mới, gộp thuộc tính
+🟨 Giá trị nguyên thủy (Primitive Values)
+Bao gồm: string, number, boolean, null, undefined, symbol, bigint.
+
+Không thể chỉnh sửa giá trị nguyên thủy.
+
+Khi thay đổi, ta đang tạo giá trị mới chứ không phải chỉnh sửa cái cũ.
+
+Ví dụ:
+
+js
+Sao chép
+Chỉnh sửa
+const message = "Hello";
+const newMessage = message.concat(" World"); // tạo chuỗi mới
+🟦 Giá trị tham chiếu (Reference Values)
+Bao gồm: object, array, function.
+
+Khi khai báo một biến chứa đối tượng, biến chỉ lưu địa chỉ (reference) tới vùng nhớ chứa giá trị thực.
+
+Khi thay đổi đối tượng (dùng push, pop, v.v.), là thay đổi giá trị trong bộ nhớ, không thay đổi địa chỉ.
+
+Vì vậy có thể sửa nội dung của một const array:
+
+js
+Sao chép
+Chỉnh sửa
+const hobbies = ['sports', 'cooking'];
+hobbies.push('reading'); // hợp lệ, vì không thay địa chỉ
+✅ Const và tham chiếu
+const không cho gán lại biến, nhưng nếu biến chứa địa chỉ đối tượng, ta vẫn có thể thay đổi nội dung bên trong đối tượng đó.
+
+Không vi phạm nguyên tắc const vì chỉ địa chỉ không thay đổi, còn nội dung ở địa chỉ đó có thể bị chỉnh sửa.
+
+🎯 Tóm gọn
+Giá trị nguyên thủy: bất biến, tạo mới khi thay đổi.
+
+Giá trị tham chiếu: có thể chỉnh sửa nội dung, miễn là không đổi địa chỉ tham chiếu.
+bài 41 :cách reactjs hoạt động
+🔹 1. Thành phần React và hiển thị trên trang web
+Khi truy cập mã nguồn HTML, bạn không thấy nội dung React (tiêu đề, hình ảnh, v.v.).
+
+Chỉ thấy một file JavaScript được nhúng (ví dụ: index.jsx) – đây là file gốc chứa React app.
+
+🔹 2. index.jsx và index.html
+File index.html có một <div id="root"></div>, là nơi React "gắn" toàn bộ giao diện.
+
+File index.jsx dùng ReactDOM.createRoot(...).render(...) để hiển thị App vào div#root.
+
+App lại import các thành phần khác như Header, tạo nên một cây thành phần (component tree).
+
+🔹 3. JSX không phải là HTML
+JSX là cú pháp giống HTML nhưng được chuyển đổi (transpile) thành mã JavaScript.
+
+JSX chỉ chạy được sau khi được biên dịch bởi công cụ như Babel/Vite/Webpack, không phải trực tiếp trong trình duyệt.
+
+🔹 4. Tại sao tên component phải viết hoa
+React phân biệt:
+
+✅ Header → thành phần tùy chỉnh.
+
+❌ header → thẻ HTML gốc.
+
+Viết hoa giúp React xử lý đúng loại (component vs. element) và tránh xung đột tên.
+
+🔹 5. Hiển thị trong trình duyệt
+Khi chạy ứng dụng, React không render component vào DOM, mà chuyển JSX thành thẻ HTML gốc rồi hiển thị.
+
+Vì vậy bạn không thấy component như <App> hay <Header> trong mã HTML thực tế, chỉ thấy <div>, <h1>, v.v.
+
+✅ Kết luận:
+React hoạt động bằng cách:
+
+Đọc và thực thi các component bạn viết (JSX).
+
+Phân tích các thành phần đó thành DOM gốc.
+
+Gắn DOM vào div#root để hiển thị toàn bộ giao diện trên trình duyệt.

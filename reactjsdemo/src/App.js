@@ -1,37 +1,25 @@
 import React, { useState } from "react";
 
 function App() {
+  function handleClick(value) {
+    console.log("🚀 ~ handleClick ~ value:", value);
+  }
+
   return (
     <div id="app">
-      <h1>Available Experts</h1>
-      <Card name="Anthony Blake">
-        <p>Blake is a professor of Computer Science at the University of Illinois.</p>
-        <p>
-          <a href="mailto:blake@example.com">Email Anthony</a>
-        </p>
-      </Card>
-
-      <Card name="Maria Miles">
-        <p>Maria is a professor of Computer Science at the University of Illinois.</p>
-        <p>
-          <a href="mailto:blake@example.com">Email Maria</a>
-        </p>
-      </Card>
+      <TabButton label="demo1" handleClick={() => handleClick("value1")} />
+      <TabButton label="demo2" handleClick={() => handleClick("value2")} />
+      <TabButton label="demo3" handleClick={() => handleClick("value3")} />
     </div>
   );
 }
 
 export default App;
 
-export function Card({ name, children }) {
-  console.log("🚀 ~ Card ~ children:", children);
-  console.log("🚀 ~ Card ~ name:", name);
-  console.log("songtoan123");
-
+function TabButton({ label, handleClick }) {
   return (
-    <div className="card">
-      <h2>{name}</h2>
-      {children}
-    </div>
+    <li>
+      <button onClick={handleClick}>{label}</button>;
+    </li>
   );
 }

@@ -249,3 +249,21 @@ Phần giữa thẻ mở và thẻ đóng <Card>...</Card>:
   <p>Blake is a professor...</p>
   <p><a href="mailto:...">Email</a></p>
 </Card>
+bài 53 cách dùng function component
+✅ Sự khác biệt giữa:
+❌ handleClick={handleClick("value1")}
+Đây là gọi hàm ngay lập tức khi component render lần đầu.
+
+handleClick("value1") được thực thi ngay lập tức, trả về undefined (vì handleClick không return gì).
+
+Sau đó, React gán undefined làm onClick, nên khi bạn click thì… không có gì xảy ra nữa.
+
+✅ handleClick={() => handleClick("value1")}
+Đây là truyền một hàm callback, nghĩa là:
+
+Khi người dùng bấm vào nút (onClick), React mới gọi hàm () => handleClick("value1").
+
+Lúc đó handleClick("value1") mới được thực thi.
+bài 54 : cách sử dụng hook
+1./ chỉ gọi hook ở component function thôi
+2./ chỉ gọi hook ở top level component , Chỉ được gọi Hook ở cấp cao nhất của function component hoặc custom hook, không được gọi trong các điều kiện, vòng lặp, hoặc hàm lồng nhau.

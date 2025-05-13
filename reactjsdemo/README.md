@@ -239,3 +239,13 @@ React hoạt động bằng cách:
 Phân tích các thành phần đó thành DOM gốc.
 
 Gắn DOM vào div#root để hiển thị toàn bộ giao diện trên trình duyệt.
+bài 48 : cách gắn css từng phần vào component
+bài 49 : 2 cách truyền dữ liệu từ cha sang con
+cách 1 tường mình truyền props name :<Card name="Anthony Blake">...</Card>
+cách 2 truyền children
+Phần giữa thẻ mở và thẻ đóng <Card>...</Card>:
+
+<Card name="Anthony Blake">
+  <p>Blake is a professor...</p>
+  <p><a href="mailto:...">Email</a></p>
+</Card>

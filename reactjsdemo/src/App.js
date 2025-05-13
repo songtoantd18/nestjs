@@ -1,36 +1,37 @@
 import React, { useState } from "react";
 
 function App() {
-  const demoValue = ["demo1", "demo2", "demo3", "demo4", "demo5"];
-  const [value, setValue] = useState("");
-  const core_concepts = [
-    { title: "Concept 0", description: "Description 1", image: "image1.jpg" },
-    { title: "Concept 1", description: "Description 2", image: "image2.jpg" },
-    { title: "Concept 2", description: "Description 3", image: "image3.jpg" },
-  ];
-
-  function randomeValue() {
-    const random = Math.floor(Math.random() * demoValue.length);
-    console.log("🚀 ~ randomeValue ~ demoValue[random]:", demoValue[random]);
-    setValue(demoValue[random]); // cập nhật state → React re-render
-  }
-
   return (
-    <div>
-      <CoreConcept {...core_concepts[0]} />
-      <CoreConcept {...core_concepts[1]} />
-      <CoreConcept {...core_concepts[2]} />
+    <div id="app">
+      <h1>Available Experts</h1>
+      <Card name="Anthony Blake">
+        <p>Blake is a professor of Computer Science at the University of Illinois.</p>
+        <p>
+          <a href="mailto:blake@example.com">Email Anthony</a>
+        </p>
+      </Card>
+
+      <Card name="Maria Miles">
+        <p>Maria is a professor of Computer Science at the University of Illinois.</p>
+        <p>
+          <a href="mailto:blake@example.com">Email Maria</a>
+        </p>
+      </Card>
     </div>
   );
 }
 
 export default App;
-function CoreConcept(title, description, image) {
+
+export function Card({ name, children }) {
+  console.log("🚀 ~ Card ~ children:", children);
+  console.log("🚀 ~ Card ~ name:", name);
+  console.log("songtoan123");
+
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <img src={image} alt={title} />
+    <div className="card">
+      <h2>{name}</h2>
+      {children}
     </div>
   );
 }

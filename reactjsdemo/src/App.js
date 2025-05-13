@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
+  const [selectedValue, setSelectedValue] = useState("xin chào");
+  useEffect(() => {
+    console.log("✅ selectedValue đã cập nhật:", selectedValue);
+  }, [selectedValue]);
+
   function handleClick(value) {
-    console.log("🚀 ~ handleClick ~ value:", value);
+    console.log("🚀 ~ App ~ selectedValue:", selectedValue);
+
+    setSelectedValue(value);
+    console.log("🚀 ~ App ~ selectedValue:", selectedValue);
   }
 
   return (
@@ -10,6 +18,8 @@ function App() {
       <TabButton label="demo1" handleClick={() => handleClick("value1")} />
       <TabButton label="demo2" handleClick={() => handleClick("value2")} />
       <TabButton label="demo3" handleClick={() => handleClick("value3")} />
+
+      <div>{selectedValue}</div>
     </div>
   );
 }

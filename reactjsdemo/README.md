@@ -267,3 +267,14 @@ Lúc đó handleClick("value1") mới được thực thi.
 bài 54 : cách sử dụng hook
 1./ chỉ gọi hook ở component function thôi
 2./ chỉ gọi hook ở top level component , Chỉ được gọi Hook ở cấp cao nhất của function component hoặc custom hook, không được gọi trong các điều kiện, vòng lặp, hoặc hàm lồng nhau.
+  function handleClick(value) {
+    console.log("🚀 ~ App ~ selectedValue:", selectedValue);
+
+    setSelectedValue(value);
+    console.log("🚀 ~ App ~ selectedValue:", selectedValue);
+  }
+ chỗ này log ra kết quả giống nhau mặc dù cái sau đã thay đổi là do bất đồng bộ,setSelectedValue(value) không thay đổi giá trị ngay lập tức.
+
+Việc cập nhật state trong React là bất đồng bộ (async) – tức là React sẽ xếp setState vào hàng đợi và cập nhật ở lần render tiếp theo, không phải ngay lúc đó.
+
+Vì vậy, ngay sau khi gọi setSelectedValue(value), biến selectedValue vẫn là giá trị cũ khi in ra.

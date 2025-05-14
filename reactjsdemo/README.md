@@ -278,3 +278,5 @@ bài 54 : cách sử dụng hook
 Việc cập nhật state trong React là bất đồng bộ (async) – tức là React sẽ xếp setState vào hàng đợi và cập nhật ở lần render tiếp theo, không phải ngay lúc đó.
 
 Vì vậy, ngay sau khi gọi setSelectedValue(value), biến selectedValue vẫn là giá trị cũ khi in ra.
+
+bài 56 cách dùng useState

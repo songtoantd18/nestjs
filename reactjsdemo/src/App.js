@@ -1,35 +1,26 @@
 import React, { useState, useEffect } from "react";
+// import data from "./data";
+import "../src/index.css";
 
 function App() {
-  const [selectedValue, setSelectedValue] = useState("xin chào");
-  useEffect(() => {
-    console.log("✅ selectedValue đã cập nhật:", selectedValue);
-  }, [selectedValue]);
+  const [showWarning, setShowWarning] = React.useState(false);
 
-  function handleClick(value) {
-    console.log("🚀 ~ App ~ selectedValue:", selectedValue);
-
-    setSelectedValue(value);
-    console.log("🚀 ~ App ~ selectedValue:", selectedValue);
+  let warningBox = null;
+  if (showWarning) {
+    warningBox = (
+      <div data-testid="alert" id="alert">
+        <h2>Are you sure?</h2>
+        <p>These changes can't be reverted!</p>
+        <button onClick={() => setShowWarning(false)}>Proceed</button>
+      </div>
+    );
   }
 
   return (
-    <div id="app">
-      <TabButton label="demo1" handleClick={() => handleClick("value1")} />
-      <TabButton label="demo2" handleClick={() => handleClick("value2")} />
-      <TabButton label="demo3" handleClick={() => handleClick("value3")} />
-
-      <div>{selectedValue}</div>
+    <div>
+      {warningBox}
+      <button onClick={() => setShowWarning(true)}>Delete</button>
     </div>
   );
 }
-
 export default App;
-
-function TabButton({ label, handleClick }) {
-  return (
-    <li>
-      <button onClick={handleClick}>{label}</button>;
-    </li>
-  );
-}

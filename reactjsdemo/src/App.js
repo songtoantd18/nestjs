@@ -3,24 +3,18 @@ import React, { useState, useEffect } from "react";
 import "../src/index.css";
 
 function App() {
-  const [showWarning, setShowWarning] = React.useState(false);
-
-  let warningBox = null;
-  if (showWarning) {
-    warningBox = (
-      <div data-testid="alert" id="alert">
-        <h2>Are you sure?</h2>
-        <p>These changes can't be reverted!</p>
-        <button onClick={() => setShowWarning(false)}>Proceed</button>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      {warningBox}
-      <button onClick={() => setShowWarning(true)}>Delete</button>
-    </div>
-  );
+  const DUMMY_TODOS = ["Learn React", "Practice React", "Profit!"];
+  console.log("🚀 ~ App ~ DUMMY_TODOS:", DUMMY_TODOS);
+  return DUMMY_TODOS.map((todo, index) => {
+    console.log("🚀 ~ returnDUMMY_TODOS.map ~ index:", index);
+    console.log("🚀 ~ returnDUMMY_TODOS.map ~ todo:", todo);
+    return <Todo key={index} title={todo} />;
+  });
 }
 export default App;
+export function Todo({ title }) {
+  return <div>{title}</div>;
+}
+
+
+

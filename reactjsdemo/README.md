@@ -280,3 +280,4 @@ Việc cập nhật state trong React là bất đồng bộ (async) – tức l
 Vì vậy, ngay sau khi gọi setSelectedValue(value), biến selectedValue vẫn là giá trị cũ khi in ra.
 
 bài 56 cách dùng useState
+bài 58 cách dùng  map để render ra component

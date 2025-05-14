@@ -23,5 +23,13 @@ const data = [
     email: "bob@gmail.com",
     phone: "876543210",
   },
+  {
+    id: 4,
+    name: "Alice",
+    age: 30,
+    gender: "female",
+    email: "alice@gmail.com",
+    phone: "123456789",
+  },
 ];
 export default data;

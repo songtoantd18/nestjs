@@ -1,6 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
+
 const data = [
   {
-    id: 1,
+    id: uuidv4(),
     name: "John",
     age: 30,
     gender: "male",
@@ -8,7 +10,7 @@ const data = [
     phone: "123456789",
   },
   {
-    id: 2,
+    id: uuidv4(),
     name: "Jane",
     age: 25,
     gender: "female",
@@ -16,7 +18,7 @@ const data = [
     phone: "987654321",
   },
   {
-    id: 3,
+    id: uuidv4(),
     name: "Bob",
     age: 35,
     gender: "male",
@@ -24,7 +26,7 @@ const data = [
     phone: "876543210",
   },
   {
-    id: 4,
+    id: uuidv4(),
     name: "Alice",
     age: 30,
     gender: "female",

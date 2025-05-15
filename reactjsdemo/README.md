@@ -281,3 +281,4 @@ Vì vậy, ngay sau khi gọi setSelectedValue(value), biến selectedValue vẫ
 
 bài 56 cách dùng useState
 bài 58 cách dùng  map để render ra component
+bài 69 : bài test chỗ 69 70 cách dùng ...props là truyền từ cha sang con là truyền hết những cái k liệt kê chi tiết gom hết 

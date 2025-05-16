@@ -305,3 +305,5 @@ setEdit(!edit) Dựa vào giá trị edit tại thời điểm render ❌ Không
 setEdit((prev) => !prev); // false → true
 setEdit((prev) => !prev); // true → false ✅ đúng logic toggle 2 lần
 setEdit((edit) => !edit) Dựa vào giá trị mới nhất trong queue ✅ Chính xác tuyệt đối
+bài 82 : tìm hiểu về lifting state up
+note : coi lại bài 82 81

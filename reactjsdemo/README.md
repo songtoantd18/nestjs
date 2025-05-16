@@ -267,18 +267,41 @@ Lúc đó handleClick("value1") mới được thực thi.
 bài 54 : cách sử dụng hook
 1./ chỉ gọi hook ở component function thôi
 2./ chỉ gọi hook ở top level component , Chỉ được gọi Hook ở cấp cao nhất của function component hoặc custom hook, không được gọi trong các điều kiện, vòng lặp, hoặc hàm lồng nhau.
-  function handleClick(value) {
-    console.log("🚀 ~ App ~ selectedValue:", selectedValue);
+function handleClick(value) {
+console.log("🚀 ~ App ~ selectedValue:", selectedValue);
 
     setSelectedValue(value);
     console.log("🚀 ~ App ~ selectedValue:", selectedValue);
-  }
- chỗ này log ra kết quả giống nhau mặc dù cái sau đã thay đổi là do bất đồng bộ,setSelectedValue(value) không thay đổi giá trị ngay lập tức.
+
+}
+chỗ này log ra kết quả giống nhau mặc dù cái sau đã thay đổi là do bất đồng bộ,setSelectedValue(value) không thay đổi giá trị ngay lập tức.
 
 Việc cập nhật state trong React là bất đồng bộ (async) – tức là React sẽ xếp setState vào hàng đợi và cập nhật ở lần render tiếp theo, không phải ngay lúc đó.
 
 Vì vậy, ngay sau khi gọi setSelectedValue(value), biến selectedValue vẫn là giá trị cũ khi in ra.
 
 bài 56 cách dùng useState
-bài 58 cách dùng  map để render ra component
-bài 69 : bài test chỗ 69 70 cách dùng ...props là truyền từ cha sang con là truyền hết những cái k liệt kê chi tiết gom hết 
+bài 58 cách dùng map để render ra component
+bài 69 : bài test chỗ 69 70 cách dùng ...props là truyền từ cha sang con là truyền hết những cái k liệt kê chi tiết gom hết
+bài 61 :
+Nếu dùng trong HTML/CSS trực tiếp → dùng public/. localhost:5173/some-image.jpg
+Nếu dùng trong code JS/TS/Component → dùng src/assets/.
+bài 78 cách dùng useState
+trong useState có
+function handleEdit() {
+setEdit(!edit);
+// setEdit((edit) => !edit);
+console.log("🚀 ~ handleEdit ~ edit1111:", edit);
+// setEdit((edit) => !edit);
+setEdit(!edit);
+
+    console.log("🚀 ~ handleEdit ~ edit222222:", edit);
+
+}
+setEdit(!edit); // nếu edit = false → true
+setEdit(!edit); // vẫn là false → true (không đổi)
+setEdit(!edit) Dựa vào giá trị edit tại thời điểm render ❌ Không chính xác (race condition)
+
+setEdit((prev) => !prev); // false → true
+setEdit((prev) => !prev); // true → false ✅ đúng logic toggle 2 lần
+setEdit((edit) => !edit) Dựa vào giá trị mới nhất trong queue ✅ Chính xác tuyệt đối

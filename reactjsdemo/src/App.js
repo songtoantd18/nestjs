@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../src/index.css";
-// import GameBoard from "./components/GameBoard";
+import GameBoard from "./components/GameBoard";
 
 function App() {
   const [activePlayer, setActivePlayer] = useState("X");

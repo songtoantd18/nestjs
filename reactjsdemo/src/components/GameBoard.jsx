@@ -6,7 +6,7 @@ const initialTable = [
   [null, null, null],
 ];
 
-export default function GameBoard() {
+export default function GameBoard({ onSelectSquare, activePlayerSymbol }) {
   const [valueChosen, setValueChosen] = useState(initialTable);
   //   console.log("🚀 ~ GameBoard ~ initialTable:", initialTable);
   function handleSelected(rowIndex, colIndex) {
@@ -16,22 +16,20 @@ export default function GameBoard() {
       const updateBoard = prev.map((innerArray) => [...innerArray]); // ✔ Gọn, đúng, đủ
       console.log("🚀 ~ setValueChosen ~ updateBoard:", updateBoard);
 
-      updateBoard[rowIndex][colIndex] = "X";
+      updateBoard[rowIndex][colIndex] = activePlayerSymbol;
       return updateBoard;
     });
-    // console.log("🚀 ~ handleSelected ~ initialTable:", initialTable);
+    onSelectSquare();
   }
   return (
     <ol id="game-board">
       {valueChosen.map((row, rowIndex) => {
-        // console.log("🚀 ~ GameBoard ~ row:", row);
-        // console.log("🚀 ~ GameBoard ~ rowIndex:", rowIndex);
+
 
         return (
           <li key={rowIndex} className="board-row">
             {row.map((playerSymbol, colIndex) => {
-              //   console.log("🚀 ~ GameBoard ~ colIndex:", colIndex);
-              //   console.log("🚀 ~ GameBoard ~ playerSymbol:", playerSymbol);
+
               return (
                 <button
                   onClick={() => handleSelected(rowIndex, colIndex)}

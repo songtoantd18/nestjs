@@ -13,3 +13,6 @@
   margin: 4px;
   font-size: 24px;
 }
+#player.highlight-player li.active {
+border : 1px solid red;
+}

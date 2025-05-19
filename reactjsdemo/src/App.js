@@ -1,33 +1,45 @@
 import React, { useState } from "react";
-import data from "./data"; // Import mảng data
 import "../src/index.css";
-import GameBoard from "./components/GameBoard";
+// import GameBoard from "./components/GameBoard";
 
 function App() {
-  const [value, setValue] = useState(false);
-  function handleClick() {
-    setValue(!value);
+  const [activePlayer, setActivePlayer] = useState("X");
+  function handleSelectSquare(player) {
+    console.log("songtoan123-----------------------------------------------");
+    setActivePlayer((curentActivePlayer) => (curentActivePlayer === "X" ? "O" : "X"));
+    console.log("🚀 ~ handleSelectSquare ~ player:", player);
   }
-
+  function testdemo() {
+    // đang test function tạo ở compoent cha sau đó truyền vào component con
+    //  và dùng thử có được không dùng ok nhé , thêm 1 kiến thức mới
+    console.log("demo11111111111111111111111111111111111111111111111111");
+  }
   return (
     <>
-      <div className="App">
-        <h1>{value ? "true" : "false"}</h1>
-        <button onClick={handleClick}>Click me1</button>
-        <button onClick={() => setValue(!value)}>Click me2</button>
-      </div>
       <div>
-        <Player initial="Max" symbol="🐶" />
-        <Player initial="Minh" symbol="🐱" />
+        <ol id="player" className="highlight-player">
+          <Player
+            initial="abvvvvvvssssvvvvvvvvvvvcxyz"
+            symbol="X"
+            isActive={activePlayer === "X"}
+            testdemofunction={testdemo}
+          />
+          <Player
+            testdemofunction={testdemo}
+            initial="Nguyen"
+            symbol="O"
+            isActive={activePlayer === "O"}
+          />
+        </ol>
       </div>
-      <GameBoard />
+      <GameBoard onSelectSquare={handleSelectSquare} activePlayerSymbol={activePlayer} />
     </>
   );
 }
 
 export default App;
 
-export function Player({ initial, symbol }) {
+export function Player({ initial, symbol, isActive, testdemofunction }) {
   const [namePlayer, setNamePlayer] = useState(initial);
   const [edit, setEdit] = useState(false);
   function handleEdit() {
@@ -44,12 +56,13 @@ export function Player({ initial, symbol }) {
   }
   return (
     <div>
-      <li>
-        <span>
+      <li className={isActive ? "active" : undefined}>
+        <span className="player">
           {editPlayerName}
           <span>{symbol}</span>
         </span>
         <button onClick={handleEdit}>{edit ? "Save" : "Edit"}</button>
+        <button onClick={testdemofunction}> test function</button>
       </li>
     </div>
   );

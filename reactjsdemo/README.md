@@ -311,4 +311,20 @@ sự khác nhau giữa underfined và null
 undefined → do JS tự gán khi biến chưa có giá trị.
 
 null → do lập trình viên tự gán, biểu thị giá trị rỗng có chủ đích.
-bài 80 : tạo giao diện của gameboard 
+bài 80 : tạo giao diện của gameboard
+bài 82 : Lifting State Up trong App
+Component cha: App
+
+Component con: Player, GameBoard
+
+State chính: activePlayer (được khai báo trong App)
+
+App truyền:
+
+isActive={activePlayer === "X"} cho Player để hiển thị người chơi đang hoạt động.
+
+activePlayerSymbol={activePlayer} và onSelectSquare={handleSelectSquare} cho GameBoard.
+
+Khi người chơi chọn ô trong GameBoard, hàm onSelectSquare() được gọi → gọi ngược lại handleSelectSquare trong App → cập nhật activePlayer.
+
+✅ Đây là lifting state up: state được quản lý ở cha (App) và chia sẻ cho các component con để đồng bộ hiển thị và cập nhật.

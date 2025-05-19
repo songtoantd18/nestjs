@@ -307,3 +307,8 @@ setEdit((prev) => !prev); // true → false ✅ đúng logic toggle 2 lần
 setEdit((edit) => !edit) Dựa vào giá trị mới nhất trong queue ✅ Chính xác tuyệt đối
 bài 82 : tìm hiểu về lifting state up
 note : coi lại bài 82 81
+sự khác nhau giữa underfined và null
+undefined → do JS tự gán khi biến chưa có giá trị.
+
+null → do lập trình viên tự gán, biểu thị giá trị rỗng có chủ đích.
+bài 80 : tạo giao diện của gameboard 

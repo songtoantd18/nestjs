@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import data from "./data"; // Import mảng data
 import "../src/index.css";
+import GameBoard from "./components/GameBoard";
 
 function App() {
   const [value, setValue] = useState(false);
@@ -19,6 +20,7 @@ function App() {
         <Player initial="Max" symbol="🐶" />
         <Player initial="Minh" symbol="🐱" />
       </div>
+      <GameBoard />
     </>
   );
 }
@@ -41,12 +43,14 @@ export function Player({ initial, symbol }) {
     editPlayerName = <input type="text" onChange={handleChange} value={namePlayer} required />;
   }
   return (
-    <li>
-      <span>
-        {editPlayerName}
-        <span>{symbol}</span>
-      </span>
-      <button onClick={handleEdit}>{edit ? "Save" : "Edit"}</button>
-    </li>
+    <div>
+      <li>
+        <span>
+          {editPlayerName}
+          <span>{symbol}</span>
+        </span>
+        <button onClick={handleEdit}>{edit ? "Save" : "Edit"}</button>
+      </li>
+    </div>
   );
 }

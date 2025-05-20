@@ -325,6 +325,21 @@ isActive={activePlayer === "X"} cho Player để hiển thị người chơi đa
 
 activePlayerSymbol={activePlayer} và onSelectSquare={handleSelectSquare} cho GameBoard.
 
-Khi người chơi chọn ô trong GameBoard, hàm onSelectSquare() được gọi → gọi ngược lại handleSelectSquare trong App → cập nhật activePlayer.
+Khi người chơi chọn ô trong GameBoard, hàm onSelectSquare() trong compoent con được gọi → gọi ngược lại handleSelectSquare trong component cha App → cập nhật activePlayer.
 
 ✅ Đây là lifting state up: state được quản lý ở cha (App) và chia sẻ cho các component con để đồng bộ hiển thị và cập nhật.
+BÀI 85 :Derived State
+Derived State là giá trị được tính toán lại mỗi lần component render, dựa trên các state hoặc props hiện có.
+Nó không được lưu riêng bằng useState mà luôn được tính mới khi dữ liệu gốc thay đổi.
+như trong ví dụ này
+export function GameBoard({ onSelectSquare, turns }) {
+let gameBoard = initialTable;
+for (const turn of turns) {
+console.log("🚀 ~ GameBoard ~ turn:", turn);
+const { square, player } = turn;
+const { row, col } = square;
+gameBoard[row][col] = player;
+console.log("🚀 ~ GameBoard ~ player:", player);
+}
+là mỗi chỗ player là đều render lại để coi thử tới lượt tiếp theo của người nào
+ở đây biến gameturn được truyền xuống 2 component con là log và gameboard sử dụng và trong gameboard  có thể cập nhập lại bằng hàm onSelectSquare 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../src/index.css";
 // import GameBoard from "./components/GameBoard";
 import Log from "./components/Log";
-
+import { WINNER_CONDITION } from "./constants/data";
 function derviActivePlayer(gameTurns) {
   let currentPlayer = "X";
   if (gameTurns.length > 0 && gameTurns[0].player === "X") {
@@ -10,10 +10,45 @@ function derviActivePlayer(gameTurns) {
   }
   return currentPlayer;
 }
-
+const initialTable = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null],
+];
 function App() {
   const [gameTurn, setGameTurn] = useState([]);
   const activePlayer = derviActivePlayer(gameTurn);
+  let gameBoard = initialTable;
+  for (const turn of gameTurn) {
+    const { square, player } = turn;
+    const { row, col } = square;
+    gameBoard[row][col] = player;
+  }
+  // Lặp qua từng tổ hợp điều kiện chiến thắng đã định nghĩa trong WINNER_CONDITION
+  for (const combination of WINNER_CONDITION) {
+    // Lấy giá trị ở ô đầu tiên của tổ hợp
+    const firstSquareSymbol = gameBoard[combination[0].row][combination[0].col];
+    console.log("🚀 ~ App ~ firstSquareSymbol:", firstSquareSymbol);
+
+    // Lấy giá trị ở ô thứ hai của tổ hợp
+    const secondSquareSymbol = gameBoard[combination[1].row][combination[1].col];
+    console.log("🚀 ~ App ~ secondSquareSymbol:", secondSquareSymbol);
+
+    // Lấy giá trị ở ô thứ ba của tổ hợp
+    const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].col];
+    console.log("🚀 ~ App ~ thirdSquareSymbol:", thirdSquareSymbol);
+
+    // Kiểm tra cả 3 ô có cùng giá trị (X hoặc O) và không phải là null (nghĩa là đã có người chơi đánh)
+    if (
+      firstSquareSymbol &&
+      firstSquareSymbol === secondSquareSymbol &&
+      firstSquareSymbol === thirdSquareSymbol
+    ) {
+      // Nếu đúng, in ra người chiến thắng
+      console.log("🎉 Người chiến thắng là:", firstSquareSymbol);
+      break; // Thoát khỏi vòng lặp vì đã có người thắng
+    }
+  }
 
   function handleSelectSquare(rowIndex, colIndex) {
     setGameTurn((prevTurn) => {
@@ -52,7 +87,7 @@ function App() {
           />
         </ol>
       </div>
-      <GameBoard onSelectSquare={handleSelectSquare} turns={gameTurn} />
+      <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
       <Log turns={gameTurn} />
     </>
   );
@@ -87,24 +122,10 @@ export function Player({ initial, symbol, isActive, testdemofunction }) {
   );
 }
 
-const initialTable = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
-
-export function GameBoard({ onSelectSquare, turns }) {
-  let gameBoard = initialTable;
-  for (const turn of turns) {
-    console.log("🚀 ~ GameBoard ~ turn:", turn);
-    const { square, player } = turn;
-    const { row, col } = square;
-    gameBoard[row][col] = player;
-    console.log("🚀 ~ GameBoard ~ player:", player);
-  }
+export function GameBoard({ onSelectSquare, board }) {
   return (
     <ol id="game-board">
-      {gameBoard.map((row, rowIndex) => {
+      {board.map((row, rowIndex) => {
         return (
           <li key={rowIndex} className="board-row">
             {row.map((playerSymbol, colIndex) => {

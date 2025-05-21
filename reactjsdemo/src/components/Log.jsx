@@ -1,11 +1,12 @@
 export default function Log({ turns }) {
-  console.log("🚀 ~ Log ~ turns:", turns);
+  const reversedTurns = [...turns].reverse();
   return (
     <ol>
-      {turns.map((turn, index) => {
+      {reversedTurns.map((turn, index) => {
+        const turnNumber = turns.length - index; // Số lớn -> bé
         return (
-          <li key={`${turn.square.row}${turn.square.col}-${index}`}>
-            {turn.player} selected {turn.square.row},{turn.square.col}
+          <li key={`${turn.square.row}${turn.square.col}-${index}`} className="log-item">
+            #{turnNumber}: {turn.player} selected {turn.square.row},{turn.square.col}
           </li>
         );
       })}

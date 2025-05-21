@@ -342,4 +342,6 @@ gameBoard[row][col] = player;
 console.log("🚀 ~ GameBoard ~ player:", player);
 }
 là mỗi chỗ player là đều render lại để coi thử tới lượt tiếp theo của người nào
-ở đây biến gameturn được truyền xuống 2 component con là log và gameboard sử dụng và trong gameboard  có thể cập nhập lại bằng hàm onSelectSquare 
+ở đây biến gameturn được truyền xuống 2 component con là log và gameboard sử dụng và trong gameboard có thể cập nhập lại bằng hàm onSelectSquare
+bài 88: cách disable button khi đã tick vào ô đó
+disabled={playerSymbol !== null} hiện tại playerSymbol ban đầu là null nên khi giá trị khác null có nghĩa là đã được chọn rồi nên sẽ disable cái đó

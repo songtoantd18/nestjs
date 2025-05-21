@@ -106,6 +106,7 @@ export function GameBoard({ onSelectSquare, turns }) {
                   onClick={() => onSelectSquare(rowIndex, colIndex)}
                   key={colIndex}
                   className="board-cell"
+                  disabled={playerSymbol !== null}
                 >
                   {playerSymbol}
                 </button>

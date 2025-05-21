@@ -343,5 +343,14 @@ console.log("🚀 ~ GameBoard ~ player:", player);
 }
 là mỗi chỗ player là đều render lại để coi thử tới lượt tiếp theo của người nào
 ở đây biến gameturn được truyền xuống 2 component con là log và gameboard sử dụng và trong gameboard có thể cập nhập lại bằng hàm onSelectSquare
+bài 87 :tối ưu state
+chỉ dùng 1 state là gameTurn làm state chính xóa const [activePlayer, setActivePlayer] = useState("X");
+vì nếu có nhiều state thì phải quản lý nhiều state có thể làm nhiễu loạn và có thể bị rối nếu dự án bị phình to ngày càng nhiều chức năng
+React có nguyên tắc quan trọng:
+"Derive state when you can, store state only when you must."
+Tức là:
+Nếu 1 giá trị có thể tính được từ dữ liệu khác, thì đừng lưu riêng nó.
+
+Chỉ lưu state khi nó không thể tính được từ state khác.
 bài 88: cách disable button khi đã tick vào ô đó
 disabled={playerSymbol !== null} hiện tại playerSymbol ban đầu là null nên khi giá trị khác null có nghĩa là đã được chọn rồi nên sẽ disable cái đó

@@ -1,6 +1,5 @@
 export default function Log({ turns }) {
   const reversedTurns = [...turns].reverse();
-  console.log("🚀 ~ Log ~ reversedTurns:", reversedTurns);
   return (
     <ol>
       {reversedTurns.map((turn, index) => {

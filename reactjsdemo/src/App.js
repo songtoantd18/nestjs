@@ -1,14 +1,25 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import CaroApp from "./gameCaro/CaroApp";
+import Project2 from "./project2/project2";
 
 function App() {
   return (
-    <div>
-      <CaroApp />
-      {/* <CaroApp /> */}
+    <Router>
+      <div style={{ padding: "20px" }}>
+        <button>
+          <Link to="/gamecaro">Game Caro</Link>
+        </button>
+        <button>
+          <Link to="/project2">Project 2</Link>
+        </button>
 
-      <h1>Hello World</h1>
-    </div>
+        <Routes>
+          <Route path="/gamecaro" element={<CaroApp />} />
+          <Route path="/project2" element={<Project2 />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

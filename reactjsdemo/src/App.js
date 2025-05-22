@@ -18,12 +18,15 @@ const initialTable = [
 function App() {
   const [gameTurn, setGameTurn] = useState([]);
   const activePlayer = derviActivePlayer(gameTurn);
-  let gameBoard = initialTable;
+  let gameBoard = initialTable.map((row) => [...row]);
+
   for (const turn of gameTurn) {
     const { square, player } = turn;
     const { row, col } = square;
     gameBoard[row][col] = player;
   }
+  let winner;
+  let hasDraw = false;
   // Lặp qua từng tổ hợp điều kiện chiến thắng đã định nghĩa trong WINNER_CONDITION
   for (const combination of WINNER_CONDITION) {
     // Lấy giá trị ở ô đầu tiên của tổ hợp
@@ -37,7 +40,6 @@ function App() {
     // Lấy giá trị ở ô thứ ba của tổ hợp
     const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].col];
     console.log("🚀 ~ App ~ thirdSquareSymbol:", thirdSquareSymbol);
-
     // Kiểm tra cả 3 ô có cùng giá trị (X hoặc O) và không phải là null (nghĩa là đã có người chơi đánh)
     if (
       firstSquareSymbol &&
@@ -45,11 +47,14 @@ function App() {
       firstSquareSymbol === thirdSquareSymbol
     ) {
       // Nếu đúng, in ra người chiến thắng
-      console.log("🎉 Người chiến thắng là:", firstSquareSymbol);
+      winner = firstSquareSymbol;
+      console.log("🎉 Người chiến thắng là:", winner);
       break; // Thoát khỏi vòng lặp vì đã có người thắng
     }
   }
-
+  if (!winner && gameTurn.length === 9) {
+    hasDraw = true;
+  }
   function handleSelectSquare(rowIndex, colIndex) {
     setGameTurn((prevTurn) => {
       console.log("🚀 ~ setGameTurn ~ prevTurn:", prevTurn);
@@ -68,6 +73,9 @@ function App() {
     // đang test function tạo ở compoent cha sau đó truyền vào component con
     //  và dùng thử có được không dùng ok nhé , thêm 1 kiến thức mới
     console.log("demo11111111111111111111111111111111111111111111111111");
+  }
+  function handleRestart() {
+    setGameTurn([]);
   }
   return (
     <>
@@ -89,6 +97,20 @@ function App() {
       </div>
       <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
       <Log turns={gameTurn} />
+
+      {/* {winner && (
+        <div className="text-center text-xl font-bold text-green-600 mt-4">
+          Người chiến thắng là: {winner}
+        </div>
+      )}
+
+      {hasDraw && (
+        <div className="text-center text-xl font-bold text-blue-600 mt-4">Cả 2 đã hòa!</div>
+      )}
+      
+      {*/}
+
+      {(winner || hasDraw) && <GameOver winner1={winner} onRestart={handleRestart} />}
     </>
   );
 }
@@ -144,5 +166,22 @@ export function GameBoard({ onSelectSquare, board }) {
         );
       })}
     </ol>
+  );
+}
+export function GameOver({ winner1, onRestart }) {
+  return (
+    <>
+      <div className="p-6 bg-red-100 rounded-xl shadow-lg text-center">
+        <h1 className="text-2xl font-bold text-red-600 mb-4">Game Over</h1>
+        {winner1 ? (
+          <div className="text-xl text-green-700">
+            Người chiến thắng là: <span className="font-semibold">{winner1}</span>
+          </div>
+        ) : (
+          <div className="text-xl text-gray-700">Cả 2 đã hòa</div>
+        )}
+      </div>
+      <button onClick={onRestart}> Rematch</button>
+    </>
   );
 }

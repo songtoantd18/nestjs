@@ -355,3 +355,6 @@ Chỉ lưu state khi nó không thể tính được từ state khác.
 bài 88: cách disable button khi đã tick vào ô đó
 disabled={playerSymbol !== null} hiện tại playerSymbol ban đầu là null nên khi giá trị khác null có nghĩa là đã được chọn rồi nên sẽ disable cái đó
 bài 92 -93 : thêm màn hình game over screen có logic nếu thắng hay hòa sẽ show ra và có thêm nút rematch khởi động lại game này nữa chú ý chỗ let gameBoard = initialTable.map((row) => [...row]); vì không nếu k có thì không reset lại được
+bài 94 : cách show tên player chiến thắng trong game over screen
+tạo 1 state player setplayer
+tạo function handleplayernamechange trong app rồi truyền xuống

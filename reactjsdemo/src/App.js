@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../src/index.css";
 // import GameBoard from "./components/GameBoard";
-import Log from "./components/Log";
+// import Log from "./components/Log";
 import { WINNER_CONDITION } from "./constants/data";
 function derviActivePlayer(gameTurns) {
   let currentPlayer = "X";
@@ -16,6 +16,10 @@ const initialTable = [
   [null, null, null],
 ];
 function App() {
+  const [players, setPlayers] = useState({
+    X: "player1",
+    O: "player2",
+  });
   const [gameTurn, setGameTurn] = useState([]);
   const activePlayer = derviActivePlayer(gameTurn);
   let gameBoard = initialTable.map((row) => [...row]);
@@ -31,15 +35,13 @@ function App() {
   for (const combination of WINNER_CONDITION) {
     // Lấy giá trị ở ô đầu tiên của tổ hợp
     const firstSquareSymbol = gameBoard[combination[0].row][combination[0].col];
-    console.log("🚀 ~ App ~ firstSquareSymbol:", firstSquareSymbol);
 
     // Lấy giá trị ở ô thứ hai của tổ hợp
     const secondSquareSymbol = gameBoard[combination[1].row][combination[1].col];
-    console.log("🚀 ~ App ~ secondSquareSymbol:", secondSquareSymbol);
 
     // Lấy giá trị ở ô thứ ba của tổ hợp
     const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].col];
-    console.log("🚀 ~ App ~ thirdSquareSymbol:", thirdSquareSymbol);
+
     // Kiểm tra cả 3 ô có cùng giá trị (X hoặc O) và không phải là null (nghĩa là đã có người chơi đánh)
     if (
       firstSquareSymbol &&
@@ -47,8 +49,8 @@ function App() {
       firstSquareSymbol === thirdSquareSymbol
     ) {
       // Nếu đúng, in ra người chiến thắng
-      winner = firstSquareSymbol;
-      console.log("🎉 Người chiến thắng là:", winner);
+      winner = players[firstSquareSymbol];
+
       break; // Thoát khỏi vòng lặp vì đã có người thắng
     }
   }
@@ -57,14 +59,13 @@ function App() {
   }
   function handleSelectSquare(rowIndex, colIndex) {
     setGameTurn((prevTurn) => {
-      console.log("🚀 ~ setGameTurn ~ prevTurn:", prevTurn);
       const currentPlayer = derviActivePlayer(prevTurn);
 
       const updatedTurn = [
         { square: { row: rowIndex, col: colIndex }, player: activePlayer },
         ...prevTurn,
       ];
-      console.log("🚀 ~ setGameTurn ~ updatedTurn:", updatedTurn);
+
       return updatedTurn;
     });
   }
@@ -72,7 +73,11 @@ function App() {
   function testdemo() {
     // đang test function tạo ở compoent cha sau đó truyền vào component con
     //  và dùng thử có được không dùng ok nhé , thêm 1 kiến thức mới
-    console.log("demo11111111111111111111111111111111111111111111111111");
+  }
+  function handlePlayerNameChange(symbol, newName) {
+    setPlayers((prevPlayers) => {
+      return { ...prevPlayers, [symbol]: newName };
+    });
   }
   function handleRestart() {
     setGameTurn([]);
@@ -86,42 +91,41 @@ function App() {
             symbol="X"
             isActive={activePlayer === "X"}
             testdemofunction={testdemo}
+            onChangeName={handlePlayerNameChange}
           />
           <Player
             testdemofunction={testdemo}
             initial="Nguyen"
             symbol="O"
             isActive={activePlayer === "O"}
+            onChangeName={handlePlayerNameChange}
           />
         </ol>
       </div>
       <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
       <Log turns={gameTurn} />
 
-      {/* {winner && (
-        <div className="text-center text-xl font-bold text-green-600 mt-4">
-          Người chiến thắng là: {winner}
+      {(winner || hasDraw) && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <GameOver winner1={winner} onRestart={handleRestart} />
+          </div>
         </div>
       )}
-
-      {hasDraw && (
-        <div className="text-center text-xl font-bold text-blue-600 mt-4">Cả 2 đã hòa!</div>
-      )}
-      
-      {*/}
-
-      {(winner || hasDraw) && <GameOver winner1={winner} onRestart={handleRestart} />}
     </>
   );
 }
 
 export default App;
 
-export function Player({ initial, symbol, isActive, testdemofunction }) {
+export function Player({ initial, symbol, isActive, testdemofunction, onChangeName }) {
   const [namePlayer, setNamePlayer] = useState(initial);
   const [edit, setEdit] = useState(false);
   function handleEdit() {
     setEdit((edit) => !edit);
+    if (edit) {
+      onChangeName(symbol, namePlayer);
+    }
   }
   function handleChange(event) {
     setNamePlayer(event.target.value);
@@ -183,5 +187,21 @@ export function GameOver({ winner1, onRestart }) {
       </div>
       <button onClick={onRestart}> Rematch</button>
     </>
+  );
+}
+export  function Log({ turns }) {
+  const reversedTurns = [...turns].reverse();
+  console.log("🚀 ~ Log ~ reversedTurns:", reversedTurns);
+  return (
+    <ol>
+      {reversedTurns.map((turn, index) => {
+        const turnNumber = turns.length - index; // Số lớn -> bé
+        return (
+          <li key={`${turn.square.row}${turn.square.col}-${index}`} className="log-item">
+            #{turnNumber}: {turn.player} selected {turn.square.row},{turn.square.col}
+          </li>
+        );
+      })}
+    </ol>
   );
 }

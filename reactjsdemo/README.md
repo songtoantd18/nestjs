@@ -358,3 +358,4 @@ bài 92 -93 : thêm màn hình game over screen có logic nếu thắng hay hòa
 bài 94 : cách show tên player chiến thắng trong game over screen
 tạo 1 state player setplayer
 tạo function handleplayernamechange trong app rồi truyền xuống
+bài 100 : tạo component userinput trong project 2 để nhập thông tin và in ra ra ngoài

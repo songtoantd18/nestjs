@@ -359,3 +359,4 @@ bài 94 : cách show tên player chiến thắng trong game over screen
 tạo 1 state player setplayer
 tạo function handleplayernamechange trong app rồi truyền xuống
 bài 100 : tạo component userinput trong project 2 để nhập thông tin và in ra ra ngoài
+bài 103: thêm công thức tính toán , toán học vào , cái này thì tùy thuộc vào  logic của từng ngày , chú ý ép kiểu nếu có liên quan đến toán học nếu không ép kiểu thì sẽ có kiểu '1' +1 = '11'

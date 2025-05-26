@@ -9,6 +9,8 @@ export default function Project2() {
     expectedReturn: 6,
     duration: 15,
   });
+  const inputValid = userInput.duration >= 1;
+
   function handleChange(inputIdentifier, newValue) {
     console.log("🚀 ~ handleChange ~ newValue:", newValue);
     console.log("🚀 ~ handleChange ~ inputIdentifier:", inputIdentifier);
@@ -21,7 +23,8 @@ export default function Project2() {
     <h1>
       Hello World
       <UserInput userInput={userInput} onChange={handleChange} />
-      <Result userInput={userInput} />
+      {!inputValid && <div>Please enter duration greater than 0</div>}
+      {inputValid && <Result userInput={userInput} />}
     </h1>
   );
 }

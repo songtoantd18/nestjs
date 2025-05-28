@@ -1,102 +1,179 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+// Model Counter với ChangeNotifier
+class CounterProvider with ChangeNotifier {
+  int count = 0;
+
+  void addCount() {
+    count = count + 1;
+    notifyListeners();
+  }
+
+  void minusCount() {
+    count = count - 1;
+    notifyListeners();
+  }
+
+  void mulitiple() {
+    count = count * 2;
+    notifyListeners();
+  }
+}
+
+class CustomerProvider with ChangeNotifier {
+  int numberCustomer = 0;
+
+  void addCustomer() {
+    numberCustomer = numberCustomer + 1;
+    notifyListeners();
+  }
+
+  void minusCustomer() {
+    numberCustomer = numberCustomer - 1;
+    notifyListeners();
+  }
+
+  void mulitiple() {
+    numberCustomer = numberCustomer * 2;
+    notifyListeners();
+  }
+}
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CustomerProvider()),
+        ChangeNotifierProvider(create: (_) => CounterProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lifting State Up Demo',
+      title: 'Provider Demo',
       home: Scaffold(
-        appBar: AppBar(title: Text('Flutter Lifting State Up')),
+        appBar: AppBar(title: Text('Flutter Provider Example')),
         body: Parent(),
       ),
     );
   }
 }
 
-class Parent extends StatefulWidget {
-  @override
-  _ParentState createState() => _ParentState();
-}
-
-class _ParentState extends State<Parent> {
-  int count = 0;
-  void updateCount() {
-    setState(() {
-      count = count + 1;
-    });
-    print('đây là count addddddđ: $count');
-  }
-
-  void minusCount() {
-    setState(() {
-      count = count - 1;
-    });
-    print('đây là count minussssssssssssss: $count');
-  }
-
+class Parent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Lấy count từ Provider
+    int count = context.watch<CounterProvider>().count;
+    int customer = context.watch<CustomerProvider>().numberCustomer;
+    print('customer: ${customer}');
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('đây là parent: $count', style: TextStyle(fontSize: 24)),
-        ChildA(count: count, addCount: updateCount, minusCount: minusCount),
+        Text('Đây là count parent: $count', style: TextStyle(fontSize: 24)),
+        Text(
+          'Đây là CUSTOMER parent: $customer',
+          style: TextStyle(fontSize: 24),
+        ),
+
+        ChildA(),
         SizedBox(height: 20),
-        ChildB(onUpdate: updateCount, count: count, minusCount: minusCount),
+        ChildB(),
+        SizedBox(height: 20),
+        ChildC(),
       ],
     );
   }
 }
 
 class ChildA extends StatelessWidget {
-  final int count;
-  final Function() addCount;
-  final Function() minusCount;
-
-  ChildA({
-    required this.count,
-    required this.addCount,
-    required this.minusCount,
-  });
-
   @override
   Widget build(BuildContext context) {
-    return Row(
+    final counter = context.read<CounterProvider>();
+    final customer = context.read<CustomerProvider>();
+
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('CHILD A: $count'),
+        Text('CHILD A: ${context.watch<CounterProvider>().count}'),
         SizedBox(width: 20),
-        ElevatedButton(onPressed: () => addCount(), child: Text('add A')),
-        ElevatedButton(onPressed: () => minusCount(), child: Text('minus A')),
+        ElevatedButton(
+          onPressed: () => counter.addCount(),
+          child: Text('add A'),
+        ),
+        ElevatedButton(
+          onPressed: () => counter.minusCount(),
+          child: Text('minus A'),
+        ),
+        ElevatedButton(
+          onPressed: () => customer.addCustomer(),
+          child: Text('add A customer'),
+        ),
+        ElevatedButton(
+          onPressed: () => customer.minusCustomer(),
+          child: Text('minus A customer'),
+        ),
       ],
     );
   }
 }
 
 class ChildB extends StatelessWidget {
-  final Function() onUpdate;
-  final int count;
-  final Function() minusCount;
-
-  ChildB({
-    required this.minusCount,
-    required this.onUpdate,
-    required this.count,
-  });
-
   @override
   Widget build(BuildContext context) {
+    final counter = context.read<CounterProvider>();
+    final customer = context.read<CustomerProvider>();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('CHILD B: ${context.watch<CounterProvider>().count}'),
+        SizedBox(width: 20),
+        ElevatedButton(
+          onPressed: () => counter.addCount(),
+          child: Text('add B'),
+        ),
+        ElevatedButton(
+          onPressed: () => counter.minusCount(),
+          child: Text('minus B'),
+        ),
+        ElevatedButton(
+          onPressed: () => customer.addCustomer(),
+          child: Text('add B customer'),
+        ),
+        ElevatedButton(
+          onPressed: () => customer.minusCustomer(),
+          child: Text('minus B customer'),
+        ),
+        ElevatedButton(
+          onPressed: () => customer.mulitiple(),
+          child: Text('mulitiple B customer'),
+        ),
+      ],
+    );
+  }
+}
+
+class ChildC extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final counter = context.read<CounterProvider>();
+    print('counter: ${counter}');
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('CHILD B: $count'),
+        Text('CHILD C: ${context.watch<CounterProvider>().count}'),
         SizedBox(width: 20),
-        ElevatedButton(onPressed: () => onUpdate(), child: Text('add B')),
-        ElevatedButton(onPressed: () => minusCount(), child: Text('minus B')),
+        ElevatedButton(
+          onPressed: () => counter.mulitiple(),
+          child: Text('muliti C'),
+        ),
       ],
     );
   }

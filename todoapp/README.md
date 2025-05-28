@@ -319,3 +319,15 @@ print('counter: ${counter}');
 }
 }
 ///////////////////////////
+dùng cái này body: SafeArea(
+child: Center(
+child: Column(
+mainAxisSize: MainAxisSize.min,
+children: [
+Image.asset('assets/logo1.png', fit: BoxFit.contain),
+Text('Splash Screen'),
+],
+),
+),
+), để đưa ra giữa màn hình ngang dọc
+ở splashscreen : tách 2 cái child thành 2 cái wigdet nhỏ sau đó import vào nó như compoent ấy ,sau này code dự án mở rộng thì cũng sẽ giúp quản lý dễ hơn

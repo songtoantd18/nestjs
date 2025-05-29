@@ -489,3 +489,5 @@ Sử dụng BoxDecoration để tạo hiệu ứng chỉ báo trang (dot indicat
 
 7. Debug
    In log để debug giá trị enum và trạng thái PageController.
+
+bài 4.1 const space và spacebetwwen xung đột nhau nên không dùng chung được

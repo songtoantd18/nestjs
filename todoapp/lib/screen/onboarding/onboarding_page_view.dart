@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/screen/onboarding/onboarding_child_page.dart';
 import 'package:todoapp/screen/ultils.enums/onboarding_page_position.dart';
+import 'package:todoapp/screen/welcome/welcome_page.dart';
 
 class OnboardingPageView extends StatefulWidget {
   const OnboardingPageView({Key? key}) : super(key: key);
@@ -54,7 +55,7 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
                   );
                 },
                 skippOnpressed: () {
-                  print('đến màn hinh welcome');
+                  _gotoWelcomepage();
                 },
               ),
               OnboardingChildPage(
@@ -75,13 +76,13 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
                   );
                 },
                 skippOnpressed: () {
-                  print('đến màn hinh welcome');
+                  _gotoWelcomepage();
                 },
               ),
               OnboardingChildPage(
                 onboardingPagePosition: OnboardingPagePosition.page3,
                 nextOnpressed: () {
-                  print('đến màn hình welcome-');
+                  _gotoWelcomepage();
                 },
                 backOnpressed: () {
                   _pageController.previousPage(
@@ -90,13 +91,20 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
                   );
                 },
                 skippOnpressed: () {
-                  print('đến màn hinh welcome');
+                  _gotoWelcomepage();
                 },
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  void _gotoWelcomepage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => WelcomePage()),
     );
   }
 }

@@ -491,3 +491,58 @@ Sử dụng BoxDecoration để tạo hiệu ứng chỉ báo trang (dot indicat
    In log để debug giá trị enum và trạng thái PageController.
 
 bài 4.1 const space và spacebetwwen xung đột nhau nên không dùng chung được
+chỗ single child scroll view và colum space co sự xung đột k dùng chung được cần phải cân đối hiểu như là single child scroll view là cuộn tròn xuống thì làm sao colun spacebetween dùng được const space() là lấy khoảng trống hết thì làm sao cuộng được
+Dưới đây là nội dung bạn có thể ghi trong README.md để giải thích lý do không nên dùng Spacer() hoặc MainAxisAlignment.spaceBetween khi dùng kết hợp SingleChildScrollView và Column (không thêm LayoutBuilder hay ConstrainedBox):
+
+❗ Lưu ý khi dùng SingleChildScrollView kết hợp với Column trong Flutter
+❌ Không nên dùng Spacer() hoặc MainAxisAlignment.spaceBetween trong Column khi bọc trong SingleChildScrollView
+dart
+Sao chép
+Chỉnh sửa
+SingleChildScrollView(
+child: Column(
+mainAxisAlignment: MainAxisAlignment.spaceBetween, // ❌ Không hoạt động như mong muốn
+children: [
+...,
+Spacer(), // ❌ Spacer không hoạt động đúng
+...,
+],
+),
+)
+🔍 Nguyên nhân:
+SingleChildScrollView không giới hạn chiều cao của Column.
+
+Do Column không bị giới hạn chiều cao, nên:
+
+MainAxisAlignment.spaceBetween không biết phần trống còn lại là bao nhiêu để chia đều.
+
+Spacer() không thể xác định không gian cần chiếm → bị lỗi hoặc không render.
+
+✅ Kết luận:
+Nếu chỉ dùng SingleChildScrollView và Column, không nên dùng:
+
+Spacer()
+
+MainAxisAlignment.spaceBetween
+
+MainAxisAlignment.spaceEvenly
+
+Thay vào đó, hãy sắp xếp widget một cách tĩnh theo thứ tự mong muốn, hoặc sử dụng khoảng cách bằng SizedBox() để đảm bảo tính ổn định.
+
+📌 Ví dụ nên dùng:
+dart
+Sao chép
+Chỉnh sửa
+SingleChildScrollView(
+child: Column(
+crossAxisAlignment: CrossAxisAlignment.center,
+children: [
+SizedBox(height: 40),
+Text("Tiêu đề"),
+SizedBox(height: 20),
+Image.asset("assets/image.png"),
+SizedBox(height: 60),
+ElevatedButton(onPressed: () {}, child: Text("Next")),
+],
+),
+)

@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'Provider Demo',
 
       // home: SplashScreen(),
-      // home: OnboardingPageView(),
-      home: WelcomePage(),
+      home: OnboardingPageView(),
+      // home: WelcomePage(),
     );
   }
 }

@@ -6,17 +6,26 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+
+        leading: IconButton(
+          onPressed: () {
+            print('ddaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.white),
+        ),
+      ),
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _buildSkipButton(),
             _buildContent(),
             const Spacer(),
             _buildButtonLogin(),
-
             _buildButtonRegister(),
           ],
         ),
@@ -30,14 +39,13 @@ class WelcomePage extends StatelessWidget {
 
   Widget _buildContent() {
     return Container(
-      color: Colors.green,
       margin: EdgeInsets.symmetric(horizontal: 38),
       child: Column(
         children: [
           Text('Welcome!', style: TextStyle(fontSize: 24, color: Colors.white)),
           SizedBox(height: 16),
           Text(
-            'This is the content section.',
+            'please login to your account or create new account to continue',
             style: TextStyle(fontSize: 16, color: Colors.white70),
           ),
         ],

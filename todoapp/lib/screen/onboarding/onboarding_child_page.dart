@@ -23,16 +23,18 @@ class OnboardingChildPage extends StatelessWidget {
     );
     return Scaffold(
       backgroundColor: Colors.yellow,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildSkipButton(),
-          _buildOnBoadingImage(),
-          _buildOnBoadingPageControl(),
-          _buildOnBoadingTitleAndContent(),
-          _buildOnBoadingNextAndPreviousButton(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            _buildSkipButton(),
+            _buildOnBoadingImage(),
+            _buildOnBoadingPageControl(),
+            _buildOnBoadingTitleAndContent(),
+            _buildOnBoadingNextAndPreviousButton(),
+          ],
+        ),
       ),
     );
   }
@@ -55,6 +57,8 @@ class OnboardingChildPage extends StatelessWidget {
 
   Widget _buildOnBoadingImage() {
     return Image.asset(
+      // width: 50,
+      // height: 30,
       fit: BoxFit.contain,
       onboardingPagePosition.onboardingPageImage(),
     );

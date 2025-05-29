@@ -331,3 +331,161 @@ Text('Splash Screen'),
 ),
 ), để đưa ra giữa màn hình ngang dọc
 ở splashscreen : tách 2 cái child thành 2 cái wigdet nhỏ sau đó import vào nó như compoent ấy ,sau này code dự án mở rộng thì cũng sẽ giúp quản lý dễ hơn
+bài 4 :cách dùng page view
+Phân biệt StatelessWidget và StatefulWidget trong Flutter
+
+1. StatelessWidget:
+   Không thay đổi trạng thái trong suốt vòng đời.
+
+Dùng khi giao diện không cần cập nhật (chỉ render 1 lần).
+
+Ví dụ: hiển thị text, icon, logo tĩnh.
+
+Tương đương với function component không dùng useState hooks trong React.
+
+2. StatefulWidget:
+   Có thể thay đổi trạng thái (state) trong quá trình sử dụng.
+
+Dùng khi giao diện cần cập nhật theo hành động người dùng.
+
+Ví dụ: checkbox, form, giỏ hàng, animation.
+
+Tương đương với function component có dùng useState, useEffect trong React.
+
+🔄 So sánh ReactJS và Flutter
+ReactJS:
+
+Function component không có state → giống StatelessWidget.
+
+Function component có useState → giống StatefulWidget.
+
+Flutter:
+
+Không có hook như React.
+
+Nếu muốn dùng state → phải dùng StatefulWidget hoặc quản lý qua Provider, Riverpod, v.v.
+
+📌 Khi nào dùng gì?
+Trang profile (chỉ hiển thị thông tin tĩnh) → dùng StatelessWidget.
+
+Trang đăng nhập (có nhập liệu, hiển thị lỗi, loading) → dùng StatefulWidget.
+
+Trang sản phẩm có nút “Thêm vào giỏ hàng” → dùng StatefulWidget (hoặc Stateless + quản lý state qua Provider).
+
+Trang Dashboard có danh sách, filter → nên dùng StatefulWidget hoặc quản lý state bên ngoài.
+
+✅ Kết luận ngắn gọn dễ nhớ
+StatelessWidget = tĩnh, không thay đổi
+StatefulWidget = động, có thay đổi, có logic tương tác
+React có hook nên function component vẫn quản lý state
+Flutter chưa có hook → muốn state thì phải dùng StatefulWidget
+vì chưa hiểu về class compoent nên không so sánh được với nó , nên tạm thời so sánh với function compoent
+mẫu StatelessWidget – Không có trạng thái (giống function component không có useState trong React):
+dart
+
+import 'package:flutter/material.dart';
+
+class MyStatelessPage extends StatelessWidget {
+const MyStatelessPage({super.key});
+
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+appBar: AppBar(title: Text('Stateless Example')),
+body: Center(
+child: Text('Tôi là Stateless Widget'),
+),
+);
+}
+}
+
+✅ copy ở đây StatefulWidget – Có trạng thái (giống function component có useState trong React):
+import 'package:flutter/material.dart';
+
+class MyStatefulPage extends StatefulWidget {
+const MyStatefulPage({super.key});
+
+@override
+State<MyStatefulPage> createState() => \_MyStatefulPageState();
+}
+
+class \_MyStatefulPageState extends State<MyStatefulPage> {
+int \_count = 0;
+
+void \_increment() {
+setState(() {
+\_count++; // cập nhật lại UI mỗi khi bấm nút
+});
+}
+
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+appBar: AppBar(title: Text('Stateful Example')),
+body: Center(
+child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: [
+Text('Giá trị hiện tại: $_count'),
+ElevatedButton(
+onPressed: _increment,
+child: Text('Tăng'),
+),
+],
+),
+),
+);
+}
+}
+quy ước đặt tên
+_ trong Dart là gì?
+Trong Dart (ngôn ngữ dùng cho Flutter), khi một tên bắt đầu bằng dấu gạch dưới _, thì:
+
+Nó chỉ được sử dụng bên trong file hiện tại (khác với các ngôn ngữ như JavaScript hay Python).
+
+Đây là cách làm cho class, hàm, biến, hoặc getter/setter trở thành private (riêng tư).
+
+Kiến Thức Kỹ Thuật Áp Dụng - Onboarding Page Flutter
+
+1. enum và extension trong Dart
+   Dùng enum OnboardingPagePosition để định nghĩa các trang: page1, page2, page3.
+
+Tạo extension OnboardingPagePositionExtension để ánh xạ enum sang:
+
+hình ảnh (onboardingPageImage)
+
+tiêu đề (onboardingPageTitle)
+
+nội dung mô tả (onboardingPageContent)
+
+✅ Giúp code gọn hơn, dễ mở rộng khi thêm trang mới.
+
+2. PageView & PageController
+   Sử dụng PageView để tạo onboarding dạng vuốt từng trang.
+
+Dùng PageController để điều khiển chuyển trang qua nextPage() và previousPage().
+
+physics: NeverScrollableScrollPhysics() để người dùng không vuốt mà chỉ dùng nút.
+
+3. Stateless và Stateful Widgets
+   OnboardingChildPage là một StatelessWidget nhận dữ liệu và callback từ ngoài.
+
+OnboardingPageView là StatefulWidget để xử lý điều khiển trang và setState.
+
+4. Callback (VoidCallback) truyền hàm
+   Truyền callback nextOnpressed, backOnpressed, skippOnpressed để kiểm soát hành động từ ngoài component.
+
+5. Giao diện (UI)
+   Dùng Column và Row để xây dựng giao diện layout.
+
+Sử dụng Container, Text, Image.asset, ElevatedButton để tạo phần nội dung.
+
+Sử dụng BoxDecoration để tạo hiệu ứng chỉ báo trang (dot indicator).
+
+6. Logic điều hướng
+   Ở nút next, nếu là page3 thì đổi nút thành "get started" và thực hiện điều hướng đến trang chính.
+
+Ở skip, có thể điều hướng luôn đến trang welcome hoặc login.
+
+7. Debug
+   In log để debug giá trị enum và trạng thái PageController.

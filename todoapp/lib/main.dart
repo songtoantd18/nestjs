@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:todoapp/screen/onboarding/onboarding_page_view.dart';
 
 import 'screen/splashScreen.dart';
 
@@ -12,6 +13,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Provider Demo', home: SplashScreen());
+    return MaterialApp(
+      title: 'Provider Demo',
+
+      // home: SplashScreen(),
+      home: OnboardingPageView(),
+    );
   }
 }

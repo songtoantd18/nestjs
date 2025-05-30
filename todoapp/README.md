@@ -546,3 +546,62 @@ ElevatedButton(onPressed: () {}, child: Text("Next")),
 ],
 ),
 )
+bài 6 : tại sao lại sử dụng ảnh 1x 2 x 3 x vì mobile có nhiều màn hình nếu dùng 1 ảnh thì khi to nhỏ ảnh sẽ bị mờ bể, nên chúng ta cần tạo 3 folder alf 1x 2x 3x ảnh khi lưu về sẽ có 3 loại nên chia vào ứng với từng loại
+assets/
+├── icon.png (mặc định)
+├── 1.0x/icon.png (dành cho thiết bị mật độ bình thường)
+├── 2.0x/icon.png (dành cho thiết bị có mật độ cao hơn)
+└── 3.0x/icon.png (dành cho thiết bị rất nét như iPhone Retina, Samsung cao cấp)
+flutter:
+assets: - assets/icon.png
+khi import ảnh chỉ cần như vậy là ok
+ở chỗ BottomNavigationBar trong Flutter có hai chế độ hoạt động:
+
+1. Fixed mode (mặc định khi số item ≤ 3):
+   Hiển thị tất cả các item cùng lúc.
+
+backgroundColor hoạt động đúng.
+
+Không cần cấu hình gì thêm.
+
+2. Shifting mode (khi số item > 3):
+   Tự động chuyển sang chế độ "shifting", và lúc này mỗi item cần có màu riêng (backgroundColor) để màu nền hiện đúng.
+
+Nếu bạn không set type: BottomNavigationBarType.fixed, thì nó sẽ chuyển qua "shifting" và không dùng backgroundColor chung.
+ Các thành phần chính
+1. BottomNavigationBar
+Gồm 5 mục (item), nhưng mục ở giữa (index == 2) không thực hiện chuyển trang mà để trống (Container()).
+
+selectedItemColor và unselectedItemColor: điều chỉnh màu của label khi được chọn hoặc không.
+
+type: BottomNavigationBarType.fixed: đảm bảo hiển thị đủ label dù số lượng item > 3.
+
+currentIndex: điều khiển trang hiện tại.
+
+onTap: khi chọn một item, cập nhật _currentPage.
+
+2. FloatingActionButton
+Nằm ở giữa (FloatingActionButtonLocation.centerDocked).
+
+Tùy biến bằng Container và IconButton.
+
+Khi nhấn vào sẽ in ra console dòng "đây là float button".
+
+3. List<Widget> _page
+Lưu danh sách các màn hình tương ứng với từng tab.
+
+🧠 Kiến thức học được
+Cách sử dụng BottomNavigationBar để chuyển trang.
+
+Cách tuỳ biến activeIcon và icon bằng Image.asset.
+
+Cách thay thế một mục trong navigation bar bằng FloatingActionButton.
+
+Cách sử dụng FloatingActionButtonLocation.centerDocked để đặt nút ở giữa.
+
+Quản lý trạng thái trang hiện tại bằng setState và biến _currentPage.
+
+💡 Ghi chú
+BottomNavigationBar không hỗ trợ trực tiếp chèn FloatingActionButton, nên cần chừa BottomNavigationBarItem trống và đặt FAB thủ công.
+
+Hạn chế việc nhấn vào item thứ 3 bằng cách kiểm tra if (index == 2) trong onTap.

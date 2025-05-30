@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoapp/screen/onboarding/onboarding_child_page.dart';
 import 'package:todoapp/screen/ultils.enums/onboarding_page_position.dart';
 import 'package:todoapp/screen/welcome/welcome_page.dart';
@@ -55,6 +56,7 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
                   );
                 },
                 skippOnpressed: () {
+                  _markOnboardingCompleted();
                   _gotoWelcomepage();
                 },
               ),
@@ -76,12 +78,16 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
                   );
                 },
                 skippOnpressed: () {
+                  _markOnboardingCompleted();
+
                   _gotoWelcomepage();
                 },
               ),
               OnboardingChildPage(
                 onboardingPagePosition: OnboardingPagePosition.page3,
                 nextOnpressed: () {
+                  _markOnboardingCompleted();
+
                   _gotoWelcomepage();
                 },
                 backOnpressed: () {
@@ -91,6 +97,8 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
                   );
                 },
                 skippOnpressed: () {
+                  _markOnboardingCompleted();
+
                   _gotoWelcomepage();
                 },
               ),
@@ -104,7 +112,24 @@ class _OnboardingPageViewState extends State<OnboardingPageView> {
   void _gotoWelcomepage() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => WelcomePage()),
+      MaterialPageRoute(
+        builder: (context) => WelcomePage(isFirstTimeInstall: true),
+      ),
     );
+  }
+
+  Future<void> _markOnboardingCompleted() async {
+    // khi user nhấn get started hoặc skip thì sẽ làm cái kOnboardingCompleted = true
+    //là chuyển sang welcome luôn
+    //
+    try {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('kOnboardingCompleted', true);
+      // bool result = prefs.getBool('kOnboardingCompleted') ?? false;
+      // return result;
+    } catch (e) {
+      print('e lỗi: ${e}');
+      return;
+    }
   }
 }

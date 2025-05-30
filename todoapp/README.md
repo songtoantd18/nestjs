@@ -568,9 +568,10 @@ Không cần cấu hình gì thêm.
    Tự động chuyển sang chế độ "shifting", và lúc này mỗi item cần có màu riêng (backgroundColor) để màu nền hiện đúng.
 
 Nếu bạn không set type: BottomNavigationBarType.fixed, thì nó sẽ chuyển qua "shifting" và không dùng backgroundColor chung.
- Các thành phần chính
+Các thành phần chính
+
 1. BottomNavigationBar
-Gồm 5 mục (item), nhưng mục ở giữa (index == 2) không thực hiện chuyển trang mà để trống (Container()).
+   Gồm 5 mục (item), nhưng mục ở giữa (index == 2) không thực hiện chuyển trang mà để trống (Container()).
 
 selectedItemColor và unselectedItemColor: điều chỉnh màu của label khi được chọn hoặc không.
 
@@ -578,17 +579,17 @@ type: BottomNavigationBarType.fixed: đảm bảo hiển thị đủ label dù s
 
 currentIndex: điều khiển trang hiện tại.
 
-onTap: khi chọn một item, cập nhật _currentPage.
+onTap: khi chọn một item, cập nhật \_currentPage.
 
 2. FloatingActionButton
-Nằm ở giữa (FloatingActionButtonLocation.centerDocked).
+   Nằm ở giữa (FloatingActionButtonLocation.centerDocked).
 
 Tùy biến bằng Container và IconButton.
 
 Khi nhấn vào sẽ in ra console dòng "đây là float button".
 
-3. List<Widget> _page
-Lưu danh sách các màn hình tương ứng với từng tab.
+3. List<Widget> \_page
+   Lưu danh sách các màn hình tương ứng với từng tab.
 
 🧠 Kiến thức học được
 Cách sử dụng BottomNavigationBar để chuyển trang.
@@ -599,9 +600,149 @@ Cách thay thế một mục trong navigation bar bằng FloatingActionButton.
 
 Cách sử dụng FloatingActionButtonLocation.centerDocked để đặt nút ở giữa.
 
-Quản lý trạng thái trang hiện tại bằng setState và biến _currentPage.
+Quản lý trạng thái trang hiện tại bằng setState và biến \_currentPage.
 
 💡 Ghi chú
 BottomNavigationBar không hỗ trợ trực tiếp chèn FloatingActionButton, nên cần chừa BottomNavigationBarItem trống và đặt FAB thủ công.
 
 Hạn chế việc nhấn vào item thứ 3 bằng cách kiểm tra if (index == 2) trong onTap.
+
+bài 7 : logic
+mở app vào màn hình splash screen kiểm tra data ở shared_preference wor flash có biến đó chưa
+biến đó được đặt là check cờ "kOnboardingCompleted" có giá trị true hay false nếu true thì tới luôn màn hình chính welcome page còn nếu là false di chuyển đến màn hình onboarding nếu click vào skip thì lưu biến "kOnboardingCompleted" là true và nết click vào next thì lưu biến "kOnboardingCompleted" là true sau đó đến màn welcome page ,
+sau khi GỠ APP cài lại thì vẫn hoạt động theo flow này cũng kiểm tra biến kOnboardingCompleted ==false
+
+// Future<bool> \_isOnboardingCompleted() async {
+// final SharedPreferences prefs = await SharedPreferences.getInstance();
+// bool isOnboardingCompleted = prefs.getBool('kOnboardingCompleted') ?? false;
+// print('isOnboardingCompleted: ${isOnboardingCompleted}');
+// return isOnboardingCompleted;
+// }
+
+Future<bool> \_isOnboardingCompleted() async {
+try {
+final SharedPreferences prefs = await SharedPreferences.getInstance();
+bool result = prefs.getBool('kOnboardingCompleted') ?? false;
+return result;
+} catch (e) {
+return false;
+}
+}
+
+nên sử dụng try catch để logic chặt chẽ vì nếu không có thì sẽ return false còn cái kia nếu không có là đơ ứng dụng luôn
+ở chỗ nút quay lại welcome có nút IconButton(
+onPressed: () {
+print('ddaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+if (Navigator.canPop(context)) {
+Navigator.pop(context);
+}
+},
+icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.white),
+), ở đây xuất hiện 1 lỗi là khi người dùng vào rồi thì \_isOnboardingCompleted thành true, mà nút rồi bây chừ tắt app vào lại thì vào welcome click vào nút quay lại k được sẽ bị đen vì nút đó là quay lại màn hình trước đó ,mà ở đây là bạn vào thẳng luôn thành ra nó không được
+
+        nên ở đây tạo 1 biến là isLoginFirst nếu là lần đầu thì sẽ có nút nếu không phải lần đầu thì ẩn đi ( ở đây khi lần đầu vào thì sẽ là vào onboarding, còn nếu là lần 2 thì sẽ trực tiếp vào welcomepage luôn, nên ở đây trực tiếp là vào welcomepage luôn)
+
+chỗ void \_gotoWelcomepage() {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (context) => WelcomePage(isFirstTimeInstall: true),
+),
+);
+} ở đây là dùng cho nút skip và get started thì nó chính là lần đầu nên cho nó là true
+. Xử lý Splash Screen kiểm tra trạng thái Onboarding
+Viết hàm Future<void> _checkAppState2(BuildContext context) để:
+
+Lấy trạng thái đã hoàn thành Onboarding (SharedPreferences.getBool('kOnboardingCompleted'))
+
+Nếu đã hoàn thành → chuyển sang WelcomePage
+
+Nếu chưa hoàn thành → chuyển sang OnboardingPageView
+
+Có kiểm tra if (!context.mounted) return; trước khi dùng Navigator để đảm bảo context còn hợp lệ
+
+dart
+Sao chép
+Chỉnh sửa
+Future<void> _checkAppState2(BuildContext context) async {
+  try {
+    final isCompleted2 = await _isOnboardingCompleted();
+    if (isCompleted2) {
+      if (!context.mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => WelcomePage(isFirstTimeInstall: false),
+        ),
+      );
+    } else {
+      if (!context.mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const OnboardingPageView()),
+      );
+    }
+  } catch (e) {
+    print(' không lấy được data');
+  }
+}
+✅ 2. Hàm kiểm tra Onboarding đã hoàn thành hay chưa
+dart
+Sao chép
+Chỉnh sửa
+Future<bool> _isOnboardingCompleted() async {
+  try {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('kOnboardingCompleted') ?? false;
+  } catch (e) {
+    return false;
+  }
+}
+✅ 3. Hàm lưu trạng thái hoàn thành Onboarding
+Gọi khi nhấn nút Get Started hoặc Skip
+
+dart
+Sao chép
+Chỉnh sửa
+Future<void> _markOnboardingCompleted() async {
+  try {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('kOnboardingCompleted', true);
+  } catch (e) {
+    print('e lỗi: ${e}');
+  }
+}
+✅ 4. Điều hướng sang WelcomePage sau khi hoàn thành Onboarding
+dart
+Sao chép
+Chỉnh sửa
+void _gotoWelcomepage() {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => WelcomePage(isFirstTimeInstall: true),
+    ),
+  );
+}
+✅ 5. Hiển thị nút back trong WelcomePage khi vào lần đầu (đi từ onboarding)
+dart
+Sao chép
+Chỉnh sửa
+appBar: AppBar(
+  backgroundColor: Colors.red,
+  leading: isFirstTimeInstall
+      ? IconButton(
+          onPressed: () {
+            if (Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+          },
+          icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.white),
+        )
+      : null,
+),
+→ leading chỉ hiển thị nút Back khi isFirstTimeInstall == true.
+
+🔁 Ghi chú thêm:
+if (!context.mounted) return; là để đảm bảo rằng widget vẫn còn gắn với cây widget khi xử lý async → tránh lỗi khi Navigator bị gọi sau khi widget bị dispose.
+

@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Provider Demo',
 
-      // home: SplashScreen(),
+      home: SplashScreen(),
       // home: OnboardingPageView(),
       // home: WelcomePage(),
-      home: MainPage(),
+      // home: MainPage(),
     );
   }
 }

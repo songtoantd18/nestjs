@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -30,6 +31,7 @@ class WelcomePage extends StatelessWidget {
           children: [
             _buildContent(),
             const Spacer(),
+            _buildButtonChangeLanguage(context),
             _buildButtonLogin(),
             _buildButtonRegister(),
           ],
@@ -38,8 +40,38 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildSkipButton() {
-    return Container(color: Colors.red, child: Text('đây là skippppp'));
+  Widget _buildButtonChangeLanguage(BuildContext context) {
+    print('context: ${context}');
+    return Container(
+      width: double.infinity,
+      height: 50,
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      margin: EdgeInsets.symmetric(vertical: 10),
+
+      child: ElevatedButton(
+        onPressed: () {
+          final currentLocale = context.locale.toString();
+          if (currentLocale == 'vi') {
+            context.locale = Locale('en');
+          } else {
+            context.locale = Locale('vi');
+          }
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xff8875ff),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          side: BorderSide(width: 1, color: Color(0xff8875ff)),
+        ),
+        child: Text(
+          context.locale.toString() == 'en'
+              ? 'Change language'
+              : 'Đổi ngôn ngữ',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
   }
 
   Widget _buildContent() {
@@ -47,10 +79,13 @@ class WelcomePage extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 38),
       child: Column(
         children: [
-          Text('Welcome!', style: TextStyle(fontSize: 24, color: Colors.white)),
+          Text(
+            "welcome_title".tr(),
+            style: TextStyle(fontSize: 24, color: Colors.white),
+          ),
           SizedBox(height: 16),
           Text(
-            'please login to your account or create new account to continue',
+            'welcome_description'.tr(),
             style: TextStyle(fontSize: 16, color: Colors.white70),
           ),
         ],

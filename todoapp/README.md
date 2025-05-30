@@ -746,3 +746,6 @@ appBar: AppBar(
 🔁 Ghi chú thêm:
 if (!context.mounted) return; là để đảm bảo rằng widget vẫn còn gắn với cây widget khi xử lý async → tránh lỗi khi Navigator bị gọi sau khi widget bị dispose.
 
+
+
+bài 8 : thêm thư việc easy localization để đổi ngôn ngữ trong app, tiếng anh tiếng việt

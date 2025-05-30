@@ -9,8 +9,6 @@ import 'package:todoapp/screen/welcome/welcome_page.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
-
-
   Future<void> _checkAppState2(BuildContext context) async {
     try {
       final isCompleted2 = await _isOnboardingCompleted();
@@ -39,9 +37,19 @@ class SplashScreen extends StatelessWidget {
   Future<bool> _isOnboardingCompleted() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      // In ra tất cả key và value trong SharedPreferences để debug
+      Set<String> allKeys = prefs.getKeys();
+      print('SharedPreferences hiện có ${allKeys.length} dữ liệu:');
+      for (var key in allKeys) {
+        var value = prefs.get(key);
+        print('Key: $key, Value: $value');
+      }
+
       bool result = prefs.getBool('kOnboardingCompleted') ?? false;
       return result;
     } catch (e) {
+      print('Lỗi khi lấy SharedPreferences: $e');
       return false;
     }
   }

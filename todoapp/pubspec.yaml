@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.5
   shared_preferences: ^2.2.2
+  easy_localization: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -44,13 +45,5 @@ flutter_launcher_icons:
 flutter:
   uses-material-design: true
   assets:
-    - assets/logo1.png
-    - assets/logo2.png
-    - assets/1.png
-    - assets/2.png
-    - assets/3.png
-    - assets/your-star-icon 1.png
-    - assets/gift-icon 1.png
-    - assets/fb.png
-    - assets/yt.png
-    - assets/tt.png
+    - assets/
+    - assets/translations/

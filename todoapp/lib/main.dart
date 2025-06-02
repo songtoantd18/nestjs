@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:todoapp/category/create_or_edit_category.dart';
 import 'package:todoapp/main/main_page.dart';
 import 'package:todoapp/screen/onboarding/onboarding_page_view.dart';
 import 'package:todoapp/screen/welcome/welcome_page.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
       supportedLocales: context.supportedLocales,
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: CreateOrEditCategory(),
 
       // home: OnboardingPageView(),
       // home: WelcomePage(),

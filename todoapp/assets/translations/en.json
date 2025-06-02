@@ -1,5 +1,17 @@
 {
-    "welcome_title": "Welcome!",
-    "welcome_description": "Welcome to our app! To get the most out of your experience, please log in to your existing account or create a new account if you don’t have one yet. Logging in allows you to securely access your personalized settings, save your progress, and enjoy all the exclusive features we offer. Creating a new account is quick and easy, ensuring you can start exploring immediately. Whether you’re a returning user or new to our platform, we’re here to support you every step of the way. Let’s get started!"
+  "welcome_title": "Welcome!",
+  "welcome_description": "Welcome to our app! To get the most out of your experience, please log in to your existing account or create a new account if you don’t have one yet. Logging in allows you to securely access your personalized settings, save your progress, and enjoy all the exclusive features we offer. Creating a new account is quick and easy, ensuring you can start exploring immediately. Whether you’re a returning user or new to our platform, we’re here to support you every step of the way. Let’s get started!",
+  
+  "create_category_page_title": "Create New Category",
+  "create_category_from_category_name_label": "Category Name",
+  "create_category_from_category_name_placeholder": "Enter category name",
+  "create_category_from_category_icon_label": "Category Icon",
+  "create_category_from_category_icon_placeholder": "Enter category icon",
 
+  "create_category_from_category_background_color_label": "Background Color",
+  "create_category_create_button": "Create",
+
+  "create_new_account": "Create new account",
+  "change_language": "Change language",
+  "login": "Login"
 }

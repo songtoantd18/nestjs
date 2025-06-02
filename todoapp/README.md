@@ -651,7 +651,7 @@ builder: (context) => WelcomePage(isFirstTimeInstall: true),
 );
 } ở đây là dùng cho nút skip và get started thì nó chính là lần đầu nên cho nó là true
 . Xử lý Splash Screen kiểm tra trạng thái Onboarding
-Viết hàm Future<void> _checkAppState2(BuildContext context) để:
+Viết hàm Future<void> \_checkAppState2(BuildContext context) để:
 
 Lấy trạng thái đã hoàn thành Onboarding (SharedPreferences.getBool('kOnboardingCompleted'))
 
@@ -664,39 +664,39 @@ Có kiểm tra if (!context.mounted) return; trước khi dùng Navigator để 
 dart
 Sao chép
 Chỉnh sửa
-Future<void> _checkAppState2(BuildContext context) async {
-  try {
-    final isCompleted2 = await _isOnboardingCompleted();
-    if (isCompleted2) {
-      if (!context.mounted) return;
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => WelcomePage(isFirstTimeInstall: false),
-        ),
-      );
-    } else {
-      if (!context.mounted) return;
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const OnboardingPageView()),
-      );
-    }
-  } catch (e) {
-    print(' không lấy được data');
-  }
+Future<void> \_checkAppState2(BuildContext context) async {
+try {
+final isCompleted2 = await \_isOnboardingCompleted();
+if (isCompleted2) {
+if (!context.mounted) return;
+Navigator.pushReplacement(
+context,
+MaterialPageRoute(
+builder: (context) => WelcomePage(isFirstTimeInstall: false),
+),
+);
+} else {
+if (!context.mounted) return;
+Navigator.pushReplacement(
+context,
+MaterialPageRoute(builder: (context) => const OnboardingPageView()),
+);
+}
+} catch (e) {
+print(' không lấy được data');
+}
 }
 ✅ 2. Hàm kiểm tra Onboarding đã hoàn thành hay chưa
 dart
 Sao chép
 Chỉnh sửa
-Future<bool> _isOnboardingCompleted() async {
-  try {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('kOnboardingCompleted') ?? false;
-  } catch (e) {
-    return false;
-  }
+Future<bool> \_isOnboardingCompleted() async {
+try {
+final SharedPreferences prefs = await SharedPreferences.getInstance();
+return prefs.getBool('kOnboardingCompleted') ?? false;
+} catch (e) {
+return false;
+}
 }
 ✅ 3. Hàm lưu trạng thái hoàn thành Onboarding
 Gọi khi nhấn nút Get Started hoặc Skip
@@ -704,48 +704,92 @@ Gọi khi nhấn nút Get Started hoặc Skip
 dart
 Sao chép
 Chỉnh sửa
-Future<void> _markOnboardingCompleted() async {
-  try {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('kOnboardingCompleted', true);
-  } catch (e) {
-    print('e lỗi: ${e}');
-  }
+Future<void> \_markOnboardingCompleted() async {
+try {
+final SharedPreferences prefs = await SharedPreferences.getInstance();
+prefs.setBool('kOnboardingCompleted', true);
+} catch (e) {
+print('e lỗi: ${e}');
+}
 }
 ✅ 4. Điều hướng sang WelcomePage sau khi hoàn thành Onboarding
 dart
 Sao chép
 Chỉnh sửa
-void _gotoWelcomepage() {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => WelcomePage(isFirstTimeInstall: true),
-    ),
-  );
+void \_gotoWelcomepage() {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (context) => WelcomePage(isFirstTimeInstall: true),
+),
+);
 }
 ✅ 5. Hiển thị nút back trong WelcomePage khi vào lần đầu (đi từ onboarding)
 dart
 Sao chép
 Chỉnh sửa
 appBar: AppBar(
-  backgroundColor: Colors.red,
-  leading: isFirstTimeInstall
-      ? IconButton(
-          onPressed: () {
-            if (Navigator.canPop(context)) {
-              Navigator.pop(context);
-            }
-          },
-          icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.white),
-        )
-      : null,
+backgroundColor: Colors.red,
+leading: isFirstTimeInstall
+? IconButton(
+onPressed: () {
+if (Navigator.canPop(context)) {
+Navigator.pop(context);
+}
+},
+icon: Icon(Icons.arrow_back_ios, size: 20, color: Colors.white),
+)
+: null,
 ),
 → leading chỉ hiển thị nút Back khi isFirstTimeInstall == true.
 
 🔁 Ghi chú thêm:
 if (!context.mounted) return; là để đảm bảo rằng widget vẫn còn gắn với cây widget khi xử lý async → tránh lỗi khi Navigator bị gọi sau khi widget bị dispose.
 
-
-
 bài 8 : thêm thư việc easy localization để đổi ngôn ngữ trong app, tiếng anh tiếng việt
+bài 9 thay đổi ui ux theme color, có nghĩa là nhấn màu nào màu đó đổi luôn cả theme cho app
+listview() cái này là fix cứng luôn chỉ dungf với ListView(
+children: [
+Text("Item 1"),
+Text("Item 2"),
+Text("Item 3"),
+],
+)
+còn listview.builder() cái này là linh hoạt chỉ dung ListView.builder(
+itemCount: 1000,
+itemBuilder: (context, index) {
+return Text('Item $index');
+},
+)
+so sánh 2 cách 2 báo sau
+final List<Color> \_colorCategory = [];
+
+@override
+void initState() {
+super.initState();
+\_colorCategory.add(Colors.red);
+\_colorCategory.add(Colors.green);
+\_colorCategory.add(Colors.blue);
+}
+và
+final List<Color> \_colorCategory = [
+Colors.red,
+Colors.green,
+Colors.blue,
+];
+
+## Trang Tạo/Danh mục (Create Category)
+
+### 🛠 Kỹ thuật đã áp dụng:
+
+- Sử dụng `StatefulWidget` để quản lý trạng thái khi người dùng nhập hoặc chọn.
+- Sử dụng `TextEditingController` để lấy giá trị từ TextFormField.
+- Render danh sách màu bằng `ListView.builder` kết hợp `GestureDetector` để chọn màu.
+- Dùng `easy_localization` để hỗ trợ đa ngôn ngữ cho giao diện.
+- Tùy chỉnh giao diện nút với `ElevatedButton.styleFrom` (viền, màu nền, bo góc).
+- Thiết kế bố cục UI tách riêng từng widget thành các hàm riêng để dễ bảo trì.
+- Áp dụng `Expanded` và `Column` để giữ nút luôn ở dưới cùng màn hình.
+
+### 📦 Ghi chú:
+
+- Có thể mở rộng thêm lựa chọn icon bằng `showModalBottomSheet` hoặc `Dialog` khi nhấn vào phần chọn icon.

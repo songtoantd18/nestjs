@@ -1,4 +1,17 @@
 {
-    "welcome_title": "XIN CHÀO!",
-    "welcome_description": "Chào mừng bạn đến với ứng dụng của chúng tôi! Để tận dụng tối đa trải nghiệm của bạn, vui lòng đăng nhập vào tài khoản hiện tại của bạn hoặc tạo tài khoản mới nếu bạn chưa có. Đăng nhập cho phép bạn truy cập an toàn vào các cài đặt được cá nhân hóa, lưu tiến trình của bạn và tận hưởng tất cả các tính năng độc quyền mà chúng tôi cung cấp. Tạo tài khoản mới nhanh chóng và dễ dàng, đảm bảo bạn có thể bắt đầu khám phá ngay lập tức. Cho dù bạn là người dùng quay lại hay mới sử dụng nền tảng của chúng tôi, chúng tôi luôn ở đây để hỗ trợ bạn trong từng bước. Hãy bắt đầu nào"
+  "welcome_title": "Chào mừng!",
+  "welcome_description": "Chào mừng bạn đến với ứng dụng của chúng tôi! Để tận hưởng trải nghiệm tốt nhất, vui lòng đăng nhập vào tài khoản hiện có hoặc tạo một tài khoản mới nếu bạn chưa có. Đăng nhập giúp bạn truy cập các cài đặt cá nhân, lưu tiến trình và sử dụng đầy đủ các tính năng đặc biệt. Việc tạo tài khoản mới rất nhanh chóng và dễ dàng, giúp bạn bắt đầu khám phá ngay lập tức. Dù bạn là người dùng cũ hay mới, chúng tôi luôn sẵn sàng hỗ trợ bạn. Hãy bắt đầu nào!",
+
+  "create_category_page_title": "Tạo danh mục",
+  "create_category_from_category_name_label": "Tên danh mục",
+  "create_category_from_category_name_placeholder": "Nhập tên danh mục",
+  "create_category_from_category_icon_label": "Biểu tượng danh mục",
+  "create_category_from_category_icon_placeholder": "Nhập biểu tượng danh mục",
+
+  "create_category_from_category_background_color_label": "Màu nền",
+  "create_category_create_button": "Tạo mới",
+
+  "create_new_account": "Tạo tài khoản mới",
+  "change_language": "Thay đổi ngôn ngữ",
+  "login": "Đăng nhập"
 }

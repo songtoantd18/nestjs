@@ -13,5 +13,8 @@
 
   "create_new_account": "Create new account",
   "change_language": "Change language",
-  "login": "Login"
+  "login": "Login",
+  "create_category_from_category_icon_text_color_label": "Category icon text color",
+  "create_category_from_category_preview_label": "Preview"
+
 }

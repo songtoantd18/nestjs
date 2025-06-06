@@ -793,3 +793,16 @@ Colors.blue,
 ### 📦 Ghi chú:
 
 - Có thể mở rộng thêm lựa chọn icon bằng `showModalBottomSheet` hoặc `Dialog` khi nhấn vào phần chọn icon.
+  bài 10 : hướng dẫn sử dụng realm để lưu trữ dữ liệu
+  tạo hàm choose icon của thư việc flutter_iconpicker ở đây hỗ trợ nhiều kiểu như matrial (android),cupertino (ios),font_awesome_flutter (web),line_awesome_icons (web) thực hiện logic :tạo 1 biến là \_iconSelected rồi lưu icon thay đổi vào đó , nếu nó khác null thì hiển thị icon, nếu là null thì hiển thị text
+ thay đổi hàm colorPicker: mục đích là cho người dùng tự do chọn color chứ k phải kiểu cố điịnh 7 màu như ban đầu
+
+ feat: Thêm chức năng tạo danh mục với lựa chọn màu sắc và biểu tượng
+
+- Cập nhật bản dịch tiếng Anh và tiếng Việt để bao gồm nhãn tạo danh mục mới.
+- Cải tiến tiện ích CreateOrEditCategory để cho phép người dùng chọn màu biểu tượng và văn bản danh mục.
+- Triển khai tích hợp cơ sở dữ liệu Realm để lưu trữ thông tin chi tiết về danh mục.
+- Thêm tính năng xem trước cho biểu tượng danh mục và màu nền đã chọn.
+- Tạo CategoryRealmEntity mới để quản lý dữ liệu danh mục trong cơ sở dữ liệu Realm.
+- Giới thiệu hộp thoại chọn màu và biểu tượng để người dùng có trải nghiệm tốt hơn.
+- Cập nhật pubspec.yaml để bao gồm các phụ thuộc cần thiết cho Realm, bộ chọn màu và bộ chọn biểu tượng.

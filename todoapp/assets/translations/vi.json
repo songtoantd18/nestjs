@@ -13,5 +13,8 @@
 
   "create_new_account": "Tạo tài khoản mới",
   "change_language": "Thay đổi ngôn ngữ",
-  "login": "Đăng nhập"
+  "login": "Đăng nhập",
+  "create_category_from_category_icon_text_color_label": "Enter category icon text color label",
+  "create_category_from_category_preview_label": "Preview"
+
 }

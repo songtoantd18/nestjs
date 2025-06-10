@@ -33,11 +33,11 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       // home: SplashScreen(),
-      home: CreateOrEditCategory(),
+      // home: CreateOrEditCategory(),
 
       // home: OnboardingPageView(),
       // home: WelcomePage(),
-      // home: MainPage(),
+      home: MainPage(),
     );
   }
 }

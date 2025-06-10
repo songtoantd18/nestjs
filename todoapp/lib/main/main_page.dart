@@ -46,13 +46,13 @@ class _MainPageState extends State<MainPage> {
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/your-star-icon 1.png',
+              'assets/images/your-star-icon1.png',
               height: 24,
               width: 24,
               fit: BoxFit.contain,
             ),
             activeIcon: Image.asset(
-              'assets/your-star-icon 1.png',
+              'assets/images/your-star-icon1.png',
               height: 24,
               width: 24,
               fit: BoxFit.contain,
@@ -62,13 +62,13 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/gift-icon 1.png',
+              'assets/images/gift-icon1.png',
               height: 24,
               width: 24,
               fit: BoxFit.contain,
             ),
             activeIcon: Image.asset(
-              'assets/gift-icon 1.png',
+              'assets/images/gift-icon1.png',
               height: 24,
               width: 24,
               fit: BoxFit.contain,
@@ -83,13 +83,13 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/yt.png',
+              'assets/images/yt.png',
               height: 24,
               width: 24,
               fit: BoxFit.contain,
             ),
             activeIcon: Image.asset(
-              'assets/yt.png',
+              'assets/images/yt.png',
               height: 24,
               width: 24,
               fit: BoxFit.contain,
@@ -99,13 +99,13 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/fb.png',
+              'assets/images/fb.png',
               height: 24,
               width: 24,
               fit: BoxFit.contain,
             ),
             activeIcon: Image.asset(
-              'assets/fb.png',
+              'assets/images/fb.png',
               height: 24,
               width: 24,
               fit: BoxFit.contain,

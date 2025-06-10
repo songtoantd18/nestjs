@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:todoapp/category/create_or_edit_category.dart';
 import 'package:todoapp/main/main_page.dart';
+import 'package:todoapp/screen/login/login_page.dart';
 import 'package:todoapp/screen/onboarding/onboarding_page_view.dart';
 import 'package:todoapp/screen/welcome/welcome_page.dart';
 
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
 
       // home: OnboardingPageView(),
       // home: WelcomePage(),
-      home: MainPage(),
+      // home: MainPage(),
+      home: LoginPage(),
     );
   }
 }

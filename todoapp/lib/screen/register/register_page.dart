@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:todoapp/screen/register/register_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +11,7 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () {
-            print('xin chào 123');
+           Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios, size: 20, color: Colors.white),
         ),
@@ -30,11 +29,12 @@ class LoginPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildPageTitle(),
-                _buildFormLogin(),
+                _buildFormRegister(),
                 _buildOrSplitDivider(),
-
-                _buildSocialLoginButton(),
-                _buildNoAccountRegisterButton(context),
+                _buildSocialRegisterButton(),
+                // _buildButtonRegisterGoogle(),
+                // _buildButtonRegisterApple(),
+                _buildHaveAccount(context),
               ],
             ),
           ),
@@ -48,14 +48,14 @@ class LoginPage extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 20),
       // color: Colors.green,
       child: Text(
-        'LOGIN',
+        'Register',
         style: TextStyle(fontSize: 24, color: Colors.white),
         textAlign: TextAlign.left,
       ),
     );
   }
 
-  Widget _buildFormLogin() {
+  Widget _buildFormRegister() {
     return Form(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 20),
@@ -67,6 +67,7 @@ class LoginPage extends StatelessWidget {
             _buildUsernameField(),
             SizedBox(height: 20),
             _buildPasswordField(),
+            _buildConfirmPasswordField(),
             _buildButtonLogin(),
           ],
         ),
@@ -131,6 +132,37 @@ class LoginPage extends StatelessWidget {
     );
   }
 
+
+  Widget _buildConfirmPasswordField() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Confirm Password',
+          style: TextStyle(color: Colors.white.withOpacity(0.87), fontSize: 16),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 10),
+          child: TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+              hintText: "Enter your confirm password",
+              hintStyle: TextStyle(color: Color(0xff535353), fontSize: 16),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              fillColor: Color(0xff1d1d1d),
+              filled: true,
+            ),
+            style: TextStyle(color: Colors.white, fontSize: 16),
+          ),
+        ),
+      ],
+    );
+  }
+
+
   Widget _buildButtonLogin() {
     return Container(
       width: double.infinity,
@@ -144,23 +176,15 @@ class LoginPage extends StatelessWidget {
           disabledBackgroundColor: const Color(0xff8875ff).withOpacity(0.5),
         ),
         child: const Text(
-          'Login',
+          'Register',
 
           style: TextStyle(fontSize: 16, color: Colors.white),
         ),
       ),
     );
   }
-  Widget _buildSocialLoginButton () {
-    return Column(
-        children : [
-          _buildButtonLoginGoogle(),
-          _buildButtonLoginApple()
-        ]
-    );
-  }
 
-  Widget _buildButtonLoginGoogle() {
+  Widget _buildButtonRegisterGoogle() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       width: double.infinity,
@@ -188,7 +212,7 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(width: 10),
             Text(
-              'Login with Google',
+              'Register with Google',
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
           ],
@@ -197,7 +221,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _buildButtonLoginApple() {
+  Widget _buildButtonRegisterApple() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       width: double.infinity,
@@ -225,7 +249,7 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(width: 10),
             Text(
-              'Login with Apple',
+              'Register with Apple',
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
           ],
@@ -233,16 +257,24 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
+  Widget _buildSocialRegisterButton () {
+    return Column(
+        children : [
+          _buildButtonRegisterGoogle(),
+          _buildButtonRegisterApple()
+        ]
+    );
+  }
 
-  Widget _buildNoAccountRegisterButton(BuildContext context) {
+  Widget _buildHaveAccount(BuildContext context) {
     return Center(
       child: RichText(
         text: TextSpan(
-          text: "Don't have an account? ",
+          text: "Already have an account ? ",
           style: const TextStyle(color: Colors.white, fontSize: 16),
           children: [
             TextSpan(
-              text: "Register",
+              text: "Login",
               style: const TextStyle(
                 color: Colors.blue,
                 fontSize: 16,
@@ -251,8 +283,7 @@ class LoginPage extends StatelessWidget {
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  // Điều hướng đến trang đăng ký
-                  _goToRegisterPage( context);
+             Navigator.pop(context);
                 },
             ),
           ],
@@ -289,13 +320,6 @@ class LoginPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  void _goToRegisterPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => RegisterPage()),
     );
   }
 }

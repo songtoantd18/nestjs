@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:todoapp/screen/register/register_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,6 +156,7 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildSocialLoginButton () {
     return Column(
         children : [

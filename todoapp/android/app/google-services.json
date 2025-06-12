@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "191678377015",
+    "project_id": "todolistyoutubelearn",
+    "storage_bucket": "todolistyoutubelearn.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191678377015:android:506498d8771d751ce123b2",
+        "android_client_info": {
+          "package_name": "com.example.todoapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuuyNTF5NqDe6bjuS2Zih0LfiYraFRDR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

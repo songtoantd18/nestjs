@@ -10,6 +10,8 @@ import 'package:todoapp/screen/onboarding/onboarding_page_view.dart';
 import 'package:todoapp/screen/welcome/welcome_page.dart';
 
 import 'screen/splashScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

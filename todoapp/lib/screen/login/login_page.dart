@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todoapp/bloc/login_cubit.dart';
+import 'package:todoapp/domains/authenication_responsitory/authenication_responsitory.dart';
 import 'package:todoapp/screen/register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +13,16 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,25 +35,29 @@ class _LoginPageState extends State<LoginPage> {
           icon: const Icon(Icons.arrow_back_ios, size: 20, color: Colors.white),
         ),
       ),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          top: false,
-          child: Container(
-            color: Colors.black,
-            constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildPageTitle(),
-                _buildFormLogin(),
-                _buildOrSplitDivider(),
-
-                _buildSocialLoginButton(),
-                _buildNoAccountRegisterButton(context),
-              ],
+      body: BlocProvider(
+        create: (context) => LoginCubit(
+          authenicationResponsitory: context.read<AuthenicationResponsitory>(),
+        ),
+        child: SingleChildScrollView(
+          child: SafeArea(
+            top: false,
+            child: Container(
+              color: Colors.black,
+              constraints: BoxConstraints(
+                minHeight: MediaQuery.of(context).size.height,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildPageTitle(),
+                  _buildFormLogin(),
+                  _buildOrSplitDivider(),
+                  _buildSocialLoginButton(),
+                  _buildNoAccountRegisterButton(context),
+                ],
+              ),
             ),
           ),
         ),
@@ -91,6 +108,7 @@ class _LoginPageState extends State<LoginPage> {
         Container(
           margin: EdgeInsets.only(top: 10),
           child: TextFormField(
+            controller: _emailController,
             decoration: InputDecoration(
               hintText: "Enter your email",
               hintStyle: TextStyle(color: Color(0xff535353), fontSize: 16),
@@ -142,7 +160,8 @@ class _LoginPageState extends State<LoginPage> {
       height: 48,
       margin: EdgeInsets.only(top: 70),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: _onHandleLoginSubmit,
+
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xff8875ff),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
@@ -157,12 +176,9 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildSocialLoginButton () {
+  Widget _buildSocialLoginButton() {
     return Column(
-        children : [
-          _buildButtonLoginGoogle(),
-          _buildButtonLoginApple()
-        ]
+      children: [_buildButtonLoginGoogle(), _buildButtonLoginApple()],
     );
   }
 
@@ -258,7 +274,7 @@ class _LoginPageState extends State<LoginPage> {
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   // Điều hướng đến trang đăng ký
-                  _goToRegisterPage( context);
+                  _goToRegisterPage(context);
                 },
             ),
           ],
@@ -303,5 +319,17 @@ class _LoginPageState extends State<LoginPage> {
       context,
       MaterialPageRoute(builder: (context) => RegisterPage()),
     );
+  }
+
+  void _onHandleLoginSubmit() {
+    // print('===> Bắt đầu handle tạo category');
+    print('===> Bắt đầu handle tạo category');
+    final loginCubit = BlocProvider.of<LoginCubit>(context);
+    print('loginCubit: ${loginCubit}');
+    final email = _emailController.text;
+    print('email: ${email}');
+    final password = _passwordController.text;
+    print('password: ${password}');
+    loginCubit.login(email: email, password: password);
   }
 }

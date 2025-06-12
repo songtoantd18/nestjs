@@ -1,8 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:todoapp/bloc/login_cubit.dart';
 import 'dart:math';
 import 'package:todoapp/category/create_or_edit_category.dart';
+import 'package:todoapp/domains/authenication_responsitory/authenication_responsitory.dart';
+import 'package:todoapp/domains/data_sources/firebase_auth_service.dart';
 import 'package:todoapp/main/main_page.dart';
 import 'package:todoapp/screen/login/login_page.dart';
 import 'package:todoapp/screen/onboarding/onboarding_page_view.dart';
@@ -15,10 +19,8 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // ✅ Khởi tạo Firebase
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // ✅ Khởi tạo EasyLocalization
   await EasyLocalization.ensureInitialized();
 
   runApp(
@@ -26,9 +28,38 @@ void main() async {
       supportedLocales: const [Locale('vi'), Locale('en')],
       path: "assets/translations",
       fallbackLocale: Locale('en'),
-      child: MyApp(),
+      child: App(),
     ),
   );
+}
+
+class App extends StatefulWidget {
+  const App({super.key});
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  late final AuthenicationResponsitory _authenicationResponsitory;
+  late final FirebaseAuthService _firebaseAuthService;
+
+  @override
+  void initState() {
+    super.initState();
+    _authenicationResponsitory = AuthenicationResponsitoryImpl(
+      firebaseAuthService: FirebaseAuthService(),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider(create: (context) => _authenicationResponsitory),
+      ],
+      child: MyApp(),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -36,12 +67,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Provider Demo',
-      localizationsDelegates: context.localizationDelegates,
-      locale: context.locale,
-      supportedLocales: context.supportedLocales,
-      home: LoginPage(), // Có thể đổi trang home ở đây
+    return BlocProvider(
+      create: (_) => LoginCubit(
+        authenicationResponsitory: context.read<AuthenicationResponsitory>(),
+      ),
+      child: MaterialApp(
+        title: 'Provider Demo',
+        localizationsDelegates: context.localizationDelegates,
+        locale: context.locale,
+        supportedLocales: context.supportedLocales,
+        home: LoginPage(),
+      ),
     );
   }
 }

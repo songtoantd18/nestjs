@@ -2,25 +2,31 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todoapp/bloc/login_cubit.dart';
+import 'package:todoapp/domains/authenication_responsitory/authenication_responsitory.dart';
 import 'package:todoapp/screen/register/register_page.dart';
-
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return BlocProvider<LoginCubit>(
+  //     create: (context) => LoginCubit(
+  //       authenicationResponsitory: context.read<AuthenicationResponsitory>(),
+  //     ),
+  //     child: const LoginView(),
+  //   );
+  // }
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<LoginCubit>(
-      create: (context) => LoginCubit(),
-      child: const LoginView(),
-    );
+    // Không tạo BlocProvider mới ở đây nữa
+    // Vì đã có BlocProvider trong MyApp rồi
+    return const LoginView();
   }
 }
 
-
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
-
 
   @override
   State<LoginView> createState() => _LoginViewState();
@@ -35,6 +41,7 @@ class _LoginViewState extends State<LoginView> {
     _passwordController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,10 +60,7 @@ class _LoginViewState extends State<LoginView> {
           child: Container(
             color: Colors.black,
             constraints: BoxConstraints(
-              minHeight: MediaQuery
-                  .of(context)
-                  .size
-                  .height,
+              minHeight: MediaQuery.of(context).size.height,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -174,7 +178,6 @@ class _LoginViewState extends State<LoginView> {
       child: ElevatedButton(
         onPressed: () {
           _onHanleLoginSubmit();
-
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xff8875ff),
@@ -192,24 +195,20 @@ class _LoginViewState extends State<LoginView> {
 
   Widget _buildSocialLoginButton() {
     return Column(
-        children: [
-          _buildButtonLoginGoogle(),
-          _buildButtonLoginApple()
-        ]
+      children: [_buildButtonLoginGoogle(), _buildButtonLoginApple()],
     );
   }
-
 
   void _onHanleLoginSubmit() {
     print('this is on handle login submit');
     final email = _emailController.text;
-    final password = _passwordController.text ;
+    final password = _passwordController.text;
     final loginCubit = BlocProvider.of<LoginCubit>(context);
+    print('loginCubit: ${loginCubit}');
     loginCubit.login(email: email, password: password);
 
     print('password: $password');
     print('email: $email');
-
   }
 
   Widget _buildButtonLoginGoogle() {

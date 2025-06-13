@@ -807,3 +807,4 @@ feat: Thêm chức năng tạo danh mục với lựa chọn màu sắc và bi�
 - Giới thiệu hộp thoại chọn màu và biểu tượng để người dùng có trải nghiệm tốt hơn.
 - Cập nhật pubspec.yaml để bao gồm các phụ thuộc cần thiết cho Realm, bộ chọn màu và bộ chọn biểu tượng.
   bài 20 :https://bloclibrary.dev/tutorials/flutter-firebase-login/ sử dụng bloc để xử lý login
+baì 18 : tạo 2 file login_cubit .dart và login_state.dart 

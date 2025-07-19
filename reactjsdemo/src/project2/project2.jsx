@@ -1,6 +1,11 @@
 import { React, useState } from "react";
+import styled from "styled-components";
 
 import UserInput from "./component/userInput";
+
+const ControlContainer = styled.div`
+  background-color: red;
+`;
 
 export default function Project2() {
   const [userInput, setUserInput] = useState({
@@ -20,12 +25,14 @@ export default function Project2() {
     }));
   }
   return (
-    <h1>
-      Hello World
-      <UserInput userInput={userInput} onChange={handleChange} />
-      {!inputValid && <div>Please enter duration greater than 0</div>}
-      {inputValid && <Result userInput={userInput} />}
-    </h1>
+    <ControlContainer>
+      <h1>
+        Hello World
+        <UserInput userInput={userInput} onChange={handleChange} />
+        {!inputValid && <div>Please enter duration greater than 0</div>}
+        {inputValid && <Result userInput={userInput} />}
+      </h1>
+    </ControlContainer>
   );
 }
 export function Result({ userInput }) {

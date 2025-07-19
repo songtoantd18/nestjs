@@ -16,3 +16,6 @@ src/
 
 trong đó router.js được dùng để cấu hình router của vue.js
 config.js được dùng để cấu hình các url của api lưu các tên biến của domain
+
+//////////////////////////
+tìm hiểu về vuejs cách truyền data pass data to antother components

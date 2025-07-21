@@ -1,31 +1,20 @@
 <template>
-  <div>
-    <h2>Cha</h2>
-    <ComponentCon :materialList="materialList" @selection-change="handleSelectedMaterials" />
-
-    <h3>Danh sách đã chọn ở cha :</h3>
-    <h4>{{ selectedMaterials.length }}</h4>
-    <h4>{{ selectedMaterials }}</h4>
+  <div style="border: 1px solid blue; padding: 10px; margin: 10px">
+    <h3>Component Cha</h3>
+    <ComponentChau :tableData="tableData" @chon-vat-tu="chuyenLenOng" />
   </div>
 </template>
 
 <script>
-import ComponentCon from "./ComponentCon.vue";
-import { materialList111 } from "./data.js";
+import ComponentChau from "./ComponentChau.vue";
 
 export default {
-  components: {
-    ComponentCon,
-  },
-  data() {
-    return {
-      materialList: materialList111,
-      selectedMaterials: [],
-    };
-  },
+  name: "ComponentCha",
+  components: { ComponentChau },
+  props: ["tableData"],
   methods: {
-    handleSelectedMaterials(listFromChild) {
-      this.selectedMaterials = listFromChild;
+    chuyenLenOng(dsVatTu) {
+      this.$emit("chon-vat-tu", dsVatTu); // Truyền tiếp dữ liệu lên ông
     },
   },
 };

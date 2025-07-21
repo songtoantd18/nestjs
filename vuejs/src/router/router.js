@@ -5,11 +5,11 @@ import RegisterPage from "../page/RegisterPage.vue";
 import DashboardPage from "../page/dashboardPage.vue";
 import config from "../ultilies/config";
 import CommentPage from "../page/commentPage.vue";
-import ComponentCha from "@/page/ComponentCha.vue";
+import ComponentOng from "@/page/ComponentOng.vue";
 
 const routes = [
   { path: "/login", component: LoginPage },
-  { path: "/componentcha", component: ComponentCha },
+  { path: "/componentong", component: ComponentOng },
 
   { path: "/comment/:postId", component: CommentPage },
 

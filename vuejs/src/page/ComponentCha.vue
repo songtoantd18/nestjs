@@ -5,11 +5,7 @@
 
     <h3>Danh sách đã chọn ở cha :</h3>
     <h4>{{ selectedMaterials.length }}</h4>
-    <ul>
-      <li v-for="item in selectedMaterials" :key="item.id">
-        {{ item.material_num }} - {{ item.material_desc }} ({{ item.uom }})
-      </li>
-    </ul>
+    <h4>{{ selectedMaterials }}</h4>
   </div>
 </template>
 

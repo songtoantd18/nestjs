@@ -80,3 +80,36 @@ Người dùng chọn checkbox trong Cháu.
 Dữ liệu được truyền lên Cha, sau đó lên Ông.
 
 Component Ông hiển thị danh sách vật tư đã chọn.
+
+Đổi tên app:
+bash
+Sao chép
+Chỉnh sửa
+dart run rename setAppName --value="Prime"
+✅ Đổi bundle ID:
+bash
+Sao chép
+Chỉnh sửa
+dart run rename setBundleId --value="com.prime.prpo"
+Để thay đổi ảnh logo từ "logo_DMS.png" sang "so2.png" trong cấu hình của bạn, bạn chỉ cần đổi đường dẫn đến tệp hình ảnh mới. Dưới đây là cách bạn có thể sửa đổi cấu hình của bạn:
+
+yaml
+Copy code
+flutter_launcher_icons:
+android: "launcher_icon"
+ios: true
+image_path: "assets/so2.png" # Đường dẫn đến hình ảnh mới là "assets/so2.png"
+min_sdk_android: 21 # android min sdk min:16, default 21
+web:
+generate: true
+image_path: "assets/so2.png"
+background_color: "#hexcode"
+theme_color: "#hexcode"
+windows:
+generate: true
+image_path: "assets/so2.png"
+icon_size: 48 # min:48, max:256, default: 48
+macos:
+generate: true
+image_path: "assets/so2.png"
+Sau khi bạn đã thay đổi đường dẫn, hãy chạy lại lệnh flutter pub run flutter_launcher_icons:main để cập nhật biểu tượng ứng dụng với hình ảnh mới. Lệnh này sẽ chuyển đổi hình ảnh mới và cập nhật biểu tượng ứng dụng trên tất cả các nền tảng khác nhau theo cấu hình mới. cách thay đổi logo app trong flutter

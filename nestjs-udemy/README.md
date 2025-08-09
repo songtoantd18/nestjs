@@ -104,3 +104,175 @@ import { ConfigModule } from '../config/config.module';
 })
 export class DatabaseModule {}
 ```
+
+Bài 9: Abstract Repository (NestJS + Mongoose)
+
+1️⃣ Mục tiêu: hiểu 1 cách đơn giản là làm 1 cái crud abtract sau đó tất cả các crud khác kế thừa cái này chỉ thay đổi schema là nơi lưu trữ thooui ví dụ user thì dùng User còn customer thì dùng Customer
+Tạo lớp repository chung (AbstractRepository) để xử lý các thao tác CRUD cơ bản.
+
+Tất cả repository khác (UserRepository, OrderRepository…) sẽ kế thừa để tái sử dụng code.
+
+Đảm bảo type safety và dễ bảo trì.
+
+2️⃣ AbstractDocument – Schema cơ sở
+Mọi document trong MongoDB đều có \_id duy nhất.
+Chúng ta tạo AbstractDocument để mọi schema kế thừa và tự động có \_id.
+
+````ts
+
+import { Prop, Schema } from '@nestjs/mongoose';
+import { Types } from 'mongoose';
+import \* as mongoose from 'mongoose';
+
+/\*\*
+
+- AbstractDocument
+- ***
+- Schema cơ sở cho tất cả MongoDB documents.
+- Các entity kế thừa sẽ tự động có trường `_id` chuẩn ObjectId.
+  \*/
+  @Schema()
+  export abstract class AbstractDocument {
+  /\*\*
+  - \_id: ObjectId của MongoDB
+  - - Dùng `@Prop()` để khai báo với Mongoose.
+  - - `Types.ObjectId` đảm bảo type-safe khi code.
+      \*/
+      @Prop({ type: mongoose.Schema.Types.ObjectId })
+      \_id: Types.ObjectId;
+      }
+      3️⃣ AbstractRepository – CRUD dùng chung
+      Đây là lớp generic abstract class chứa các method CRUD cơ bản.
+
+```ts
+
+import { NotFoundException, Logger } from '@nestjs/common';
+import { FilterQuery, Model, Types, UpdateQuery } from 'mongoose';
+import { AbstractDocument } from './abstract.schema';
+
+/**
+ * AbstractRepository
+ * ------------------
+ * Base repository chứa CRUD dùng chung cho tất cả entity.
+ */
+export abstract class AbstractRepository<TDocument extends AbstractDocument> {
+  protected abstract readonly logger: Logger;
+
+  constructor(protected readonly model: Model<TDocument>) {}
+
+  /**
+   * Create document mới
+   */
+  async create(document: Omit<TDocument, '_id'>): Promise<TDocument> {
+    const createdDocument = new this.model({
+      ...document,
+      _id: new Types.ObjectId(),
+    });
+    return (await createdDocument.save()).toJSON() as TDocument;
+  }
+
+  /**
+   * Tìm một document
+   */
+  async findOne(filterQuery: FilterQuery<TDocument>): Promise<TDocument> {
+    const document = await this.model.findOne(filterQuery).lean<TDocument>(true);
+
+    if (!document) {
+      this.logger.warn('Document not found', filterQuery);
+      throw new NotFoundException('Document not found');
+    }
+
+    return document;
+  }
+
+  /**
+   * Tìm nhiều document
+   */
+  async find(filterQuery: FilterQuery<TDocument>): Promise<TDocument[]> {
+    return this.model.find(filterQuery).lean<TDocument[]>(true);
+  }
+
+  /**
+   * Tìm và cập nhật document
+   */
+  async findOneAndUpdate(
+    filterQuery: FilterQuery<TDocument>,
+    update: UpdateQuery<TDocument>,
+  ): Promise<TDocument> {
+    const updatedDocument = await this.model
+      .findOneAndUpdate(filterQuery, update, { new: true })
+      .lean<TDocument>(true);
+
+    if (!updatedDocument) {
+      this.logger.warn('Document to update not found', filterQuery);
+      throw new NotFoundException('Document not found');
+    }
+
+    return updatedDocument;
+  }
+
+  /**
+   * Tìm và xóa document
+   */
+  async findOneAndDelete(filterQuery: FilterQuery<TDocument>): Promise<TDocument> {
+    const deletedDocument = await this.model
+      .findOneAndDelete(filterQuery)
+      .lean<TDocument>(true);
+
+    if (!deletedDocument) {
+      this.logger.warn('Document to delete not found', filterQuery);
+      throw new NotFoundException('Document not found');
+    }
+
+    return deletedDocument;
+  }
+}
+4️⃣ Ví dụ: UserRepository kế thừa
+
+import { Injectable, Logger } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { AbstractRepository } from '../../common/database/repositories/abstract.repository';
+import { UserDocument, User } from '../schemas/user.schema';
+
+@Injectable()
+export class UserRepository extends AbstractRepository<UserDocument> {
+  protected readonly logger = new Logger(UserRepository.name);
+
+  constructor(@InjectModel(User.name) userModel: Model<UserDocument>) {
+    super(userModel);
+  }
+}
+➡ Giờ UserRepository tự động có create, findOne, find, findOneAndUpdate, findOneAndDelete mà không cần viết lại.
+
+5️⃣ Cấu trúc thư mục
+pgsql
+Sao chép
+Chỉnh sửa
+src
+├── common
+│   └── database
+│       ├── repositories
+│       │   └── abstract.repository.ts
+│       ├── schemas
+│       │   └── abstract.schema.ts
+│       └── database.module.ts
+├── users
+│   ├── repositories
+│   │   └── user.repository.ts
+│   ├── schemas
+│   │   └── user.schema.ts
+│   ├── users.service.ts
+│   ├── users.controller.ts
+│   └── users.module.ts
+└── app.module.ts
+6️⃣ Ưu điểm OOP áp dụng
+Kế thừa (Inheritance): Repository con kế thừa CRUD từ AbstractRepository.
+
+Tái sử dụng (Reusability): Viết 1 lần, dùng cho nhiều entity.
+
+Đa hình (Polymorphism): Có thể ghi đè (override) method CRUD nếu muốn logic riêng.
+
+Bạn có muốn mình thêm sơ đồ UML minh họa mối quan hệ giữa AbstractDocument → AbstractRepository → UserRepository để README nhìn trực quan hơn không?
+Mình vẽ thì nhìn phát hiểu ngay.
+````

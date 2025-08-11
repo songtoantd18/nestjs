@@ -5,7 +5,11 @@ import { AbstractDocument } from './abstract.schema';
 export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   protected abstract readonly logger: Logger;
 
-  constructor(protected readonly model: Model<TDocument>) {}
+  constructor(protected readonly model: Model<TDocument>) {
+    console.log(
+      'đây là abtract ----------------------------------------- initialized',
+    );
+  }
 
   /**
    * Create a new document

@@ -276,3 +276,5 @@ Tái sử dụng (Reusability): Viết 1 lần, dùng cho nhiều entity.
 Bạn có muốn mình thêm sơ đồ UML minh họa mối quan hệ giữa AbstractDocument → AbstractRepository → UserRepository để README nhìn trực quan hơn không?
 Mình vẽ thì nhìn phát hiểu ngay.
 ````
+
+bài 10 : đang gặp khó khăn ở chỗ import các file , k hiểu đang thiếu file nào ở đâu import là đúng loạn xạ , giải thích chỗ kế thừa ở đây là reservationResponsitory ekes thauwf abstracResponsitory sau đó sử dụng cách method của abstractResponsitory

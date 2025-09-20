@@ -278,3 +278,88 @@ Mình vẽ thì nhìn phát hiểu ngay.
 ````
 
 bài 10 : đang gặp khó khăn ở chỗ import các file , k hiểu đang thiếu file nào ở đâu import là đúng loạn xạ , giải thích chỗ kế thừa ở đây là reservationResponsitory ekes thauwf abstracResponsitory sau đó sử dụng cách method của abstractResponsitory
+bài 14 :
+Tóm tắt các bước trong đoạn bạn đưa:
+
+Tạo microservice Auth
+
+Dùng Nest CLI: nest generate app auth.
+
+NestJS tự tạo thư mục auth, cập nhật tsconfig, package.json, nest-cli.json.
+
+Tạo module và controller cho User
+
+CLI: nest generate module users --project=auth.
+
+CLI: nest generate controller users --project=auth.
+
+Kết quả: UsersModule và UsersController.
+
+Tạo DTO (Data Transfer Object)
+
+Thư mục users/dto/create-user.dto.ts.
+
+Gồm email: string (decorator @IsEmail()) và password: string (decorator @IsStrongPassword()).
+
+Tạo Service cho User
+
+CLI: nest generate service users --project=auth.
+
+Trong UsersController, inject UsersService và gọi create().
+
+Trong UsersService, tạo hàm create(dto).
+
+Tạo Repository & Schema cho User (MongoDB + Mongoose)
+
+File user.repository.ts: kế thừa AbstractRepository.
+
+File models/user.schema.ts: định nghĩa UserSchema với email, password.
+
+Kết nối với DatabaseModule.
+
+Cấu hình UsersModule
+
+Import DatabaseModule.
+
+Đăng ký schema: UserSchema.
+
+Thêm UserRepository vào providers.
+
+Dockerize Auth Service
+
+Tạo Dockerfile trong apps/auth/.
+
+Cập nhật docker-compose.yml: thêm service auth, chạy ở cổng 3001.
+
+Trong main.ts của auth, đổi app.listen(3001).
+
+Test API tạo user bằng Postman
+
+Endpoint: POST http://localhost:3001/users.
+
+Body: { "email": "test@example.com", "password": "StrongPass123!" }.
+
+Thành công: trả về 201 Created.
+
+Thêm Validation & Logger
+
+Trong main.ts: cấu hình ValidationPipe (class-validator).
+
+Import LoggerModule (pino logger).
+
+Test lại: thiếu email hoặc password → báo lỗi validation.
+
+Chuẩn bị bước tiếp theo: JWT Authentication
+
+Đã có: tạo user.
+
+Sắp làm: login và sinh JWT để dùng trong các microservice khác.
+
+chỗ này cần chú ý dto là bộ lọc đối với client , schema là đồi với db có nghĩa
+
+| Tiêu chí                               | DTO                            | Schema                                                   |
+| -------------------------------------- | ------------------------------ | -------------------------------------------------------- |
+| Vai trò                                | Bộ lọc dữ liệu từ client       | Định nghĩa dữ liệu trong DB                              |
+| Thời điểm áp dụng                      | Lúc request từ client → server | Lúc lưu/đọc dữ liệu trong DB                             |
+| Có bắt buộc client phải gửi?           | Có (theo validate trong DTO)   | Không (có thể auto tạo default)                          |
+| Thêm field ngoài client có thấy không? | Không (bị loại bỏ)             | Có (nếu Schema định nghĩa default hoặc service thêm vào) |

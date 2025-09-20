@@ -3,9 +3,9 @@ const fs = require("fs");
 const path = require("path");
 
 // Đường dẫn file
-const pathData = "C:/Users/PC/Desktop/tieudao/filedataT7Toan2025.xlsx";
+const pathData = "C:/Users/PC/Desktop/tieudao/t4.xlsx";
 const pathTemplate = "C:/Users/PC/Desktop/tieudao/template1.xlsx";
-const pathSave = "C:/Users/PC/Desktop/tieudao/t7/";
+const pathSave = "C:/Users/PC/Desktop/tieudao/t4/";
 
 if (!fs.existsSync(pathSave)) {
   fs.mkdirSync(pathSave, { recursive: true });

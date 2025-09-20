@@ -19,6 +19,7 @@ export class ReservationsController {
 
   @Post()
   create(@Body() createReservationDto: CreateReservationDto) {
+    console.log('📥 [Controller] DTO nhận được:', createReservationDto);
     return this.reservationsService.create(createReservationDto);
   }
 

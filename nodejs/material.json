@@ -1,0 +1,3915 @@
+[
+  {
+    "plant_code": "",
+    "mat_code": "ZKTSINKFIONATK01",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZKTSINKFIONATK02",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZKTSINKFIONATK03",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZKTSINKFIONATK04",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT51",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT52",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZKTSINK20088535",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZKTSINK20088537",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZKTSINK20088539",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOCT1207HMXXXX11",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOCT9912CRHMX11",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOS17HMXXXXXXX11",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOZH012HMXXXXX11",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT20",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT32",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT33",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT34",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT21",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT35",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT38",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT39",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT40",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT44",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT53",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOCT640Z2HMXXX18",
+    "mat_desc": "FIONA CT640Z2(HM) Floor Drain 3\"",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOCT680HMXX18",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOCT680AXHMXXX18",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOCT697Z1PHMXX18",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT48",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT49",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOZ402HMXXXXXX18",
+    "mat_desc": "COTTO Z402(HM) 16\"Inlet Hose",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOZ406HMXXXXXX18",
+    "mat_desc": "COTTO Z406(HM) 24\"Inlet Hose",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT41",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT46",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT45",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT17",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT18",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT19",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT22",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT23",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT29",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT30",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT31",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT37",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT25",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT26",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT27",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT36",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT42",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT43",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT54",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT16",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZDBR030801100001",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZDBR030801100002",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZDBR030801100003",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZDST020205100001",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZDST020205100002",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOC002XX014010",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCO0C013XX014010",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCOC029XX014010",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT15",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT14",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT13",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT24",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT28",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT50",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT47",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PC",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOILETFIONAT12",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "SET",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOACOLORPAINT128",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "CAN ",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOACOLORPAINT71",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "CAN ",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZBBSG25LCANWH90",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PAIL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZBBSG25LCANWH89",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PAIL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZBBSG25LCANWH98",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PAIL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZBBSG25LCANWH99",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PAIL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOACOLORPAINT100",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PAIL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZDAB42102X40D11",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "ROLL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCKB00060020000002",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "ROLL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCKB00060020000001",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "ROLL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOACOLORPAINT70",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PAIL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZTOACOLORPAINT72",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "PAIL",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030265813",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300064",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300091",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300093",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300095",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300218",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300237",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300274",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300278",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300281",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300347",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300356",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300394",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300556",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300582",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "M",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300793",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300799",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300865",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300934",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300940",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300947",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300948",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300949",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300960",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030300989",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301046",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301061",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301094",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301111",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301118",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301224",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301324",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301457",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030301694",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030303172",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030303173",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030731003",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG030731005",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0308991031",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032102626",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG03267377000",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "EA",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032700002",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032700032",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032700343",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032800002",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032800003",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032800005",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032800006",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032800008",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG032800015",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104405104",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104405124",
+    "mat_desc": "LIMIT SWITCH #WLCA2-2 \"OMRON\"90 เธญเธเธ",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104405128",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104582010NC",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104582010NO",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104582020N0",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104582020NC",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104582030NC",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033104582030NO",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033106381615016",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033131188600",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG033136405104",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG03AG322460",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060300252",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060300972",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06044072007",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG062102040",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06253248004",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06444176",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06600057",
+    "mat_desc": "Piston valve stanless size 3/4\" spring",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06AN463796",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "SET",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06AN500902",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "SET",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06AN501069",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "SET",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06AN501329",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "SET",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG311700644",
+    "plant": "",
+    "mat_type": 3,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060016373006",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06002252005",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0600403405",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0600420220",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0600427190",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060061678002",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0602230",
+    "mat_desc": "Micro Air Cylinder Bore 63x200mm \"Pneuma",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060302152",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060303043",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060501456",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06055559001",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060600057",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060600450",
+    "mat_desc": "Valve , Stop 2/2\" 24VDC(Air chock)",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060601104",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060601143",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060601145",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG06063781007",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060700334",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060700335",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG060800015",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG061200048",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PAI",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG061200B0400006",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG061200B0400007",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG061200B0604001",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG061241460",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG061602088",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0621015004730",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0621015004731",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0621015004871",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG062101500487144",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG062101500487146",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0621015004872",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0621015004873",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG0621015005525",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG062101708",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG062101709",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "QG062102041",
+    "plant": "",
+    "mat_type": 6,
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "QG02"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10020270870027",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10020280870028",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10020310870031",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "TON",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10023020770302",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "TON",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10023020870302",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "TON",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10023070870307",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10110290770029",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "TP",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10110290870029",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "TP",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10110290970029",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "TP",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10110291070029",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "TP",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10513090770309",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10513100770310",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10613050770305",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "PC",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10613050870305",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10613050970305",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "PC",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10613051070305",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10713110170311",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10723120170312",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10733130170313",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "TON",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10743140170314",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "KG",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG26",
+    "mat_code": "QG10743150170315",
+    "plant": "KCC Skimcoat Chom Chao",
+    "mat_type": 10,
+    "mat_group": "RM00",
+    "uom": "PC",
+    "pur_group": "FH7"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03030209019020",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03030315100100",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03060009210016",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03060010090060",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03060020110016",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03060050300160",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03060124",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG030602865",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03060420311122",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03100010315683",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03100012053630",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03100012530400",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03100012530630",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03100023160040",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03100030000500",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03101334016025",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03101353000400",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102325174610",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102341020225",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102346065020",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102346065040",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102351070025",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102351080004",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102351200018",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102355010080",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102381011030",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102531071304",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03102741530005",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03103161000500",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03103391123250",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03103531800016",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03104339020310",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105002000031",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105002665380",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105013000315",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105013380132",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105014080109",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105016002532",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105019070072",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105021630260",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105024010130",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105028660250",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105032175260",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105037021210",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105042000101",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105043002113",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105044008221",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105051000400",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105093250660",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105099060300",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105123000004",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105123000006",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105123000045",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105123000404",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105127003425",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105140300365",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105251580468",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105251630175",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105289007106",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105400254016",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105602545152",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105721001900",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105721002000",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03105726020123",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03106003000003",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03106010500024",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG031060440",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03106044001020",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03106060420960",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03106060525630",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107001000451",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107001181926",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002003101",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002012422",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002012430",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002022494",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002030687",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002034855",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002141512",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002164953",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002180034",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002182012",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002280034",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002282012",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002315220",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002801843",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002802075",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002837020",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002839216",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107002999923",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107005586211",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107005730709",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107005801801",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107005801841",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107006000502",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107007025000",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107008786531",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107010000010",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107010000102",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107013000225",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107013010205",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107014380402",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107015012900",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107015025204",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107016210022",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107016932000",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "PC",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107017002863",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107017002864",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107017002867",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "QG11",
+    "mat_code": "QG03107017002868",
+    "plant": "KCC Kampot",
+    "mat_type": "03",
+    "mat_group": "SP00",
+    "uom": "ST",
+    "pur_group": "FH4"
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050101",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R01",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050201",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050301",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R01",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R01",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070506R01",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R01",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051501",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051401",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R01",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR01",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050102",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R02",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050202",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050302",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R02",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R02",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070506R02",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R02",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051502",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051402",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R02",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR02",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050103",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R03",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050203",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050303",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R03",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R03",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070506R03",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R03",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051503",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051403",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R03",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR03",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050104",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R04",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050204",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050304",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R04",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R04",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070506R04",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R04",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051504",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051404",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R04",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR04",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050105",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R05",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050205",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050305",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R05",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R05",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070506R05",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R05",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051505",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051405",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R05",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR05",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050106",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R06",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050206",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050306",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R06",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R06",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070506R06",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R06",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051506",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051406",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R06",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR06",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050109",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R09",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050209",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050309",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R09",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R09",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R09",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R09",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR09",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051409",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207051509",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050107",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R07",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050207",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050307",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R07",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050507",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R07",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070506R07",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R07",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R07",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR07",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD107050108",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070501R08",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050208",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050308",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070504R08",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070505R08",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070506R08",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD2070507R08",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD20705P4R08",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD207050PR08",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD507050101",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD507050102",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD507050103",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD507050104",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD507050107",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD507050108",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  },
+  {
+    "plant_code": "",
+    "mat_code": "ZCD507050109",
+    "plant": "",
+    "mat_type": "",
+    "mat_group": "",
+    "uom": "",
+    "pur_group": ""
+  }
+]

@@ -363,3 +363,54 @@ chỗ này cần chú ý dto là bộ lọc đối với client , schema là đ�
 | Thời điểm áp dụng                      | Lúc request từ client → server | Lúc lưu/đọc dữ liệu trong DB                             |
 | Có bắt buộc client phải gửi?           | Có (theo validate trong DTO)   | Không (có thể auto tạo default)                          |
 | Thêm field ngoài client có thấy không? | Không (bị loại bỏ)             | Có (nếu Schema định nghĩa default hoặc service thêm vào) |
+
+note : lúc này có 2 module là auth và reservations thì reservation đang ở cổng 3000 bây giờ muốn thao tác với auth /user thì phải chuyển qua cổng 3001 vì 2 cái là riêng biệt chứ k có chung như cấu trúc sau
+nestjs-udemy/
+├─ apps/
+│ ├─ auth/ # app xử lý auth
+│ └─ reservations/ # app xử lý đặt chỗ
+├─ libs/ # các thư viện dùng chung (DTO, util, guards, pipes...)
+├─ node_modules/
+├─ package.json
+├─ nest-cli.json # config để Nest biết apps nằm trong /apps
+Trong NestJS monorepo, mỗi app (auth, reservations, …) đều là một ứng dụng NestJS độc lập, nên nếu muốn chạy cùng lúc thì:
+
+🔹 Nguyên tắc
+
+Mỗi app phải nghe (listen) trên một cổng khác nhau.
+
+Ví dụ:
+
+auth → chạy ở port 3000
+
+reservations → chạy ở port 3001
+
+🔹 Cách cấu hình port
+
+Trong apps/auth/src/main.ts:
+
+async function bootstrap() {
+const app = await NestFactory.create(AppModule);
+await app.listen(3000); // ✅ Auth app chạy ở cổng 3000
+}
+bootstrap();
+
+Trong apps/reservations/src/main.ts:
+
+async function bootstrap() {
+const app = await NestFactory.create(AppModule);
+await app.listen(3001); // ✅ Reservations app chạy ở cổng 3001
+}
+bootstrap();
+
+🔹 Cách chạy
+
+Mở 2 terminal khác nhau:
+
+npm run start:dev auth
+
+và
+
+npm run start:dev reservations
+
+→ lúc này bạn sẽ có 2 server NestJS chạy đồng thời, mỗi server phục vụ 1 app.

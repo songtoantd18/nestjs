@@ -9,12 +9,14 @@
 // bootstrap();
 
 import { NestFactory } from '@nestjs/core';
+import { ReservationsModule } from './reservations.module';
+
 import { AuthModule } from '../../auth/src/auth.module';
 // D:\1.CONGVIEC\2.Learn\nestjs\nestjs-udemy\apps\auth\src\auth.module.ts
 async function bootstrap() {
   console.log('🚀 ~ bootstrap ~ app:00000000000000000000000');
 
-  const app = await NestFactory.create(AuthModule);
+  const app = await NestFactory.create(ReservationsModule);
   console.log('🚀 ~ bootstrap ~ app:11111111111111111111111111');
   await app.listen(process.env.port ?? 3000);
 }

@@ -392,6 +392,7 @@ reservations → chạy ở port 3001
 
 Trong apps/auth/src/main.ts:
 
+```ts
 async function bootstrap() {
 const app = await NestFactory.create(AppModule);
 await app.listen(3000); // ✅ Auth app chạy ở cổng 3000
@@ -405,6 +406,7 @@ const app = await NestFactory.create(AppModule);
 await app.listen(3001); // ✅ Reservations app chạy ở cổng 3001
 }
 bootstrap();
+```
 
 🔹 Cách chạy
 
@@ -419,3 +421,112 @@ npm run start:dev reservations
 → lúc này bạn sẽ có 2 server NestJS chạy đồng thời, mỗi server phục vụ 1 app.
 thêm loggermodule vào
 \*/
+
+/\*\*
+
+bài 15
+
+Quy trình thiết lập xác thực JWT với Passport trong NestJS (theo nội dung bạn đưa)
+
+1. Chuẩn bị & cài đặt
+
+Dừng ứng dụng đang chạy.
+
+Cài đặt các package liên quan:
+
+@nestjs/passport (Passport cho NestJS)
+
+passport (Passport core)
+
+passport-local (chiến lược Local đầu tiên)
+
+@types/passport-local (type cho dev)
+
+@nestjs/jwt (NestJS JWT module)
+
+passport-jwt (chiến lược JWT)
+
+@types/passport-jwt (type cho dev)
+
+2. Cấu hình JWT Module trong AuthModule
+
+Import JwtModule vào AuthModule.
+
+Dùng registerAsync để cấu hình JwtModule với ConfigService.
+
+Lấy các giá trị từ biến môi trường:
+
+JWT_SECRET (bí mật để ký & xác minh token).
+
+JWT_EXPIRATION (thời gian hết hạn).
+
+3. Thêm biến môi trường
+
+Tạo giá trị ngẫu nhiên cho JWT_SECRET.
+
+Đặt JWT_EXPIRATION=3600 (ví dụ 3600 giây).
+
+Thêm các biến này vào file .env.
+
+4. Tách file .env cho từng microservice
+
+Tạo .env riêng cho từng service (ví dụ: auth/.env, reservations/.env).
+
+Chỉ để các biến cần thiết cho từng service → tránh trộn lẫn.
+
+Cập nhật docker-compose.yml để chỉ định file .env tương ứng cho từng service.
+
+5. Cấu hình module Config trong từng service
+
+Xóa config chung trong libs/common/config.
+
+Trong mỗi service (ví dụ reservations, auth), import trực tiếp ConfigModule.
+
+Đặt isGlobal: true để module Config khả dụng toàn service.
+
+Thêm schema validation (dùng Joi) cho biến môi trường:
+
+Reservation service: MongoDB URI, PORT.
+
+Auth service: MongoDB URI, PORT, JWT_SECRET, JWT_EXPIRATION.
+
+6. Sửa Database Module
+
+Database module không tự import ConfigModule nữa.
+
+Mỗi service sẽ chịu trách nhiệm import ConfigModule riêng.
+
+7. Cấu hình PORT động thay vì hardcode
+
+Trước đó service lắng nghe port cố định (hardcode).
+
+Thay đổi để lấy PORT từ ConfigService.
+
+Thêm biến PORT vào .env của từng service.
+
+Reservation: PORT=3000.
+
+Auth: PORT=3001.
+
+8. Khởi động lại container
+
+Restart Docker Compose để load các .env mới và cấu hình mới.
+
+Kiểm tra log đảm bảo các service (reservation, auth) khởi động thành công. \*/
+
+```ts
+import { ConfigModule } from '@nestjs/config';
+import * as Joi from 'joi';
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({
+      validationSchema: Joi.object({
+        PORT: Joi.number().default(3000),
+        DATABASE_URL: Joi.string().required(),
+      }),
+    }),
+  ],
+})
+export class AppModule {}
+```

@@ -278,6 +278,9 @@ Mình vẽ thì nhìn phát hiểu ngay.
 ````
 
 bài 10 : đang gặp khó khăn ở chỗ import các file , k hiểu đang thiếu file nào ở đâu import là đúng loạn xạ , giải thích chỗ kế thừa ở đây là reservationResponsitory ekes thauwf abstracResponsitory sau đó sử dụng cách method của abstractResponsitory
+
+/\*\*
+
 bài 14 :
 Tóm tắt các bước trong đoạn bạn đưa:
 
@@ -414,3 +417,5 @@ và
 npm run start:dev reservations
 
 → lúc này bạn sẽ có 2 server NestJS chạy đồng thời, mỗi server phục vụ 1 app.
+thêm loggermodule vào
+\*/

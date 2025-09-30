@@ -1,5 +1,5 @@
 import axios from "axios";
-import { v_md_internal_order } from "./masterData.js"; // thay bằng file của bạn
+import { v_md_vendor } from "./masterData.js"; // thay bằng file của bạn
 
 const API_URL = "https://onfleek.unicjsc.com/api/save_multi";
 
@@ -20,7 +20,7 @@ async function postTableData(tableName, data) {
 async function uploadAll() {
   const datasets = {
     // v_md_business_area,
-    v_md_internal_order,
+    v_md_vendor,
   };
 
   for (const [tableName, data] of Object.entries(datasets)) {

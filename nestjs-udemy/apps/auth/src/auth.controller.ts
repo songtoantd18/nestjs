@@ -21,6 +21,11 @@ export class AuthController {
     @CurrentUser() user: UsersDocument, // 4
     @Res({ passthrough: true }) response: Response, // 5
   ) {
+    console.log('➡️ [AuthController] /auth/login called');
+    console.log(
+      '🚀 ~ AuthController ~ login ~ response:111111111111',
+      response,
+    );
     await this.authService.login(user, response);
     response.send(user);
   }

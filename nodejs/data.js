@@ -1,3 +1,4 @@
+import fs from "fs";
 export const v_md_vendor = [
   {
     code: 31,
@@ -33295,3 +33296,25 @@ export const v_md_vendor = [
     country: "KH",
   },
 ];
+const mergedVendors = Object.values(
+  v_md_vendor.reduce((acc, vendor) => {
+    if (!acc[vendor.code]) {
+      acc[vendor.code] = {
+        ...vendor,
+        purchase_org: [vendor.purchase_org], // khởi tạo thành array
+      };
+    } else {
+      acc[vendor.code].purchase_org.push(vendor.purchase_org); // thêm vào array
+    }
+    return acc;
+  }, {})
+);
+console.log(JSON.stringify(mergedVendors, null, 2));
+
+// ✅ Xuất ra file JSON
+fs.writeFileSync(
+  "v_md_vendor.json",
+  JSON.stringify(mergedVendors, null, 2),
+  "utf-8"
+);
+console.log("👉 File v_md_vendor.json đã được tạo thành công!");
